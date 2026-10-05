@@ -94,10 +94,11 @@ flowchart LR
 
 ## Equipe
 
-- **[Nome]** - [Matrícula] | [GitHub]() | [LinkedIn]()
-- **[Nome]** - [Matrícula] | [GitHub]() | [LinkedIn]()
-- **[Nome]** - [Matrícula] | [GitHub]() | [LinkedIn]()
-
+- **[Felipe Santos de Oliveira Flôr]** - [202614320032] | [https://github.com/FelipeBlossom]() | [https://www.linkedin.com/in/felipe-flor-oliveira/]()
+- **[João Felipe Fiari Tigre]** - [202614320025] | [https://github.com/jftigre]() | [https://www.linkedin.com/in/joaofelipefiaritigre/]()
+- **[Lucas Francelino de Pontes]** - [202614320011] | [https://github.com/Lucasfrancelinopontes]() | [https://www.linkedin.com/in/lucas-francelino-pontes]()
+- **[Pedro Gomes de Andrade Neto]** - [202614320033] | [https://github.com/pedro-g-neto]() | [linkedin.com/in/pedrogneto]() 
+- **[Theo Nogueira Virginio]** - [202614320013] | [GitHub]() | [LinkedIn]()
 ---
 
 ## Documentação & Recursos
@@ -284,20 +285,20 @@ Um único repositório com uma pasta por etapa. Cada pasta é independente.
 ```text
 medstorage/
 ├── index.html              índice de links das telas estáticas
-├── login.html              ETAPA INICIAL (HTML + CSS):
-├── dashboard.html          telas estáticas na raiz
+├── login.html
+├── dashboard.html
 ├── medicamentos.html
 ├── medicamento-form.html
 ├── simulador.html
 ├── alertas.html
-├── assets/                 css e imagens
+├── assets/                 componentes
 ├── README.md
-├── preview.png             print 16:9, até 500 KB
-├── .github/                modelos de issue e de pull request
+├── preview.png
+├── .github/
 ├── docs/
-│   ├── prototypes/         prints do Google Stitch e logo
+│   ├── prototypes/         
 │   ├── data-model.md       tabelas do Supabase
-│   └── business-rules.md   regras de cálculo e do simulador
+│   └── business-rules.md   regras de negócio
 ├── vanilla/                PROJETO 1.1 (Vite + JavaScript puro)
 └── web/                    PROJETO 1.2 (Next.js + Supabase)
 ```
@@ -340,7 +341,3 @@ adicionadas ao concluir a etapa.
   participação de cada integrante.
 
 ---
-
-## Licença
-
-<!-- Definir a licença do projeto e adicionar o arquivo LICENSE -->
