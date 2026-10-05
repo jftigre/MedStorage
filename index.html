@@ -1,0 +1,2784 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&amp;family=Lexend:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-bright":"#faf8ff","surface-variant":"#dae2fd","surface-dim":"#d2d9f4","outline":"#6d7a77","inverse-surface":"#283044","surface-container-highest":"#dae2fd","error":"#ba1a1a","on-primary-fixed":"#00201d","on-surface-variant":"#3d4947","on-primary-container":"#f4fffc","surface-container-high":"#e2e7ff","primary-fixed-dim":"#6bd8cb","on-background":"#131b2e","tertiary-fixed-dim":"#ffb95f","on-secondary-fixed":"#00201c","surface-container-low":"#f2f3ff","surface-container":"#eaedff","background":"#faf8ff","on-tertiary":"#ffffff","outline-variant":"#bcc9c6","on-secondary-fixed-variant":"#005048","on-tertiary-fixed":"#2a1700","primary-fixed":"#89f5e7","on-tertiary-container":"#fffbff","primary":"#00685f","on-secondary-container":"#006f64","secondary-container":"#6df5e1","inverse-primary":"#6bd8cb","tertiary-container":"#a36700","secondary-fixed":"#71f8e4","secondary-fixed-dim":"#4fdbc8","tertiary-fixed":"#ffddb8","on-primary":"#ffffff","secondary":"#006b5f","on-primary-fixed-variant":"#005049","tertiary":"#825100","on-secondary":"#ffffff","on-error":"#ffffff","surface":"#faf8ff","inverse-on-surface":"#eef0ff","surface-tint":"#006a61","error-container":"#ffdad6","on-tertiary-fixed-variant":"#653e00","surface-container-lowest":"#ffffff","on-error-container":"#93000a","on-surface":"#131b2e","primary-container":"#008378"},"borderRadius":{"DEFAULT":"1rem","lg":"2rem","xl":"3rem","full":"9999px"},"spacing":{"gutter":"1.5rem","space-sm":"0.75rem","space-md":"1.25rem","space-xs":"0.5rem","space-lg":"2rem","margin":"2.5rem","gutter-mobile":"1rem","space-xl":"3rem","margin-mobile":"1.25rem"},"fontFamily":{"body-md":["Lexend"],"headline-xl-mobile":["Epilogue"],"body-lg":["Lexend"],"label-lg":["Lexend"],"headline-xl":["Epilogue"],"label-sm":["Lexend"],"body-xl":["Lexend"],"headline-md":["Epilogue"],"headline-lg-mobile":["Epilogue"],"headline-lg":["Epilogue"],"label-md":["Lexend"]},"fontSize":{"body-md":["16px",{"lineHeight":"26px","fontWeight":"400"}],"headline-xl-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"700"}],"body-lg":["18px",{"lineHeight":"30px","fontWeight":"400"}],"label-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-xl":["36px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"700"}],"label-sm":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"body-xl":["20px",{"lineHeight":"32px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"30px","fontWeight":"600"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","fontWeight":"600"}],"headline-lg":["30px",{"lineHeight":"40px","fontWeight":"600"}],"label-md":["16px",{"lineHeight":"22px","fontWeight":"600"}]}}}}</script>  <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body class="bg-background font-body-md text-on-surface antialiased">
+<header class="fixed top-0 right-0 left-0 lg:left-72 z-40 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-20 w-full px-gutter lg:px-margin flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-xs text-on-surface-variant"><span class="material-symbols-outlined text-primary text-xl">calendar_today</span><span class="font-label-md text-label-md font-medium text-on-surface">Segunda, 12 de Outubro</span></div><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center bg-surface-container rounded-full px-space-xs py-1 gap-1"><button class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md" title="Diminuir Fonte" type="button">A-</button><button class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md font-bold" title="Aumentar Fonte" type="button">A+</button><button class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors" title="Alto Contraste" type="button"><span class="material-symbols-outlined text-xl">contrast</span></button><button class="w-9 h-9 flex items-center justify-center rounded-full text-on-surface-variant hover:bg-surface-container-high transition-colors" title="Modo Leitura Fácil" type="button"><span class="material-symbols-outlined text-xl">menu_book</span></button></div><button class="flex items-center gap-space-xs bg-primary text-on-primary px-space-md py-space-xs rounded-full min-h-[52px] shadow-sm hover:bg-primary-container transition-colors" type="button"><span class="material-symbols-outlined text-xl">call</span><span class="font-label-md text-label-md hidden md:inline font-semibold">Ajuda rápida da cuidadora</span></button></div></div></header>
+<main class="w-full pt-20 bg-surface flex-grow flex items-center justify-center px-gutter-mobile md:px-gutter py-space-xl">
+
+<section id="login" class="page-section active w-full">
+<div class="flex flex-col w-full">
+<div class="relative w-full py-space-md sm:py-space-xl flex flex-col items-center justify-center">
+<!-- Warm decorative radial glow backdrop (soft visual depth) -->
+<div class="absolute -top-12 sm:top-0 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-secondary-container/30 blur-3xl pointer-events-none -z-10"></div>
+<div class="absolute bottom-0 right-1/4 w-72 h-72 rounded-full bg-primary-fixed/25 blur-3xl pointer-events-none -z-10"></div>
+<!-- Main Container -->
+<div class="w-full max-w-xl mx-auto flex flex-col items-center">
+<!-- Brand & Warm Intro Banner -->
+<div class="text-center mb-space-lg flex flex-col items-center px-space-xs">
+<div class="h-14 sm:h-16 flex items-center justify-center mb-space-xs">
+<img alt="Logo oficial MedStorage" class="h-full w-auto object-contain drop-shadow-sm" src="https://lh3.googleusercontent.com/aida/AEtjO1VKO-vVuLcbkntmY4yJkKZ-CH7tAGB1q7HND6FdstMtBhd1YTyWUxs-Bq0P2hmkvLfJvEBRJbyuFi_MkIej10Xd2nTreynKKx-wnbnXzFNvcZG3VK54cvq7TnaIglDI7GxPw4Ag2cBYtc2Lw5jkU98qp6aGFvTwdyKqjU0f4riHzVu5vn86HHmIAnmx6w6c_O-7OcwMxrf_6IxSDGadopV7zZCj-yTezL2yIVO0XuFTA59EGhxU3niEHw"/>
+</div>
+<h1 class="font-headline-lg text-headline-lg sm:text-headline-xl sm:font-headline-xl text-on-surface tracking-tight mt-space-xs">
+          Entrar no MedStorage
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-md mt-1">
+          Controle inteligente de medicamentos para você e sua família
+        </p>
+<!-- Audio Guidance / Accessibility Quick Pill -->
+<div class="inline-flex items-center gap-2 mt-space-sm px-space-md py-1.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm shadow-sm">
+<span class="material-symbols-outlined text-primary text-[20px]">hearing</span>
+<span>Acesso facilitado com letras grandes e navegação segura</span>
+</div>
+</div>
+<!-- Main Login Card with generous surface & tactile elevation -->
+<section class="w-full bg-surface-container-lowest rounded-xl sm:rounded-lg shadow-xl p-space-md sm:p-space-xl flex flex-col gap-space-lg">
+<!-- Role Switcher Segment (Elderly Patient vs Caregiver) -->
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">badge</span>
+            Como você deseja acessar hoje?
+          </span>
+<div aria-label="Identificação de perfil de acesso" class="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-surface-container-low p-1.5 rounded-lg" role="tablist">
+<button aria-selected="true" class="role-tab flex items-center justify-center gap-2 py-3 px-4 rounded-DEFAULT font-label-md text-label-md transition-all duration-200 bg-primary text-on-primary shadow-sm" id="role-patient" onclick="selectRole('patient')" role="tab" type="button">
+<span class="material-symbols-outlined text-[24px]">elderly</span>
+<span class="font-semibold">Sou o Paciente</span>
+</button>
+<button aria-selected="false" class="role-tab flex items-center justify-center gap-2 py-3 px-4 rounded-DEFAULT font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container" id="role-caregiver" onclick="selectRole('caregiver')" role="tab" type="button">
+<span class="material-symbols-outlined text-[24px]">diversity_1</span>
+<span class="font-semibold">Sou Cuidador</span>
+</button>
+</div>
+<div class="bg-surface-container px-space-md py-2.5 rounded-DEFAULT text-on-surface-variant font-label-sm text-label-sm flex items-center gap-2" id="role-hint">
+<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>
+<span id="role-hint-text">Modo simplificado ativo: telas com botões ampliados e instruções por voz.</span>
+</div>
+</div>
+<!-- Accessible Authentication Form -->
+<form class="flex flex-col gap-space-md" novalidate="" onsubmit="event.preventDefault();">
+<!-- Field 1: Email or CPF -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center gap-2" for="identifier-input">
+<span class="material-symbols-outlined text-primary text-[22px]">badge</span>
+<span>E-mail ou CPF</span>
+</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Obrigatório</span>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-4 pointer-events-none text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">mail</span>
+</span>
+<input aria-describedby="identifier-hint" autocomplete="username" class="w-full h-14 pl-14 pr-4 bg-surface-container-low text-on-surface font-body-lg text-body-lg rounded-DEFAULT focus:outline-none focus:bg-surface-container transition-colors placeholder:text-outline" id="identifier-input" inputmode="email" placeholder="Ex.: 123.456.789-00 ou seu@email.com" required="" type="text"/>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant pl-1" id="identifier-hint">
+              Você pode digitar os números do CPF ou o endereço de e-mail cadastrado.
+            </p>
+</div>
+<!-- Field 2: Password with Reveal Action -->
+<div class="flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<label class="font-label-lg text-label-lg text-on-surface flex items-center gap-2" for="password-input">
+<span class="material-symbols-outlined text-primary text-[22px]">lock</span>
+<span>Senha Secreta</span>
+</label>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Protegida</span>
+</div>
+<div class="relative flex items-center">
+<span class="absolute left-4 pointer-events-none text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[26px]">key</span>
+</span>
+<input autocomplete="current-password" class="w-full h-14 pl-14 pr-16 bg-surface-container-low text-on-surface font-body-lg text-body-lg rounded-DEFAULT focus:outline-none focus:bg-surface-container transition-colors placeholder:text-outline" id="password-input" placeholder="Digite sua senha de acesso" required="" type="password"/>
+<button aria-label="Mostrar ou ocultar senha" class="absolute right-2 h-12 w-12 rounded-full flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors" id="toggle-pwd-btn" onclick="togglePasswordVisibility()" title="Mostrar ou ocultar senha digitada" type="button">
+<span class="material-symbols-outlined text-[26px]" id="eye-icon">visibility</span>
+</button>
+</div>
+<div class="flex items-center justify-between pl-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Toque no olho para conferir se digitou certo.</span>
+</div>
+</div>
+<!-- Checkbox & Forgot Password Row (Generous Touch Targets) -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-1">
+<label class="flex items-center gap-3 cursor-pointer select-none group min-h-[44px]">
+<input checked="" class="w-6 h-6 rounded-DEFAULT bg-surface-container accent-primary cursor-pointer transition-transform group-active:scale-95" id="remember-me" type="checkbox"/>
+<span class="font-body-md text-body-md text-on-surface font-medium group-hover:text-primary transition-colors">
+                Lembrar de mim neste aparelho
+              </span>
+</label>
+<a class="font-label-md text-label-md text-primary hover:text-on-secondary-container underline underline-offset-4 font-semibold transition-colors flex items-center gap-1 self-start sm:self-auto py-1" href="#">
+<span class="material-symbols-outlined text-[20px]">help_center</span>
+<span>Esqueci minha senha</span>
+</a>
+</div>
+<!-- Primary Submit Action Button -->
+<button class="w-full h-14 mt-2 px-space-lg rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg font-bold flex items-center justify-center gap-3 shadow-md hover:shadow-lg transition-all active:scale-[0.99]" type="submit">
+<span class="material-symbols-outlined text-[26px]">login</span>
+<span>Entrar no MedStorage</span>
+</button>
+</form>
+<!-- Divider with Text -->
+<div class="relative flex py-1 items-center">
+<div class="flex-grow bg-surface-container h-0.5 rounded-full"></div>
+<span class="flex-shrink mx-4 font-label-sm text-label-sm text-on-surface-variant bg-surface-container-lowest px-2 uppercase tracking-wider">
+            Ou acesse sem senha
+          </span>
+<div class="flex-grow bg-surface-container h-0.5 rounded-full"></div>
+</div>
+<!-- Seniors Alternative Login: Fast Code SMS / WhatsApp -->
+<div class="flex flex-col gap-2">
+<button class="w-full min-h-[56px] px-space-md py-3 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-3 shadow-sm hover:shadow transition-all" onclick="triggerQuickCodeLogin()" type="button">
+<span class="material-symbols-outlined text-primary text-[28px]">sms</span>
+<span class="text-left">Entrar com Código Rápido (WhatsApp / SMS)</span>
+</button>
+<span class="text-center font-label-sm text-label-sm text-on-surface-variant">
+            Recomendado para pacientes idosos: enviamos um código de 4 números direto no seu celular.
+          </span>
+</div>
+<!-- Registration Link Footnote -->
+<div class="bg-surface-container-low rounded-lg p-space-md flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
+<span class="font-body-md text-body-md text-on-surface-variant">Ainda não tem conta no MedStorage?</span>
+<a class="font-label-lg text-label-lg text-primary hover:text-on-secondary-container font-bold underline underline-offset-2 transition-colors flex items-center gap-1" href="#">
+            Criar conta gratuitamente
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+</section>
+<!-- Trust, Medical Encryption & Caregiver Assistance Footer Notes -->
+<footer class="w-full mt-space-lg flex flex-col gap-space-sm px-space-xs text-center text-on-surface-variant">
+<!-- Safety Shield Notice -->
+<div class="flex items-center justify-center gap-2 text-on-surface-variant font-label-sm text-label-sm bg-surface-container-low/70 py-2.5 px-space-md rounded-full max-w-lg mx-auto">
+<span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+<span>Seus dados de saúde estão protegidos com criptografia médica de segurança (LGPD Saúde).</span>
+</div>
+<!-- Humanized Free Help Card -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-2 font-body-md text-body-md text-on-surface">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary text-[22px]">contact_support</span>
+<span>Dificuldade para entrar?</span>
+</span>
+<div class="flex items-center gap-3">
+<a class="font-label-md text-label-md text-primary font-bold hover:underline inline-flex items-center gap-1" href="tel:0800000000">
+<span class="material-symbols-outlined text-[18px]">call</span>
+              0800 700 8090
+            </a>
+<span class="text-outline-variant">•</span>
+<a class="font-label-md text-label-md text-on-secondary-container font-bold hover:underline inline-flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+              WhatsApp de Ajuda
+            </a>
+</div>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">
+          Atendimento humanizado gratuito disponível todos os dias, das 7h às 22h.
+        </p>
+</footer>
+</div>
+</div>
+<!-- Accessible Micro-Interactions Script -->
+<script>
+    function togglePasswordVisibility() {
+      const pwdField = document.getElementById('password-input');
+      const eyeIcon = document.getElementById('eye-icon');
+      const toggleBtn = document.getElementById('toggle-pwd-btn');
+      
+      if (!pwdField || !eyeIcon) return;
+
+      if (pwdField.type === 'password') {
+        pwdField.type = 'text';
+        eyeIcon.textContent = 'visibility_off';
+        toggleBtn.setAttribute('title', 'Ocultar senha digitada');
+        toggleBtn.setAttribute('aria-label', 'Senha visível. Toque para ocultar');
+      } else {
+        pwdField.type = 'password';
+        eyeIcon.textContent = 'visibility';
+        toggleBtn.setAttribute('title', 'Mostrar senha secreta');
+        toggleBtn.setAttribute('aria-label', 'Senha oculta. Toque para revelar caracteres');
+      }
+    }
+
+    function selectRole(role) {
+      const patientBtn = document.getElementById('role-patient');
+      const caregiverBtn = document.getElementById('role-caregiver');
+      const hintText = document.getElementById('role-hint-text');
+
+      if (role === 'patient') {
+        patientBtn.className = 'role-tab flex items-center justify-center gap-2 py-3 px-4 rounded-DEFAULT font-label-md text-label-md transition-all duration-200 bg-primary text-on-primary shadow-sm';
+        patientBtn.setAttribute('aria-selected', 'true');
+
+        caregiverBtn.className = 'role-tab flex items-center justify-center gap-2 py-3 px-4 rounded-DEFAULT font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container';
+        caregiverBtn.setAttribute('aria-selected', 'false');
+
+        if (hintText) {
+          hintText.textContent = 'Modo simplificado ativo: telas com botões ampliados e instruções por voz.';
+        }
+      } else {
+        caregiverBtn.className = 'role-tab flex items-center justify-center gap-2 py-3 px-4 rounded-DEFAULT font-label-md text-label-md transition-all duration-200 bg-primary text-on-primary shadow-sm';
+        caregiverBtn.setAttribute('aria-selected', 'true');
+
+        patientBtn.className = 'role-tab flex items-center justify-center gap-2 py-3 px-4 rounded-DEFAULT font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container';
+        patientBtn.setAttribute('aria-selected', 'false');
+
+        if (hintText) {
+          hintText.textContent = 'Painel do Cuidador: gerencie receitas, estoque compartilhado e alertas em tempo real.';
+        }
+      }
+    }
+
+    function triggerQuickCodeLogin() {
+      const identifierInput = document.getElementById('identifier-input');
+      if (identifierInput) {
+        identifierInput.focus();
+        identifierInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      alert('Digite seu CPF ou WhatsApp no campo indicado acima e enviaremos um código de acesso seguro de 4 dígitos em instantes!');
+    }
+  </script>
+</div>
+</section>
+
+<section id="dashboard" class="page-section w-full">
+<div class="flex flex-col w-full pb-12">
+<!-- Top Greeting & Caregiver Context Banner -->
+<section class="w-full bg-surface-container-lowest rounded-lg p-6 lg:p-8 shadow-sm flex flex-col xl:flex-row xl:items-center xl:justify-between gap-6 relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-64 h-64 bg-primary-fixed/30 rounded-full blur-3xl pointer-events-none"></div>
+<div class="flex flex-col gap-2 max-w-3xl relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md self-start">
+<span class="material-symbols-outlined text-primary text-xl">event_available</span>
+<span>Quarta-feira, 24 de Outubro de 2024</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">
+        Olá, Seu João!
+      </h1>
+<p class="font-body-xl text-body-xl text-on-surface-variant leading-relaxed">
+        Seu armário de medicamentos está organizado e monitorado em conjunto com sua cuidadora <strong class="text-on-surface font-semibold">Mariana</strong>.
+      </p>
+</div>
+<!-- Main Action Buttons with Senior-friendly Large Touch Targets -->
+<div class="flex flex-wrap sm:flex-nowrap items-center gap-4 relative z-10">
+<button class="w-full sm:w-auto min-h-[56px] px-8 rounded-full bg-primary hover:bg-primary-container text-on-primary font-label-lg text-label-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-3 active:scale-95 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-2xl">add_circle</span>
+<span>Cadastrar remédio</span>
+</button>
+<button class="w-full sm:w-auto min-h-[56px] px-6 rounded-full bg-surface-container-low hover:bg-surface-container text-primary font-label-lg text-label-lg shadow-sm hover:shadow transition-all flex items-center justify-center gap-3 active:scale-95 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-2xl">check_box</span>
+<span>Registrar dose tomada</span>
+</button>
+</div>
+</section>
+<!-- 4 Summary KPI Cards -->
+<section class="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 mt-6">
+<!-- Card 1: Total Cadastrados -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-sm flex flex-col justify-between gap-4">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Remédios cadastrados</span>
+<div class="w-12 h-12 rounded-full bg-primary-fixed/50 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">medication</span>
+</div>
+</div>
+<div>
+<span class="font-headline-xl text-headline-xl font-bold text-on-surface block leading-none">12</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-2 inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-base">check_circle</span>
+          Todos com dosagem ativa
+        </span>
+</div>
+</div>
+<!-- Card 2: Vencendo em 30 dias (Amber Alert) -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-sm flex flex-col justify-between gap-4">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Vencendo em 30 dias</span>
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">event_busy</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-bold text-tertiary block leading-none">2</span>
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold">Atenção</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant mt-2 inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-base">warning</span>
+          Atenção à data de validade
+        </span>
+</div>
+</div>
+<!-- Card 3: Estoque acaba em 15 dias (Red Critical) -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-sm flex flex-col justify-between gap-4">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Estoque até 15 dias</span>
+<div class="w-12 h-12 rounded-full bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">hourglass_bottom</span>
+</div>
+</div>
+<div>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-xl text-headline-xl font-bold text-error block leading-none">3</span>
+<span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">Repor agora</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant mt-2 inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-error text-base">priority_high</span>
+          Necessário comprar reposição
+        </span>
+</div>
+</div>
+<!-- Card 4: Economia Estimada (Positive Teal) -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-sm flex flex-col justify-between gap-4">
+<div class="flex items-center justify-between">
+<span class="font-label-lg text-label-lg text-on-surface-variant font-medium">Economia estimada</span>
+<div class="w-12 h-12 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">savings</span>
+</div>
+</div>
+<div>
+<span class="font-headline-xl text-headline-xl font-bold text-primary block leading-none">R$ 86,40</span>
+<span class="font-body-md text-body-md text-on-surface-variant mt-2 inline-flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base">local_offer</span>
+          Economizados em compras conjuntas
+        </span>
+</div>
+</div>
+</section>
+<!-- Section: Atenção Hoje (Immediate Priority Checklist) -->
+<section class="w-full mt-10">
+<div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
+<div>
+<div class="inline-flex items-center gap-2 text-tertiary font-label-md text-label-md">
+<span class="material-symbols-outlined text-xl">notification_important</span>
+<span>Ações prioritárias para a semana</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight mt-1">
+          Atenção hoje
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          Medicamentos que requerem ação sua ou de sua cuidadora com urgência.
+        </p>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container-high px-3 py-1.5 rounded-full self-start sm:self-auto">
+        4 pendências identificadas
+      </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+<!-- Item 1: Crítico Red -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-sm flex flex-col justify-between gap-5 relative overflow-hidden">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-error-container text-error flex-shrink-0 flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-2xl">warning</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Losartana Potássica 50 mg</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                Restam apenas <strong class="text-error font-semibold">9 dias de estoque</strong> (18 comprimidos). Tomar 2x ao dia. Hora de comprar nova caixa.
+              </p>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3 bg-surface-container-low -mx-6 -mb-6 p-5 rounded-b-lg">
+<div class="inline-flex items-center gap-2 bg-error-container text-on-error-container px-3.5 py-1.5 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base">alarm</span>
+<span>Urgente: Comprar até 27/10</span>
+</div>
+<button class="min-h-[48px] px-5 rounded-full bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all flex items-center gap-2 shadow-sm cursor-pointer" type="button">
+<span class="material-symbols-outlined text-xl">shopping_basket</span>
+<span>Ver farmácias com desconto</span>
+</button>
+</div>
+</div>
+<!-- Item 2: Atenção Lote Vencendo Amber -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-sm flex flex-col justify-between gap-5 relative overflow-hidden">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-tertiary flex-shrink-0 flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-2xl">calendar_month</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Metformina 850 mg</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                Lote B348 vence em <strong class="text-tertiary font-semibold">18 dias</strong> (15 de Novembro). Ainda restam 20 comprimidos neste lote específico.
+              </p>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3 bg-surface-container-low -mx-6 -mb-6 p-5 rounded-b-lg">
+<div class="inline-flex items-center gap-2 bg-tertiary-fixed text-on-tertiary-fixed-variant px-3.5 py-1.5 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base">hourglass_top</span>
+<span>Atenção: Lote vencendo</span>
+</div>
+<button class="min-h-[48px] px-5 rounded-full bg-surface-container-highest text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all flex items-center gap-2 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-xl">edit_calendar</span>
+<span>Descartar / Ajustar lote</span>
+</button>
+</div>
+</div>
+<!-- Item 3: Atenção Reposição Amber -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-sm flex flex-col justify-between gap-5 relative overflow-hidden">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-tertiary flex-shrink-0 flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-2xl">schedule</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Atenolol 25 mg</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                Restam <strong class="text-tertiary font-semibold">12 dias de estoque</strong> (12 comprimidos). Consumo de 1 comprimido matinal diário.
+              </p>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3 bg-surface-container-low -mx-6 -mb-6 p-5 rounded-b-lg">
+<div class="inline-flex items-center gap-2 bg-tertiary-fixed text-on-tertiary-fixed-variant px-3.5 py-1.5 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base">shopping_cart</span>
+<span>Atenção: Comprar na semana</span>
+</div>
+<button class="min-h-[48px] px-5 rounded-full bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md transition-all flex items-center gap-2 shadow-sm cursor-pointer" type="button">
+<span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+<span>Adicionar à lista</span>
+</button>
+</div>
+</div>
+<!-- Item 4: Receita Expirando Amber -->
+<div class="bg-surface-container-lowest rounded-lg p-6 shadow-sm flex flex-col justify-between gap-5 relative overflow-hidden">
+<div class="flex items-start justify-between gap-3">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-primary flex-shrink-0 flex items-center justify-center mt-1">
+<span class="material-symbols-outlined text-2xl">receipt_long</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">Omeprazol 20 mg</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                Receita médica controle expira em <strong class="text-on-surface font-semibold">14 dias</strong> para retirada gratuita no posto/farmácia popular.
+              </p>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-3 pt-3 bg-surface-container-low -mx-6 -mb-6 p-5 rounded-b-lg">
+<div class="inline-flex items-center gap-2 bg-tertiary-fixed text-on-tertiary-fixed-variant px-3.5 py-1.5 rounded-full font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-base">update</span>
+<span>Atenção: Renovar receita</span>
+</div>
+<button class="min-h-[48px] px-5 rounded-full bg-secondary-container text-on-secondary-container hover:bg-secondary-fixed-dim font-label-md text-label-md transition-all flex items-center gap-2 cursor-pointer font-semibold" type="button">
+<span class="material-symbols-outlined text-xl">send</span>
+<span>Avisar Mariana (cuidadora)</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Previsão de Reposição (Full Stock Table) -->
+<section class="w-full mt-10">
+<div class="bg-surface-container-lowest rounded-lg p-6 lg:p-8 shadow-sm">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-surface">
+            📅 Previsão de reposição de estoque
+          </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">
+            Cálculo automático baseado no seu consumo prescrito diário e nos lotes cadastrados.
+          </p>
+</div>
+<!-- Quick Filter Badges -->
+<div class="flex flex-wrap items-center gap-2" id="filter-container">
+<button class="filter-btn active min-h-[48px] px-5 rounded-full bg-primary text-on-primary font-label-md text-label-md flex items-center gap-2 cursor-pointer shadow-sm transition-all" data-filter="all" type="button">
+<span>Todos</span>
+<span class="bg-surface-container-lowest text-primary px-2 py-0.5 rounded-full text-xs font-bold">12</span>
+</button>
+<button class="filter-btn min-h-[48px] px-5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex items-center gap-2 cursor-pointer transition-all" data-filter="urgent" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-error"></span>
+<span>Repor urgente</span>
+<span class="bg-error-container text-error px-2 py-0.5 rounded-full text-xs font-bold">3</span>
+</button>
+<button class="filter-btn min-h-[48px] px-5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md flex items-center gap-2 cursor-pointer transition-all" data-filter="safe" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span>Estoque seguro</span>
+<span class="bg-surface-container-highest text-secondary px-2 py-0.5 rounded-full text-xs font-bold">9</span>
+</button>
+</div>
+</div>
+<!-- Desktop Table / Mobile Card Sequence -->
+<div class="overflow-x-auto w-full">
+<table class="w-full text-left min-w-[760px]">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-md text-label-md rounded-DEFAULT">
+<th class="py-4 px-4 font-semibold rounded-l-DEFAULT" scope="col">Remédio e Dosagem</th>
+<th class="py-4 px-4 font-semibold" scope="col">Estoque atual</th>
+<th class="py-4 px-4 font-semibold" scope="col">Uso diário</th>
+<th class="py-4 px-4 font-semibold" scope="col">Dura até</th>
+<th class="py-4 px-4 font-semibold" scope="col">Situação</th>
+<th class="py-4 px-4 font-semibold rounded-r-DEFAULT text-right" scope="col">Ação rápida</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1: Losartana -->
+<tr class="hover:bg-surface-container-low transition-colors" data-status="urgent">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-error-container text-error flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-xl">pill</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface block">Losartana Potássica</span>
+<span class="font-body-md text-body-md text-on-surface-variant">50 mg comprimido revestido</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+<strong>18 comp.</strong>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">(1 caixa aberta)</span>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+                2 por dia
+                <span class="block font-label-sm text-label-sm text-on-surface-variant">Manhã e noite</span>
+</td>
+<td class="py-4 px-4">
+<span class="font-label-lg text-label-lg font-bold text-error block">02/11/2024</span>
+<span class="font-label-sm text-label-sm text-error">Em 9 dias</span>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-base">emergency</span>
+                  Estoque crítico
+                </span>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="min-h-[48px] px-5 rounded-full bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold transition-all inline-flex items-center gap-2 cursor-pointer shadow-sm" type="button">
+<span class="material-symbols-outlined text-lg">point_of_sale</span>
+<span>Simular compra</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Metformina -->
+<tr class="hover:bg-surface-container-low transition-colors" data-status="urgent">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-xl">medication</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface block">Metformina</span>
+<span class="font-body-md text-body-md text-on-surface-variant">850 mg cloridrato</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+<strong>40 comp.</strong>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">(2 cartelas)</span>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+                2 por dia
+                <span class="block font-label-sm text-label-sm text-on-surface-variant">Após almoço e jantar</span>
+</td>
+<td class="py-4 px-4">
+<span class="font-label-lg text-label-lg font-bold text-tertiary block">13/11/2024</span>
+<span class="font-label-sm text-label-sm text-tertiary">Em 20 dias</span>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-base">warning</span>
+                  Repor em breve
+                </span>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="min-h-[48px] px-5 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest font-label-md text-label-md font-semibold transition-all inline-flex items-center gap-2 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg">layers</span>
+<span>Ver lotes</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Sinvastatina -->
+<tr class="hover:bg-surface-container-low transition-colors" data-status="safe">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-xl">pill</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface block">Sinvastatina</span>
+<span class="font-body-md text-body-md text-on-surface-variant">20 mg</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+<strong>60 comp.</strong>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">(2 caixas fechadas)</span>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+                1 por dia
+                <span class="block font-label-sm text-label-sm text-on-surface-variant">À noite</span>
+</td>
+<td class="py-4 px-4">
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">24/12/2024</span>
+<span class="font-label-sm text-label-sm text-secondary">Em 61 dias</span>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-base">check_circle</span>
+                  Estoque tranquilo
+                </span>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="min-h-[48px] px-5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-md text-label-md transition-all inline-flex items-center gap-2 cursor-pointer" type="button">
+<span>Detalhes</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: AAS -->
+<tr class="hover:bg-surface-container-low transition-colors" data-status="safe">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-xl">medication</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface block">AAS (Ácido Acetilsalicílico)</span>
+<span class="font-body-md text-body-md text-on-surface-variant">100 mg infantil</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+<strong>90 comp.</strong>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">(3 cartelas)</span>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+                1 por dia
+                <span class="block font-label-sm text-label-sm text-on-surface-variant">Almoço</span>
+</td>
+<td class="py-4 px-4">
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">24/01/2025</span>
+<span class="font-label-sm text-label-sm text-secondary">Em 92 dias</span>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-base">check_circle</span>
+                  Estoque tranquilo
+                </span>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="min-h-[48px] px-5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-md text-label-md transition-all inline-flex items-center gap-2 cursor-pointer" type="button">
+<span>Detalhes</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Atenolol -->
+<tr class="hover:bg-surface-container-low transition-colors" data-status="urgent">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed text-tertiary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-xl">pill</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface block">Atenolol</span>
+<span class="font-body-md text-body-md text-on-surface-variant">25 mg</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+<strong>12 comp.</strong>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">(1 cartela aberta)</span>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+                1 por dia
+                <span class="block font-label-sm text-label-sm text-on-surface-variant">Manhã</span>
+</td>
+<td class="py-4 px-4">
+<span class="font-label-lg text-label-lg font-bold text-tertiary block">05/11/2024</span>
+<span class="font-label-sm text-label-sm text-tertiary">Em 12 dias</span>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-base">warning</span>
+                  Repor em breve
+                </span>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="min-h-[48px] px-5 rounded-full bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md font-semibold transition-all inline-flex items-center gap-2 cursor-pointer shadow-sm" type="button">
+<span class="material-symbols-outlined text-lg">point_of_sale</span>
+<span>Simular compra</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Omeprazol -->
+<tr class="hover:bg-surface-container-low transition-colors" data-status="safe">
+<td class="py-4 px-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold">
+<span class="material-symbols-outlined text-xl">medication</span>
+</div>
+<div>
+<span class="font-headline-md text-headline-md font-bold text-on-surface block">Omeprazol</span>
+<span class="font-body-md text-body-md text-on-surface-variant">20 mg cápsula</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+<strong>28 comp.</strong>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">(1 frasco)</span>
+</td>
+<td class="py-4 px-4 font-body-lg text-body-lg text-on-surface">
+                1 por dia
+                <span class="block font-label-sm text-label-sm text-on-surface-variant">Em jejum</span>
+</td>
+<td class="py-4 px-4">
+<span class="font-label-lg text-label-lg font-bold text-on-surface block">21/11/2024</span>
+<span class="font-label-sm text-label-sm text-secondary">Em 28 dias</span>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-base">check_circle</span>
+                  Estoque tranquilo
+                </span>
+</td>
+<td class="py-4 px-4 text-right">
+<button class="min-h-[48px] px-5 rounded-full bg-surface-container-low text-on-surface-variant hover:bg-surface-container font-label-md text-label-md transition-all inline-flex items-center gap-2 cursor-pointer" type="button">
+<span>Detalhes</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- Bottom Senior Support Call Strip -->
+<section class="w-full mt-10 bg-primary text-on-primary rounded-lg p-6 lg:p-8 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-14 h-14 rounded-full bg-primary-container text-on-primary flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">support_agent</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-primary">
+          Dúvidas sobre como tomar ou organizar seus remédios?
+        </h3>
+<p class="font-body-lg text-body-lg text-primary-fixed leading-relaxed mt-1">
+          Fale com a Central de Suporte MedStorage ou ligue diretamente para sua cuidadora familiar com apenas 1 toque.
+        </p>
+</div>
+</div>
+<button class="min-h-[56px] px-8 rounded-full bg-surface-container-lowest text-primary hover:bg-surface-container-low font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-3 active:scale-95 flex-shrink-0 cursor-pointer" type="button">
+<span class="material-symbols-outlined text-2xl text-primary">phone_in_talk</span>
+<span>Ligar para Cuidadora Mariana (Filha)</span>
+</button>
+</section>
+</div>
+<script>
+  // Filter buttons behavior for the replenishment table
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        b.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      btn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+      btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+
+      const filter = btn.dataset.filter;
+      const rows = document.querySelectorAll('tbody tr');
+
+      rows.forEach(row => {
+        if (filter === 'all') {
+          row.style.display = '';
+        } else if (filter === 'urgent') {
+          row.style.display = row.dataset.status === 'urgent' ? '' : 'none';
+        } else if (filter === 'safe') {
+          row.style.display = row.dataset.status === 'safe' ? '' : 'none';
+        }
+      });
+    });
+  });
+</script>
+</section>
+
+<section id="meus-remedios" class="page-section w-full">
+<div class="flex flex-col w-full">
+<!-- Script para ativar o menu correto no App Shell -->
+<script>
+    (function activateNav() {
+      const markActive = () => {
+        const links = document.querySelectorAll('aside nav a, nav[class*="lg:hidden"] a');
+        links.forEach((a) => {
+          if (a.getAttribute('data-path') === 'meus-remedios') {
+            a.classList.remove('text-on-surface-variant');
+            a.classList.add('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
+          } else if (a.getAttribute('data-path') === 'inicio') {
+            a.classList.remove('bg-primary-container', 'text-on-primary-container', 'font-semibold', 'shadow-sm');
+            a.classList.add('text-on-surface-variant');
+          }
+        });
+      };
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', markActive);
+      } else {
+        markActive();
+      }
+    })();
+  </script>
+<!-- Banner de Destaque / Cabeçalho Editorial com Ações Primárias -->
+<header class="w-full mb-space-lg flex flex-col xl:flex-row xl:items-end justify-between gap-space-md pb-space-sm">
+<div class="flex flex-col max-w-2xl">
+<div class="inline-flex items-center gap-2 bg-surface-container-high text-primary px-space-sm py-1 rounded-full w-fit mb-space-xs">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">pill</span>
+<span class="font-label-sm text-label-sm">Controle de Estoque &amp; Lotes</span>
+</div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface tracking-tight font-bold">
+        Meus Remédios
+      </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1">
+        Gerencie seu estoque por caixas, lotes de validade e dosagens diárias de forma simples e segura.
+      </p>
+</div>
+<!-- Botões de Ação com Altura Generosa para Terceira Idade (mínimo 52px) -->
+<div class="flex flex-wrap sm:flex-nowrap items-center gap-space-sm">
+<button class="group flex items-center justify-center gap-2 bg-surface-container-lowest text-primary px-space-md py-space-xs rounded-full min-h-[52px] shadow-sm hover:bg-surface-container transition-all text-left" type="button">
+<span class="material-symbols-outlined text-2xl group-hover:scale-110 transition-transform">photo_camera</span>
+<span class="font-label-lg text-label-lg whitespace-nowrap">Cadastrar por foto</span>
+</button>
+<button class="flex items-center justify-center gap-2 bg-primary text-on-primary px-space-lg py-space-xs rounded-full min-h-[52px] shadow-md hover:bg-primary-container transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">add_circle</span>
+<span class="font-label-lg text-label-lg font-bold whitespace-nowrap">+ Novo remédio</span>
+</button>
+</div>
+</header>
+<!-- Alerta Prioritário da Cuidadora / Lembrete Rápido -->
+<section class="w-full mb-space-lg">
+<div class="bg-surface-container-lowest rounded-DEFAULT p-space-md shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-start gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">crisis_alert</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">3 remédios precisam de atenção hoje</span>
+<span class="bg-error text-on-error font-label-sm text-label-sm px-2 py-0.5 rounded-full">Prioridade</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-0.5">
+<strong>Losartana</strong> e <strong>Atenolol</strong> estão com menos de 12 dias de estoque. <strong>Metformina</strong> tem um lote vencendo este mês.
+          </p>
+</div>
+</div>
+<button class="w-full md:w-auto flex items-center justify-center gap-2 bg-secondary-container text-on-secondary-container px-space-md py-space-xs rounded-full min-h-[48px] hover:bg-secondary-fixed transition-colors flex-shrink-0" type="button">
+<span class="material-symbols-outlined text-xl">shopping_cart_checkout</span>
+<span class="font-label-md text-label-md font-semibold">Montar lista de farmácia</span>
+</button>
+</div>
+</section>
+<!-- Seção de Filtros e Busca Acessível -->
+<section class="w-full mb-space-lg flex flex-col gap-space-md">
+<!-- Campo de Busca Amplo e Teclado Tátil -->
+<div class="flex flex-col md:flex-row gap-space-sm items-stretch md:items-center">
+<div class="relative flex-grow">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 text-primary material-symbols-outlined text-2xl pointer-events-none">
+          search
+        </span>
+<input aria-label="Buscar medicamento por nome, miligramas ou doença" class="w-full min-h-[56px] pl-12 pr-12 bg-surface-container-lowest text-on-surface font-body-lg text-body-lg rounded-DEFAULT shadow-sm placeholder:text-outline focus:outline-none focus:ring-4 focus:ring-primary/20 transition-all" id="busca-remedios" placeholder="Buscar por nome do remédio, dosagem ou finalidade (ex: Losartana)..." type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center text-outline-variant hover:text-on-surface-variant transition-colors" onclick="document.getElementById('busca-remedios').value=''" title="Limpar campo de pesquisa" type="button">
+<span class="material-symbols-outlined text-xl">cancel</span>
+</button>
+</div>
+<!-- Menu de Ordenação Rápida -->
+<div class="flex items-center gap-2 bg-surface-container-lowest px-space-sm rounded-DEFAULT min-h-[56px] shadow-sm flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-xl">sort</span>
+<label class="font-label-sm text-label-sm text-on-surface-variant whitespace-nowrap" for="ordenar-por">Ordenar por:</label>
+<select class="bg-transparent font-label-md text-label-md text-on-surface font-semibold focus:outline-none pr-4 py-2 cursor-pointer" id="ordenar-por">
+<option selected="" value="estoque-menor">Menor estoque primeiro</option>
+<option value="validade-proxima">Mais próximo de vencer</option>
+<option value="alfabetica">Nome (A - Z)</option>
+</select>
+</div>
+</div>
+<!-- Chips de Filtros Acessíveis com Alvos de Toque Maiores que 44px -->
+<div aria-label="Filtros por condição de estoque" class="flex items-center gap-space-xs overflow-x-auto pb-1 scrollbar-none" role="tablist">
+<button class="flex items-center gap-2 px-space-md min-h-[48px] rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm whitespace-nowrap cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg">medical_services</span>
+<span>Todos os remédios</span>
+<span class="bg-primary-container text-on-primary-container px-2 py-0.5 rounded-full font-label-sm text-label-sm">12</span>
+</button>
+<button class="flex items-center gap-2 px-space-md min-h-[48px] rounded-full bg-surface-container-lowest text-error font-label-md text-label-md shadow-sm hover:bg-error-container hover:text-on-error-container transition-all whitespace-nowrap cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span>Estoque baixo</span>
+<span class="bg-error text-on-error px-2 py-0.5 rounded-full font-label-sm text-label-sm">3</span>
+</button>
+<button class="flex items-center gap-2 px-space-md min-h-[48px] rounded-full bg-surface-container-lowest text-tertiary font-label-md text-label-md shadow-sm hover:bg-tertiary-fixed hover:text-on-tertiary-fixed transition-all whitespace-nowrap cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg">event_upcoming</span>
+<span>Vencendo em breve</span>
+<span class="bg-tertiary-fixed-dim text-on-tertiary-fixed px-2 py-0.5 rounded-full font-label-sm text-label-sm">2</span>
+</button>
+<button class="flex items-center gap-2 px-space-md min-h-[48px] rounded-full bg-surface-container-lowest text-on-surface-variant font-label-md text-label-md shadow-sm hover:bg-surface-container transition-all whitespace-nowrap cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg">history_toggle_off</span>
+<span>Vencidos</span>
+<span class="bg-surface-container-high text-on-surface px-2 py-0.5 rounded-full font-label-sm text-label-sm">0</span>
+</button>
+<button class="flex items-center gap-2 px-space-md min-h-[48px] rounded-full bg-surface-container-lowest text-primary font-label-md text-label-md shadow-sm hover:bg-surface-container transition-all whitespace-nowrap cursor-pointer" type="button">
+<span class="material-symbols-outlined text-lg">autorenew</span>
+<span>Uso contínuo</span>
+<span class="bg-surface-container-high text-primary px-2 py-0.5 rounded-full font-label-sm text-label-sm">8</span>
+</button>
+</div>
+</section>
+<!-- Grade Principal de Medicamentos (Layout em Cartões Espaçosos e com Contraste Robusto) -->
+<section class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-space-lg w-full mb-space-xl">
+<!-- CARD 1: Losartana Potássica 50 mg (Estoque Baixo) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<!-- Indicador tátil lateral de atenção -->
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-error"></div>
+<div class="flex flex-col pl-2">
+<!-- Topo do Card -->
+<div class="flex items-start justify-between gap-space-sm mb-space-xs">
+<div class="flex items-start gap-space-xs">
+<div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">pill</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">Losartana Potássica</h2>
+<span class="font-body-md text-body-md text-primary font-semibold">50 mg • Comprimido</span>
+</div>
+</div>
+<!-- Status Badge Explícito -->
+<div class="inline-flex items-center gap-1.5 bg-error-container text-on-error-container px-3 py-1.5 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-sm text-label-sm font-bold">Estoque baixo</span>
+</div>
+</div>
+<!-- Tags de Frequência e Prescrição -->
+<div class="flex flex-wrap gap-1.5 my-space-xs">
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">schedule</span>
+            Uso contínuo (2x ao dia)
+          </span>
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">wb_sunny</span>
+            1 manhã + 1 noite
+          </span>
+</div>
+<!-- Medidor de Estoque e Dias Restantes -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-sm my-space-xs flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md font-bold text-error">18</span>
+<span class="font-body-md text-body-md text-on-surface-variant">comprimidos na caixa</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-error">Restam 9 dias</span>
+</div>
+<!-- Barra de Progresso Visual de Dias Restantes -->
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div aria-label="15% do estoque restante" class="bg-error h-full rounded-full w-[15%]"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span>Meta recomendada: 60 dias</span>
+<span class="text-error font-semibold">Repor urgentemente</span>
+</div>
+</div>
+<!-- Informações do Lote e Validade -->
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs pb-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">inventory_2</span>
+<span>Lote: <strong>L992A</strong> (1 caixa ativa)</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base">event</span>
+<span>Validade: <strong>28/08/2026</strong></span>
+</div>
+</div>
+</div>
+<!-- Rodapé de Ações com Toque Confortável (48px+) -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-sm bg-surface-container-lowest">
+<button class="flex items-center justify-center gap-1.5 bg-surface-container text-on-surface px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-xl text-primary">edit</span>
+<span>Editar</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 bg-primary text-on-primary px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-primary-container transition-colors font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-xl">add_box</span>
+<span>+ Nova caixa</span>
+</button>
+</div>
+</article>
+<!-- CARD 2: Metformina 850 mg (Lote Vencendo) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<!-- Indicador tátil lateral de lote com validade próxima -->
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-tertiary"></div>
+<div class="flex flex-col pl-2">
+<!-- Topo do Card -->
+<div class="flex items-start justify-between gap-space-sm mb-space-xs">
+<div class="flex items-start gap-space-xs">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">medication_liquid</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">Metformina Cloridrato</h2>
+<span class="font-body-md text-body-md text-primary font-semibold">850 mg • Comprimido</span>
+</div>
+</div>
+<!-- Status Badge Explícito -->
+<div class="inline-flex items-center gap-1.5 bg-tertiary-fixed text-on-tertiary-fixed px-3 py-1.5 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">event_busy</span>
+<span class="font-label-sm text-label-sm font-bold">Vence em 18 dias</span>
+</div>
+</div>
+<!-- Tags de Frequência e Prescrição -->
+<div class="flex flex-wrap gap-1.5 my-space-xs">
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">schedule</span>
+            Uso contínuo (2x ao dia)
+          </span>
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">restaurant</span>
+            Após almoço e jantar
+          </span>
+</div>
+<!-- Medidor de Estoque e Dias Restantes -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-sm my-space-xs flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md font-bold text-tertiary">40</span>
+<span class="font-body-md text-body-md text-on-surface-variant">comprimidos (2 cartelas)</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-tertiary">Restam 20 dias</span>
+</div>
+<!-- Barra de Progresso Visual -->
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div aria-label="33% do estoque restante" class="bg-tertiary h-full rounded-full w-[33%]"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span>Uso diário: 2 comprimidos</span>
+<span class="text-tertiary font-semibold">Lote B348 vence 15/11</span>
+</div>
+</div>
+<!-- Informações do Lote e Validade -->
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs pb-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">inventory_2</span>
+<span>Lote: <strong>B348</strong></span>
+</div>
+<div class="flex items-center gap-1 text-tertiary font-bold">
+<span class="material-symbols-outlined text-base">warning</span>
+<span>Validade: 15/11/2024</span>
+</div>
+</div>
+</div>
+<!-- Rodapé de Ações -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-sm bg-surface-container-lowest">
+<button class="flex items-center justify-center gap-1.5 bg-surface-container text-on-surface px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-xl text-primary">edit</span>
+<span>Editar</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 bg-primary text-on-primary px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-primary-container transition-colors font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-xl">swap_horiz</span>
+<span>Trocar lote</span>
+</button>
+</div>
+</article>
+<!-- CARD 3: Atenolol 25 mg (Estoque Baixo) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<!-- Indicador tátil lateral de atenção -->
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-error"></div>
+<div class="flex flex-col pl-2">
+<!-- Topo do Card -->
+<div class="flex items-start justify-between gap-space-sm mb-space-xs">
+<div class="flex items-start gap-space-xs">
+<div class="w-12 h-12 rounded-full bg-error-container text-on-error-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">cardiology</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">Atenolol</h2>
+<span class="font-body-md text-body-md text-primary font-semibold">25 mg • Comprimido</span>
+</div>
+</div>
+<!-- Status Badge Explícito -->
+<div class="inline-flex items-center gap-1.5 bg-error-container text-on-error-container px-3 py-1.5 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="font-label-sm text-label-sm font-bold">Estoque baixo</span>
+</div>
+</div>
+<!-- Tags de Frequência e Prescrição -->
+<div class="flex flex-wrap gap-1.5 my-space-xs">
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">schedule</span>
+            Uso contínuo (1x ao dia)
+          </span>
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">alarm</span>
+            Às 08:00h
+          </span>
+</div>
+<!-- Medidor de Estoque e Dias Restantes -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-sm my-space-xs flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md font-bold text-error">12</span>
+<span class="font-body-md text-body-md text-on-surface-variant">comprimidos</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-error">Restam 12 dias</span>
+</div>
+<!-- Barra de Progresso Visual -->
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div aria-label="20% do estoque restante" class="bg-error h-full rounded-full w-[20%]"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span>Mínimo de segurança: 15 dias</span>
+<span class="text-error font-semibold">Comprar esta semana</span>
+</div>
+</div>
+<!-- Informações do Lote e Validade -->
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs pb-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">inventory_2</span>
+<span>Lote: <strong>AT44</strong></span>
+</div>
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base">event</span>
+<span>Validade: <strong>10/04/2026</strong></span>
+</div>
+</div>
+</div>
+<!-- Rodapé de Ações -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-sm bg-surface-container-lowest">
+<button class="flex items-center justify-center gap-1.5 bg-surface-container text-on-surface px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-xl text-primary">edit</span>
+<span>Editar</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 bg-primary text-on-primary px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-primary-container transition-colors font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-xl">add_box</span>
+<span>+ Nova caixa</span>
+</button>
+</div>
+</article>
+<!-- CARD 4: Sinvastatina 20 mg (Estoque Tranquilo) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<!-- Indicador tátil lateral de normalidade -->
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-primary"></div>
+<div class="flex flex-col pl-2">
+<!-- Topo do Card -->
+<div class="flex items-start justify-between gap-space-sm mb-space-xs">
+<div class="flex items-start gap-space-xs">
+<div class="w-12 h-12 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">Sinvastatina</h2>
+<span class="font-body-md text-body-md text-primary font-semibold">20 mg • Comprimido</span>
+</div>
+</div>
+<!-- Status Badge Explícito -->
+<div class="inline-flex items-center gap-1.5 bg-surface-container-high text-primary px-3 py-1.5 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm font-bold">Estoque seguro</span>
+</div>
+</div>
+<!-- Tags de Frequência e Prescrição -->
+<div class="flex flex-wrap gap-1.5 my-space-xs">
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">schedule</span>
+            Uso contínuo (1x ao dia)
+          </span>
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">bedtime</span>
+            1 à noite ao dormir
+          </span>
+</div>
+<!-- Medidor de Estoque e Dias Restantes -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-sm my-space-xs flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md font-bold text-primary">60</span>
+<span class="font-body-md text-body-md text-on-surface-variant">comprimidos (2 caixas)</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">60 dias restantes</span>
+</div>
+<!-- Barra de Progresso Visual Cheia -->
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div aria-label="100% de cobertura" class="bg-primary h-full rounded-full w-[100%]"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span>Tratamento coberto por 2 meses</span>
+<span class="text-primary font-semibold">Tudo em dia</span>
+</div>
+</div>
+<!-- Informações do Lote e Validade -->
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs pb-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">inventory_2</span>
+<span>Lote: <strong>SV102</strong></span>
+</div>
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base">event</span>
+<span>Validade: <strong>20/07/2026</strong></span>
+</div>
+</div>
+</div>
+<!-- Rodapé de Ações -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-sm bg-surface-container-lowest">
+<button class="flex items-center justify-center gap-1.5 bg-surface-container text-on-surface px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-xl text-primary">edit</span>
+<span>Editar</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 bg-surface-container text-primary px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-surface-container-high transition-colors font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+<span>Ver lotes</span>
+</button>
+</div>
+</article>
+<!-- CARD 5: AAS Infantil 100 mg (Estoque Tranquilo) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<!-- Indicador tátil lateral de normalidade -->
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-primary"></div>
+<div class="flex flex-col pl-2">
+<!-- Topo do Card -->
+<div class="flex items-start justify-between gap-space-sm mb-space-xs">
+<div class="flex items-start gap-space-xs">
+<div class="w-12 h-12 rounded-full bg-primary-fixed text-on-primary-fixed flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">health_and_safety</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">AAS Protect (Ácido Acetil.)</h2>
+<span class="font-body-md text-body-md text-primary font-semibold">100 mg • Comprimido</span>
+</div>
+</div>
+<!-- Status Badge Explícito -->
+<div class="inline-flex items-center gap-1.5 bg-surface-container-high text-primary px-3 py-1.5 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span class="font-label-sm text-label-sm font-bold">Estoque seguro</span>
+</div>
+</div>
+<!-- Tags de Frequência e Prescrição -->
+<div class="flex flex-wrap gap-1.5 my-space-xs">
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">schedule</span>
+            Uso contínuo (1x ao dia)
+          </span>
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">restaurant</span>
+            Após o almoço
+          </span>
+</div>
+<!-- Medidor de Estoque e Dias Restantes -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-sm my-space-xs flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md font-bold text-primary">90</span>
+<span class="font-body-md text-body-md text-on-surface-variant">comprimidos (3 caixas)</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">90 dias restantes</span>
+</div>
+<!-- Barra de Progresso Visual Cheia -->
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div aria-label="100% do estoque seguro" class="bg-primary h-full rounded-full w-[100%]"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span>Estoque para 3 meses</span>
+<span class="text-primary font-semibold">Tudo seguro</span>
+</div>
+</div>
+<!-- Informações do Lote e Validade -->
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs pb-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">inventory_2</span>
+<span>Lote: <strong>AS881</strong></span>
+</div>
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base">event</span>
+<span>Validade: <strong>15/03/2027</strong></span>
+</div>
+</div>
+</div>
+<!-- Rodapé de Ações -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-sm bg-surface-container-lowest">
+<button class="flex items-center justify-center gap-1.5 bg-surface-container text-on-surface px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-xl text-primary">edit</span>
+<span>Editar</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 bg-surface-container text-primary px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-surface-container-high transition-colors font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-xl">visibility</span>
+<span>Ver lotes</span>
+</button>
+</div>
+</article>
+<!-- CARD 6: Omeprazol 20 mg (Receita a Renovar) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT p-space-md shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden">
+<!-- Indicador tátil lateral informativo -->
+<div class="absolute left-0 top-0 bottom-0 w-2 bg-secondary"></div>
+<div class="flex flex-col pl-2">
+<!-- Topo do Card -->
+<div class="flex items-start justify-between gap-space-sm mb-space-xs">
+<div class="flex items-start gap-space-xs">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">medical_information</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold leading-tight">Omeprazol</h2>
+<span class="font-body-md text-body-md text-primary font-semibold">20 mg • Cápsula</span>
+</div>
+</div>
+<!-- Status Badge Explícito -->
+<div class="inline-flex items-center gap-1.5 bg-surface-container-high text-on-surface px-3 py-1.5 rounded-full flex-shrink-0">
+<span class="material-symbols-outlined text-lg text-primary" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span class="font-label-sm text-label-sm font-semibold">Receita vence em 14 dias</span>
+</div>
+</div>
+<!-- Tags de Frequência e Prescrição -->
+<div class="flex flex-wrap gap-1.5 my-space-xs">
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">schedule</span>
+            Uso diário contínuo
+          </span>
+<span class="bg-surface-container-low text-on-surface-variant px-2.5 py-1 rounded-DEFAULT font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-base">wb_twilight</span>
+            Manhã em jejum (30min antes)
+          </span>
+</div>
+<!-- Medidor de Estoque e Dias Restantes -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-sm my-space-xs flex flex-col gap-2">
+<div class="flex items-baseline justify-between">
+<div class="flex items-baseline gap-1">
+<span class="font-headline-md text-headline-md font-bold text-on-surface">28</span>
+<span class="font-body-md text-body-md text-on-surface-variant">cápsulas</span>
+</div>
+<span class="font-label-md text-label-md font-bold text-primary">28 dias de estoque</span>
+</div>
+<!-- Barra de Progresso Visual -->
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div aria-label="46% do estoque restante" class="bg-secondary h-full rounded-full w-[46%]"></div>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant font-label-sm text-label-sm">
+<span>Consulta agendada p/ renovar receita</span>
+<span class="text-primary font-semibold">Estoque regular</span>
+</div>
+</div>
+<!-- Informações do Lote e Validade -->
+<div class="flex items-center justify-between text-on-surface-variant pt-space-xs pb-space-sm font-label-sm text-label-sm">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-primary">inventory_2</span>
+<span>Lote: <strong>OM301</strong></span>
+</div>
+<div class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-base">event</span>
+<span>Validade: <strong>05/01/2026</strong></span>
+</div>
+</div>
+</div>
+<!-- Rodapé de Ações -->
+<div class="grid grid-cols-2 gap-space-xs pt-space-sm bg-surface-container-lowest">
+<button class="flex items-center justify-center gap-1.5 bg-surface-container text-on-surface px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-xl text-primary">edit</span>
+<span>Editar</span>
+</button>
+<button class="flex items-center justify-center gap-1.5 bg-surface-container text-primary px-space-sm py-space-xs rounded-DEFAULT min-h-[48px] hover:bg-surface-container-high transition-colors font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-xl">medical_services</span>
+<span>Ver receita</span>
+</button>
+</div>
+</article>
+</section>
+<!-- Paginação e Resumo do Estoque Cadastrado -->
+<section class="w-full flex flex-col sm:flex-row items-center justify-between gap-space-md bg-surface-container-lowest p-space-md rounded-DEFAULT shadow-sm mb-space-lg">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-md text-body-md">
+<span class="material-symbols-outlined text-primary text-xl">inventory</span>
+<span>Mostrando <strong>6</strong> de <strong>12</strong> medicamentos ativos</span>
+</div>
+<!-- Controles de Navegação de Página Grandes -->
+<div class="flex items-center gap-2">
+<button class="flex items-center justify-center gap-1 px-4 min-h-[48px] rounded-full bg-surface-container text-outline-variant font-label-md text-label-md cursor-not-allowed" disabled="" type="button">
+<span class="material-symbols-outlined text-lg">chevron_left</span>
+<span>Anterior</span>
+</button>
+<span class="px-3 font-label-md text-label-md text-on-surface font-bold">1 de 2</span>
+<button class="flex items-center justify-center gap-1 px-4 min-h-[48px] rounded-full bg-surface-container-high text-primary font-label-md text-label-md hover:bg-primary-container hover:text-on-primary-container transition-colors" type="button">
+<span>Próxima</span>
+<span class="material-symbols-outlined text-lg">chevron_right</span>
+</button>
+</div>
+</section>
+<!-- Banner Editorial de Cuidador e Assistência Familiar -->
+<section class="w-full bg-surface-container rounded-DEFAULT p-space-lg flex flex-col lg:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-center gap-space-md">
+<img class="w-20 h-20 rounded-full object-cover shadow-sm flex-shrink-0" data-alt="Fotografia calorosa em iluminação natural mostrando uma cuidadora atenciosa segurando uma caixa de medicamento ao lado de um senhor idoso sorrindo em uma sala de estar clara com plantas e tons acolhedores de verde azulado." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSrmth2jqAVZuWixcRpVoRin_jra3r5CNueprwEZK-d4bmRxaMR1TwCqepLB4tEAPV8qIvVhr5A5XJDz3TN_v54FBaCkHKGs6duwIBm6Yszo5u8fSeof9mcVicJ8W2GRmDCf8pQ2vtz_6ywaGwSEs7XEphRLsWsyt8H6phKay4D4KQ_1LUYO4AUQYTMmOdv656B_jrS52TuZS0x1eXGd-1x17sdQ6d2j-hVCwg_cClFsTmAXmJfJHz"/>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-primary font-bold uppercase tracking-wider">Cuidado Compartilhado</span>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Mariana está sincronizada com você</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          Sempre que um medicamento estiver a menos de 10 dias do fim ou um lote for alterado, sua cuidadora recebe uma notificação instantânea para ajudar na compra.
+        </p>
+</div>
+</div>
+<div class="flex flex-col sm:flex-row gap-space-xs w-full lg:w-auto flex-shrink-0">
+<button class="flex items-center justify-center gap-2 bg-surface-container-lowest text-primary px-space-md py-space-xs rounded-full min-h-[52px] shadow-sm hover:bg-surface-container-high transition-colors font-label-md text-label-md" type="button">
+<span class="material-symbols-outlined text-xl">share</span>
+<span>Compartilhar lista em PDF</span>
+</button>
+<button class="flex items-center justify-center gap-2 bg-primary text-on-primary px-space-md py-space-xs rounded-full min-h-[52px] shadow-sm hover:bg-primary-container transition-colors font-label-md text-label-md font-semibold" type="button">
+<span class="material-symbols-outlined text-xl">chat</span>
+<span>Avisar Mariana no WhatsApp</span>
+</button>
+</div>
+</section>
+</div>
+</section>
+
+<section id="cadastrar-remedio" class="page-section w-full">
+<div class="flex flex-col w-full">
+<!-- Top Navigation & Breadcrumbs -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<nav aria-label="Caminho de Navegação" class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="hover:text-primary transition-colors cursor-pointer">Início</span>
+<span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+<span class="hover:text-primary transition-colors cursor-pointer">Meus Remédios</span>
+<span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+<span class="text-primary font-semibold">Cadastrar novo remédio</span>
+</nav>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md mt-space-xs">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Cadastrar Remédio</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-1 max-w-3xl">
+          Preencha as informações do medicamento e dos lotes comprados para controlar o estoque e prever a reposição automaticamente.
+        </p>
+</div>
+<button class="inline-flex items-center justify-center gap-space-xs min-h-[54px] px-space-md bg-secondary-container text-on-secondary-container font-label-lg text-label-lg rounded-full shadow-sm hover:opacity-90 transition-all active:scale-[0.98] w-full sm:w-auto self-start" type="button">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+<span>Preencher por foto da caixa/receita (Scanner)</span>
+</button>
+</div>
+</div>
+<!-- Shared Care Insight Box -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-md mb-space-lg flex items-start gap-space-sm shadow-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 text-on-primary-fixed mt-0.5">
+<span class="material-symbols-outlined text-2xl">lightbulb</span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-label-md text-label-md text-primary font-bold">Dica de Cuidado Compartilhado</span>
+<p class="font-body-md text-body-md text-on-surface-variant">
+        Você pode cadastrar várias caixas com lotes e validades diferentes para que o <strong>MedStorage</strong> avise sempre qual caixa tomar primeiro (ordem PEPS - Primeiro que Vence, Primeiro que Sai).
+      </p>
+</div>
+</div>
+<!-- Form Workflow Form Container -->
+<form class="flex flex-col gap-space-lg mb-space-xl" onsubmit="event.preventDefault();">
+<!-- SEÇÃO 1: Dados do Remédio -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm pb-space-xs">
+<div class="w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">medication</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">1. Dados do medicamento</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Identificação principal do produto de saúde</span>
+</div>
+</div>
+<div class="flex flex-col gap-space-md">
+<!-- Nome do remédio -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="med-name">
+            Nome do remédio <span class="text-error">*</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container-low text-on-surface font-body-lg text-body-lg focus:outline-none focus:bg-surface-container-lowest transition-colors" id="med-name" placeholder="Ex: Losartana Potássica, Metformina..." type="text" value="Losartana Potássica"/>
+<span class="material-symbols-outlined text-primary absolute right-4 pointer-events-none">check_circle</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Nome comercial ou princípio ativo que consta na embalagem externa.</p>
+</div>
+<!-- Grid: Dosagem, Forma Farmacêutica, Finalidade -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md">
+<!-- Dosagem -->
+<div class="flex flex-col gap-1">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="med-dosage">
+              Dosagem por unidade <span class="text-error">*</span>
+</label>
+<input class="w-full min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container-low text-on-surface font-body-lg text-body-lg focus:outline-none focus:bg-surface-container-lowest transition-colors" id="med-dosage" placeholder="Ex: 50 mg, 850 mg, 10 ml" type="text" value="50 mg"/>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Concentração de cada comprimido ou ml.</p>
+</div>
+<!-- Finalidade -->
+<div class="flex flex-col gap-1 lg:col-span-2">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="med-purpose">
+              Finalidade / Para que serve (opcional amigável)
+            </label>
+<div class="relative flex items-center">
+<input class="w-full min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container-low text-on-surface font-body-lg text-body-lg focus:outline-none focus:bg-surface-container-lowest transition-colors" id="med-purpose" placeholder="Ex: Pressão alta, Diabetes, Estômago" type="text" value="Pressão alta (Hipertensão)"/>
+<span class="material-symbols-outlined text-on-surface-variant absolute right-4 pointer-events-none">help_outline</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Facilita a identificação rápida pelo idoso no dia a dia.</p>
+</div>
+</div>
+<!-- Forma farmacêutica (Botões Largos de Fácil Toque) -->
+<div class="flex flex-col gap-space-xs mt-space-xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold">
+            Forma farmacêutica <span class="text-error">*</span>
+</label>
+<div aria-label="Selecione a forma farmacêutica" class="grid grid-cols-2 sm:grid-cols-4 gap-space-sm" role="radiogroup">
+<!-- Comprimido (Selecionado) -->
+<button aria-checked="true" class="flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm transition-all text-left" role="radio" type="button">
+<span class="material-symbols-outlined text-2xl">pill</span>
+<span class="font-semibold">Comprimido</span>
+</button>
+<!-- Cápsula -->
+<button aria-checked="false" class="flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md text-left" role="radio" type="button">
+<span class="material-symbols-outlined text-2xl">hevc</span>
+<span>Cápsula</span>
+</button>
+<!-- Gotas / Líquido -->
+<button aria-checked="false" class="flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md text-left" role="radio" type="button">
+<span class="material-symbols-outlined text-2xl">water_drop</span>
+<span>Gotas / Líquido</span>
+</button>
+<!-- Pomada / Outro -->
+<button aria-checked="false" class="flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md text-left" role="radio" type="button">
+<span class="material-symbols-outlined text-2xl">vaccines</span>
+<span>Pomada / Outro</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 2: Posologia e Consumo -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm pb-space-xs">
+<div class="w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">schedule</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">2. Como você toma (Posologia)</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rotina diária para cálculo do esgotamento do estoque</span>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-space-lg items-start">
+<!-- Quantidade por dose -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold">
+            Quantidade por dose <span class="text-error">*</span>
+</label>
+<div class="flex items-center justify-between bg-surface-container-low rounded-DEFAULT p-space-xs min-h-[56px]">
+<button aria-label="Diminuir quantidade por dose" class="w-12 h-12 rounded-full bg-surface-container-highest text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors text-2xl font-bold" type="button">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">1</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">comprimido</span>
+</div>
+<button aria-label="Aumentar quantidade por dose" class="w-12 h-12 rounded-full bg-surface-container-highest text-primary flex items-center justify-center hover:bg-primary hover:text-on-primary transition-colors text-2xl font-bold" type="button">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Quantidade ingerida em cada tomada prescrita.</p>
+</div>
+<!-- Frequência / Vezes ao dia -->
+<div class="flex flex-col gap-space-xs lg:col-span-2">
+<label class="font-label-md text-label-md text-on-surface font-semibold">
+            Frequência diária <span class="text-error">*</span>
+</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-space-xs">
+<button class="min-h-[56px] px-space-xs rounded-DEFAULT bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md flex flex-col items-center justify-center" type="button">
+<span class="font-semibold">1x ao dia</span>
+<span class="text-xs opacity-75">A cada 24h</span>
+</button>
+<!-- Selecionado -->
+<button class="min-h-[56px] px-space-xs rounded-DEFAULT bg-primary-container text-on-primary-container font-label-md text-label-md flex flex-col items-center justify-center shadow-sm" type="button">
+<span class="font-bold">2x ao dia</span>
+<span class="text-xs opacity-90 font-medium">A cada 12h</span>
+</button>
+<button class="min-h-[56px] px-space-xs rounded-DEFAULT bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md flex flex-col items-center justify-center" type="button">
+<span class="font-semibold">3x ao dia</span>
+<span class="text-xs opacity-75">A cada 8h</span>
+</button>
+<button class="min-h-[56px] px-space-xs rounded-DEFAULT bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md flex flex-col items-center justify-center" type="button">
+<span class="font-semibold">Conforme dor</span>
+<span class="text-xs opacity-75">Eventual</span>
+</button>
+</div>
+<div class="flex items-center gap-space-xs mt-1 bg-surface-container-low px-space-md py-space-xs rounded-DEFAULT text-on-surface-variant">
+<span class="material-symbols-outlined text-primary text-xl">alarm</span>
+<span class="font-body-md text-body-md">
+              Horários sugeridos: <strong class="text-on-surface">Manhã (08:00)</strong> e <strong class="text-on-surface">Noite (20:00)</strong>
+</span>
+</div>
+</div>
+</div>
+<!-- Estoque Mínimo de Segurança -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-space-xs" for="safety-stock">
+<span>Estoque mínimo de segurança (dias de antecedência)</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold">Recomendado</span>
+</label>
+</div>
+<div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
+<div class="relative w-full sm:w-64">
+<input class="w-full min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container-low text-on-surface font-body-lg text-body-lg focus:outline-none focus:bg-surface-container-lowest" id="safety-stock" type="number" value="15"/>
+<span class="absolute right-4 top-1/2 -translate-y-1/2 font-label-md text-label-md text-on-surface-variant">dias</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant flex-1">
+            O <strong>MedStorage</strong> avisará você e a cuidadora Mariana quando o estoque estiver acabando com essa antecedência para comprar antes que falte.
+          </p>
+</div>
+</div>
+<!-- Smart Calculation Banner -->
+<div class="bg-primary-fixed text-on-primary-fixed p-space-md rounded-DEFAULT flex items-center gap-space-md shadow-sm">
+<div class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">calculate</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-on-primary-fixed-variant">Cálculo de Consumo Inteligente</span>
+<p class="font-headline-md text-headline-md font-bold text-on-primary-fixed">
+            Consumo calculado: 2 comprimidos/dia • 1 caixa com 30 comprimidos dura 15 dias.
+          </p>
+</div>
+</div>
+</section>
+<!-- SEÇÃO 3: Lotes e Compras -->
+<section class="bg-surface-container-lowest rounded-DEFAULT p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-xs">
+<div class="flex items-center gap-space-sm">
+<div class="w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+</div>
+<div class="flex flex-col">
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">3. Lotes em estoque e compras</h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Cadastre cada caixa guardada em casa para controlar validades</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary bg-primary-fixed px-3 py-1 rounded-full font-semibold">
+<span class="material-symbols-outlined text-sm">verified</span>
+          Controle Ativo PEPS
+        </span>
+</div>
+<!-- Lista / Grid de Lotes Cadastrados -->
+<div class="overflow-x-auto">
+<div class="min-w-[800px] flex flex-col gap-space-sm">
+<!-- Cabeçalho das Colunas -->
+<div class="grid grid-cols-12 gap-space-sm px-space-md py-space-xs bg-surface-container font-label-sm text-label-sm text-on-surface-variant rounded-DEFAULT font-bold uppercase tracking-wider">
+<div class="col-span-2">Nº do Lote</div>
+<div class="col-span-2">Data Validade</div>
+<div class="col-span-2">Qtd (Unid.)</div>
+<div class="col-span-2">Preço Pago</div>
+<div class="col-span-2">Farmácia / Local</div>
+<div class="col-span-2 text-right">Ações</div>
+</div>
+<!-- Linha 1: Lote L889B -->
+<div class="grid grid-cols-12 gap-space-sm items-center p-space-md bg-surface-container-low rounded-DEFAULT transition-all hover:bg-surface-container">
+<div class="col-span-2 flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">L889B</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-sm">check_circle</span> Caixa 1 (Em uso)
+              </span>
+</div>
+<div class="col-span-2 flex flex-col gap-1">
+<span class="font-body-lg text-body-lg text-on-surface font-medium">15/10/2026</span>
+<span class="inline-flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded-full w-fit">
+<span class="material-symbols-outlined text-xs">verified</span> Válido
+              </span>
+</div>
+<div class="col-span-2 flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">30</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">comprimidos</span>
+</div>
+<div class="col-span-2 flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface font-bold">R$ 14,90</span>
+<span class="inline-flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs">local_offer</span> 20% OFF
+              </span>
+</div>
+<div class="col-span-2 flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Droga Raia</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Comprado em promoção</span>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-space-xs">
+<button class="w-11 h-11 rounded-full bg-surface-container-highest text-primary flex items-center justify-center hover:bg-primary-container transition-colors" title="Editar lote" type="button">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="w-11 h-11 rounded-full bg-error-container text-on-error-container flex items-center justify-center hover:opacity-80 transition-colors" title="Remover lote" type="button">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+<!-- Linha 2: Lote L992A -->
+<div class="grid grid-cols-12 gap-space-sm items-center p-space-md bg-surface-container-low rounded-DEFAULT transition-all hover:bg-surface-container">
+<div class="col-span-2 flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-bold">L992A</span>
+<span class="inline-flex items-center gap-1 font-label-sm text-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">lock</span> Caixa 2 (Fechada)
+              </span>
+</div>
+<div class="col-span-2 flex flex-col gap-1">
+<span class="font-body-lg text-body-lg text-on-surface font-medium">28/08/2026</span>
+<span class="inline-flex items-center gap-1 bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm px-2 py-0.5 rounded-full w-fit">
+<span class="material-symbols-outlined text-xs">verified</span> Válido
+              </span>
+</div>
+<div class="col-span-2 flex flex-col">
+<span class="font-headline-md text-headline-md text-on-surface font-semibold">30</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">comprimidos</span>
+</div>
+<div class="col-span-2 flex flex-col">
+<span class="font-body-lg text-body-lg text-on-surface font-bold">R$ 14,90</span>
+<span class="inline-flex items-center gap-1 text-tertiary font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs">local_offer</span> Promoção
+              </span>
+</div>
+<div class="col-span-2 flex flex-col">
+<span class="font-body-md text-body-md text-on-surface font-medium">Droga Raia</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mesma compra</span>
+</div>
+<div class="col-span-2 flex items-center justify-end gap-space-xs">
+<button class="w-11 h-11 rounded-full bg-surface-container-highest text-primary flex items-center justify-center hover:bg-primary-container transition-colors" title="Editar lote" type="button">
+<span class="material-symbols-outlined text-xl">edit</span>
+</button>
+<button class="w-11 h-11 rounded-full bg-error-container text-on-error-container flex items-center justify-center hover:opacity-80 transition-colors" title="Remover lote" type="button">
+<span class="material-symbols-outlined text-xl">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Botão Adicionar Outro Lote -->
+<button class="w-full min-h-[56px] rounded-DEFAULT bg-surface-container-low hover:bg-surface-container text-primary font-label-lg text-label-lg flex items-center justify-center gap-space-xs transition-all active:scale-[0.99] mt-space-xs" type="button">
+<span class="material-symbols-outlined text-2xl">add_circle</span>
+<span>Adicionar outro lote / caixa</span>
+</button>
+<!-- Resumo do Estoque e Economia -->
+<div class="bg-secondary-fixed text-on-secondary-fixed p-space-md rounded-DEFAULT flex flex-col sm:flex-row items-center justify-between gap-space-md mt-space-xs shadow-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-on-secondary-fixed text-secondary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">savings</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase font-bold tracking-wider">Balanço do Estoque</span>
+<span class="font-headline-md text-headline-md font-bold">
+              Estoque total cadastrado: 60 comprimidos (30 dias de tratamento).
+            </span>
+</div>
+</div>
+<div class="bg-on-secondary-fixed/10 px-space-md py-space-xs rounded-DEFAULT text-center sm:text-right shrink-0">
+<span class="font-label-sm text-label-sm block">Economia calculada</span>
+<span class="font-headline-md text-headline-md font-bold text-on-secondary-fixed">R$ 12,00 poupados</span>
+</div>
+</div>
+</section>
+<!-- Barra de Ações do Formulário -->
+<div class="bg-surface-container-lowest rounded-DEFAULT p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col-reverse sm:flex-row items-center justify-between gap-space-md">
+<button class="min-h-[54px] px-space-lg bg-surface-container text-on-surface-variant font-label-lg text-label-lg rounded-full hover:bg-surface-container-high transition-colors w-full sm:w-auto" type="button">
+          Cancelar
+        </button>
+<button class="min-h-[54px] px-space-xl bg-primary text-on-primary font-label-lg text-label-lg rounded-full shadow-md hover:bg-primary-container transition-all flex items-center justify-center gap-space-xs w-full sm:w-auto active:scale-[0.98]" type="submit">
+<span class="material-symbols-outlined text-2xl">check</span>
+<span>Salvar remédio e estoque</span>
+</button>
+</div>
+<!-- Validação e Status -->
+<div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm bg-surface-container-low px-space-md py-space-xs rounded-DEFAULT">
+<span class="material-symbols-outlined text-lg">sync</span>
+<span>Campos obrigatórios preenchidos corretamente. Todos os dados serão sincronizados automaticamente com a cuidadora Mariana.</span>
+</div>
+</div>
+</form>
+</div>
+<script>
+  // Simple interactions for interactive feel
+  document.querySelectorAll('[role="radio"]').forEach(button => {
+    button.addEventListener('click', () => {
+      const parent = button.parentElement;
+      parent.querySelectorAll('[role="radio"]').forEach(sibling => {
+        sibling.setAttribute('aria-checked', 'false');
+        sibling.className = 'flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors font-label-md text-label-md text-left';
+      });
+      button.setAttribute('aria-checked', 'true');
+      button.className = 'flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-primary-container text-on-primary-container font-label-md text-label-md shadow-sm transition-all text-left';
+    });
+  });
+</script>
+</section>
+
+<section id="alertas" class="page-section w-full">
+<div class="flex flex-col w-full">
+<!-- Breadcrumbs & Quick Header Navigation -->
+<div class="flex flex-wrap items-center gap-space-xs text-on-surface-variant font-label-md text-label-md mb-space-sm">
+<a class="hover:text-primary transition-colors flex items-center gap-1 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-base">home</span>
+<span>Início</span>
+</a>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+<span class="text-on-surface font-semibold font-label-md text-label-md">Alertas e Notificações</span>
+</div>
+<!-- Page Title & Reassuring Intro Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col max-w-3xl">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-primary font-bold mb-1">Central de Segurança do Idoso</span>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">Alertas e Notificações</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-2">
+        Acompanhe os avisos prioritários de validade dos lotes e a necessidade de reposição de estoque dos seus medicamentos com tranquilidade.
+      </p>
+</div>
+<!-- Quick Export / Share Action -->
+<div class="flex items-center gap-space-xs shrink-0">
+<button class="min-h-[52px] px-space-md bg-surface-container-lowest hover:bg-surface-container-low text-primary shadow-sm rounded-full font-label-md text-label-md flex items-center gap-space-xs transition-colors" title="Exportar relatório de alertas para PDF ou impressão" type="button">
+<span class="material-symbols-outlined text-xl">ios_share</span>
+<span>Exportar resumo</span>
+</button>
+<button class="min-h-[52px] px-space-md bg-surface-container-highest hover:bg-surface-container-high text-on-surface shadow-sm rounded-full font-label-md text-label-md flex items-center gap-space-xs transition-colors" title="Ligar para suporte de atendimento" type="button">
+<span class="material-symbols-outlined text-xl">contact_support</span>
+<span class="hidden sm:inline">Dúvida no remédio?</span>
+</button>
+</div>
+</div>
+<!-- Caregiver Sync Notice Banner -->
+<section class="bg-surface-container-lowest rounded-DEFAULT shadow-sm p-space-md lg:p-space-lg mb-space-lg relative overflow-hidden">
+<div class="absolute -right-8 -bottom-8 w-48 h-48 bg-primary/5 rounded-full pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md relative z-10">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-3xl">health_and_safety</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="font-label-lg text-label-lg font-bold text-on-surface">3 pendências exigem sua atenção esta semana</span>
+<span class="bg-error-container text-on-error-container font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-bold">2 Urgentes</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-2xl">
+            A cuidadora <strong>Mariana</strong> já foi sincronizada automaticamente e está ciente dos medicamentos que estão no fim da cartela e próximos do vencimento.
+          </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs shrink-0">
+<button class="min-h-[52px] px-space-md bg-secondary text-on-secondary rounded-full font-label-lg text-label-lg flex items-center gap-space-xs shadow-sm hover:bg-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">chat</span>
+<span>Avisar Mariana no WhatsApp</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Big Interactive Navigation Tabs -->
+<div class="flex flex-col gap-space-md mb-space-lg">
+<div aria-label="Abas de Alertas" class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm p-1.5 bg-surface-container-low rounded-DEFAULT shadow-inner" role="tablist">
+<!-- Tab 1 Trigger -->
+<button aria-controls="tab-content-validade" aria-selected="true" class="tab-trigger min-h-[56px] py-space-xs px-space-md rounded-DEFAULT flex items-center justify-center gap-space-sm font-label-lg text-label-lg transition-all bg-primary-container text-on-primary-container shadow-sm font-bold" id="tab-btn-validade" onclick="switchAlertTab('validade')" role="tab" type="button">
+<span class="material-symbols-outlined text-2xl">event_busy</span>
+<span>Validade dos Lotes</span>
+<span class="bg-error text-on-error font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold">2 lotes</span>
+</button>
+<!-- Tab 2 Trigger -->
+<button aria-controls="tab-content-reposicao" aria-selected="false" class="tab-trigger min-h-[56px] py-space-xs px-space-md rounded-DEFAULT flex items-center justify-center gap-space-sm font-label-lg text-label-lg transition-all text-on-surface-variant hover:bg-surface-container font-semibold" id="tab-btn-reposicao" onclick="switchAlertTab('reposicao')" role="tab" type="button">
+<span class="material-symbols-outlined text-2xl">inventory_2</span>
+<span>Reposição de Estoque</span>
+<span class="bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-2.5 py-0.5 rounded-full font-bold">3 remédios</span>
+</button>
+</div>
+<!-- Filter Pill Bar -->
+<div class="flex items-center justify-between flex-wrap gap-space-sm">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 max-w-full">
+<button class="filter-pill min-h-[48px] px-space-md rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold shadow-sm shrink-0" type="button">
+          Todos os alertas (5)
+        </button>
+<button class="filter-pill min-h-[48px] px-space-md rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm font-semibold shrink-0" type="button">
+          🚨 Urgentes (2)
+        </button>
+<button class="filter-pill min-h-[48px] px-space-md rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm font-semibold shrink-0" type="button">
+          ⚠️ Atenção (3)
+        </button>
+<button class="filter-pill min-h-[48px] px-space-md rounded-full bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container font-label-sm text-label-sm font-semibold shrink-0" type="button">
+          ✓ Resolvidos (0)
+        </button>
+</div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-lg">swap_vert</span>
+<span>Ordenado por: <strong>Gravidade e Prazo</strong></span>
+</div>
+</div>
+</div>
+<!-- TAB PANELS CONTAINER -->
+<div class="w-full flex flex-col gap-space-lg">
+<!-- TAB 1: VALIDADE DOS LOTES (Active by Default) -->
+<div aria-labelledby="tab-btn-validade" class="flex flex-col gap-space-md" id="tab-content-validade" role="tabpanel">
+<!-- Card 1: Metformina (Crítico - 18 dias) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT shadow-sm p-space-md lg:p-space-lg flex flex-col gap-space-md transition-all hover:shadow-md">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-DEFAULT bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">alarm_on</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="bg-error text-on-error font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">warning</span>
+                  Vence em menos de 20 dias
+                </span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-medium">Uso Contínuo</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Metformina 850 mg</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Comprimido oral • Tomar 2 vezes ao dia (Após o café e jantar)</p>
+</div>
+</div>
+<!-- Highlight Numeric Box -->
+<div class="bg-error-container/40 p-space-sm rounded-DEFAULT flex items-center gap-space-md self-start lg:self-auto min-w-[240px]">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-error-container uppercase font-bold tracking-wider">Prazo Fatal</span>
+<span class="font-headline-md text-headline-md text-error font-bold">15/11/2024</span>
+<span class="font-label-sm text-label-sm text-on-error-container">Restam apenas 18 dias</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-error text-on-error flex items-center justify-center font-bold text-headline-md ml-auto shrink-0">
+              18d
+            </div>
+</div>
+</div>
+<!-- Medicine Batch & Inventory Status Bar -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm bg-surface-container-low p-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">qr_code_2</span>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Lote Identificado</span>
+<strong class="font-label-md text-label-md text-on-surface">Lote B348</strong>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">medication</span>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Quantidade restante</span>
+<strong class="font-label-md text-label-md text-on-surface">20 comprimidos nesta caixa</strong>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">place</span>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Armazenamento</span>
+<strong class="font-label-md text-label-md text-on-surface">Gaveta 01 - Cozinha</strong>
+</div>
+</div>
+</div>
+<!-- Safety Helper Guidance Note -->
+<div class="flex items-start gap-space-xs bg-surface-container-high p-space-sm rounded-DEFAULT text-on-surface">
+<span class="material-symbols-outlined text-tertiary text-2xl shrink-0 mt-0.5">lightbulb</span>
+<p class="font-body-md text-body-md">
+<strong>Recomendação de Segurança:</strong> Seu consumo diário é de 2 comprimidos ao dia. Em 18 dias você consumirá exatamente 36 unidades. Dê preferência total a terminar esta caixa antes de abrir a caixa nova do armário!
+          </p>
+</div>
+<!-- Action Triggers -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<button class="min-h-[52px] px-space-lg bg-primary text-on-primary rounded-full font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs shadow-sm hover:bg-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">priority_high</span>
+<span>Trocar para este lote agora</span>
+</button>
+<button class="min-h-[52px] px-space-md bg-surface-container hover:bg-surface-container-high text-on-surface rounded-full font-label-lg text-label-lg font-medium flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">info</span>
+<span>Ver detalhes do lote</span>
+</button>
+<button class="min-h-[52px] px-space-md text-error hover:bg-error-container hover:text-on-error-container rounded-full font-label-md text-label-md font-semibold flex items-center justify-center gap-space-xs ml-auto transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">delete_outline</span>
+<span>Descartar / Doar sobra</span>
+</button>
+</div>
+</article>
+<!-- Card 2: Losartana (Atenção - 48 dias) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT shadow-sm p-space-md lg:p-space-lg flex flex-col gap-space-md transition-all hover:shadow-md">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-DEFAULT bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">event_upcoming</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">notifications</span>
+                  Atenção à validade
+                </span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-medium">Caixa Fechada</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Losartana Potássica 50 mg</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Comprimido revestido • Uso contínuo matinal e noturno</p>
+</div>
+</div>
+<!-- Highlight Numeric Box -->
+<div class="bg-surface-container p-space-sm rounded-DEFAULT flex items-center gap-space-md self-start lg:self-auto min-w-[240px]">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold tracking-wider">Data de Validade</span>
+<span class="font-headline-md text-headline-md text-tertiary font-bold">30/11/2024</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Restam 48 dias</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold text-headline-md ml-auto shrink-0">
+              48d
+            </div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-sm bg-surface-container-low p-space-sm rounded-DEFAULT">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">inventory</span>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Código do Lote</span>
+<strong class="font-label-md text-label-md text-on-surface">Lote L992A</strong>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">layers</span>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Embalagem</span>
+<strong class="font-label-md text-label-md text-on-surface">Caixa 2 fechada (30 comp.)</strong>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-xl">shopping_bag</span>
+<div>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Origem da Compra</span>
+<strong class="font-label-md text-label-md text-on-surface">Drogasil (Promoção 3x2)</strong>
+</div>
+</div>
+</div>
+<div class="flex items-start gap-space-xs bg-surface-container-low p-space-sm rounded-DEFAULT text-on-surface">
+<span class="material-symbols-outlined text-secondary text-2xl shrink-0 mt-0.5">info</span>
+<p class="font-body-md text-body-md">
+            Lote comprado antecipadamente na promoção. O monitoramento inteligente do MedStorage sugere colocá-lo em uso assim que a cartela da primeira caixa terminar.
+          </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<button class="min-h-[52px] px-space-md bg-secondary text-on-secondary rounded-full font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs shadow-sm hover:bg-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">play_circle</span>
+<span>Adiantar uso deste lote</span>
+</button>
+<button class="min-h-[52px] px-space-md bg-surface-container hover:bg-surface-container-high text-on-surface rounded-full font-label-lg text-label-lg font-medium flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">open_in_new</span>
+<span>Ver remédio completo</span>
+</button>
+</div>
+</article>
+<!-- Card 3: Receita Médica Vencendo (Alerta Preventivo de Saúde) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT shadow-sm p-space-md lg:p-space-lg flex flex-col gap-space-md transition-all hover:shadow-md">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-DEFAULT bg-surface-container-high text-on-surface flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl text-primary">clinical_notes</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">assignment_late</span>
+                  Receita expira em breve
+                </span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-medium">Controle Especial</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold">Omeprazol 20 mg - Receita de Controle</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Receita emitida pelo Dr. Arnaldo Silveira (Geriatra) • Válida no posto e farmácia</p>
+</div>
+</div>
+<!-- Highlight Numeric Box -->
+<div class="bg-surface-container-high p-space-sm rounded-DEFAULT flex items-center gap-space-md self-start lg:self-auto min-w-[240px]">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold tracking-wider">Vencimento da Receita</span>
+<span class="font-headline-md text-headline-md text-on-surface font-bold">26/10/2024</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Expira em 14 dias</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center font-bold text-headline-md ml-auto shrink-0">
+              14d
+            </div>
+</div>
+</div>
+<div class="flex items-start gap-space-xs bg-surface-container-low p-space-sm rounded-DEFAULT text-on-surface">
+<span class="material-symbols-outlined text-primary text-2xl shrink-0 mt-0.5">stethoscope</span>
+<p class="font-body-md text-body-md">
+<strong>Atenção com a consulta:</strong> Sem a receita atualizada, as farmácias não poderão vender a próxima caixa de Omeprazol. Recomendamos agendar renovação no Posto de Saúde Central ou avisar a Mariana para marcar a teleconsulta.
+          </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<button class="min-h-[52px] px-space-md bg-primary text-on-primary rounded-full font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs shadow-sm hover:bg-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">event</span>
+<span>Lembrar consulta de renovação</span>
+</button>
+<button class="min-h-[52px] px-space-md bg-surface-container hover:bg-surface-container-high text-on-surface rounded-full font-label-lg text-label-lg font-medium flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">send</span>
+<span>Avisar Mariana por mensagem</span>
+</button>
+</div>
+</article>
+</div>
+<!-- TAB 2: REPOSIÇÃO DE ESTOQUE (Can be activated via Tabs or Scroll) -->
+<div aria-labelledby="tab-btn-reposicao" class="flex flex-col gap-space-md" id="tab-content-reposicao" role="tabpanel">
+<div class="flex items-center justify-between mb-space-xs">
+<h2 class="font-headline-lg text-headline-lg text-on-surface font-bold flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-3xl">shopping_basket</span>
+          Necessidade de Reposição de Estoque
+        </h2>
+<span class="font-label-sm text-label-sm text-on-surface-variant hidden md:inline">Baseado no seu ritmo de dosagem diária</span>
+</div>
+<!-- Reposição Card 1: Losartana Potássica (Crítico - 9 dias) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT shadow-sm p-space-md lg:p-space-lg flex flex-col gap-space-md transition-all hover:shadow-md">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-DEFAULT bg-error-container text-on-error-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">production_quantity_limits</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="bg-error text-on-error font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">error</span>
+                  🚨 Repor com Urgência
+                </span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-space-xs py-0.5 rounded-full">Crítico</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Losartana Potássica 50 mg</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Estoque total: 18 comprimidos restantes (Consumo diário: 2 por dia)</p>
+</div>
+</div>
+<!-- Days Left Indicator -->
+<div class="bg-error-container/40 p-space-sm rounded-DEFAULT flex items-center gap-space-md min-w-[240px]">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-error-container uppercase font-bold tracking-wider">Estoque acaba em</span>
+<strong class="font-headline-md text-headline-md text-error">02/11/2024</strong>
+<span class="font-label-sm text-label-sm text-on-error-container font-semibold">Restam apenas 9 dias!</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-error text-on-error flex items-center justify-center font-bold text-headline-md ml-auto shrink-0">
+              9d
+            </div>
+</div>
+</div>
+<!-- Progress Stock Gauge -->
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-error font-bold">Nível crítico de segurança (Abaixo do mínimo de 15 dias)</span>
+<span class="text-on-surface font-bold">18 / 60 comp.</span>
+</div>
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div class="bg-error h-full rounded-full" style="width: 25%;"></div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<button class="min-h-[52px] px-space-lg bg-primary text-on-primary rounded-full font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs shadow-sm hover:bg-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+<span>Adicionar à lista de compras</span>
+</button>
+<a class="min-h-[52px] px-space-md bg-surface-container-low hover:bg-surface-container text-primary rounded-full font-label-md text-label-md font-semibold flex items-center justify-center gap-space-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">calculate</span>
+<span>Simular promoção da farmácia</span>
+</a>
+</div>
+</article>
+<!-- Reposição Card 2: Atenolol 25 mg (Atenção - 12 dias) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT shadow-sm p-space-md lg:p-space-lg flex flex-col gap-space-md transition-all hover:shadow-md">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-DEFAULT bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">hourglass_bottom</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">report_problem</span>
+                  Estoque baixo
+                </span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-space-xs py-0.5 rounded-full">Mínimo de segurança: 15 dias</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Atenolol 25 mg</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">12 comprimidos restantes • Consumo: 1 por dia pela manhã</p>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded-DEFAULT flex items-center gap-space-md min-w-[240px]">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold tracking-wider">Acaba em</span>
+<strong class="font-headline-md text-headline-md text-tertiary font-bold">05/11/2024</strong>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Restam 12 dias</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed text-on-tertiary-fixed flex items-center justify-center font-bold text-headline-md ml-auto shrink-0">
+              12d
+            </div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-tertiary font-semibold">Próximo da data de recompra segura</span>
+<span class="text-on-surface font-bold">12 / 30 comp.</span>
+</div>
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div class="bg-tertiary-container h-full rounded-full" style="width: 40%;"></div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<button class="min-h-[52px] px-space-md bg-secondary text-on-secondary rounded-full font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs shadow-sm hover:bg-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">add_shopping_cart</span>
+<span>Adicionar à lista de compras</span>
+</button>
+<a class="min-h-[52px] px-space-md bg-surface-container-low hover:bg-surface-container text-on-surface rounded-full font-label-md text-label-md font-medium flex items-center justify-center gap-space-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">store</span>
+<span>Ver farmácias com desconto</span>
+</a>
+</div>
+</article>
+<!-- Reposição Card 3: Metformina 850 mg (Programado - 20 dias) -->
+<article class="bg-surface-container-lowest rounded-DEFAULT shadow-sm p-space-md lg:p-space-lg flex flex-col gap-space-md transition-all hover:shadow-md">
+<div class="flex flex-col lg:flex-row lg:items-start justify-between gap-space-md">
+<div class="flex items-start gap-space-md">
+<div class="w-14 h-14 rounded-DEFAULT bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">calendar_month</span>
+</div>
+<div class="flex flex-col">
+<div class="flex flex-wrap items-center gap-space-xs mb-1">
+<span class="bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm px-space-xs py-0.5 rounded-full font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+                  Planejar reposição
+                </span>
+<span class="bg-surface-container text-on-surface-variant font-label-sm text-label-sm px-space-xs py-0.5 rounded-full">Programado</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Metformina 850 mg</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">40 comprimidos restantes • Consumo: 2 por dia (20 dias de autonomia)</p>
+</div>
+</div>
+<div class="bg-surface-container p-space-sm rounded-DEFAULT flex items-center gap-space-md min-w-[240px]">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-bold tracking-wider">Previsão de término</span>
+<strong class="font-headline-md text-headline-md text-on-surface font-bold">13/11/2024</strong>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Restam 20 dias</span>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-on-surface flex items-center justify-center font-bold text-headline-md ml-auto shrink-0">
+              20d
+            </div>
+</div>
+</div>
+<div class="flex flex-col gap-1">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Estoque estável para o mês corrente</span>
+<span class="text-on-surface font-bold">40 / 60 comp.</span>
+</div>
+<div class="w-full bg-surface-container-high h-3 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 66%;"></div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="min-h-[52px] px-space-md bg-surface-container-low hover:bg-surface-container text-primary rounded-full font-label-md text-label-md font-semibold flex items-center justify-center gap-space-xs transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">group</span>
+<span>Ver opções de compra coletiva</span>
+</a>
+</div>
+</article>
+</div>
+</div>
+<!-- Bottom Shared Actions / Caregiver Sync Card -->
+<section class="mt-space-xl bg-surface-container-low rounded-DEFAULT p-space-md lg:p-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-16 h-16 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-3xl">supervisor_account</span>
+</div>
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-md text-on-surface font-bold">Acompanhamento Compartilhado Ativo</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+          A cuidadora Mariana recebe alertas automáticos por WhatsApp quando qualquer remédio atinge menos de 10 dias de estoque.
+        </p>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-xs w-full md:w-auto">
+<button class="min-h-[52px] w-full md:w-auto px-space-md bg-primary text-on-primary rounded-full font-label-md text-label-md font-semibold shadow-sm hover:bg-primary-container transition-colors flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-xl">forward_to_inbox</span>
+<span>Enviar lista de pendências</span>
+</button>
+<button class="min-h-[52px] w-full md:w-auto px-space-md bg-surface-container-lowest hover:bg-surface-container text-on-surface-variant rounded-full font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-space-xs" type="button">
+<span class="material-symbols-outlined text-xl">history</span>
+<span>Histórico resolvido</span>
+</button>
+</div>
+</section>
+</div>
+<script>
+  function switchAlertTab(tabName) {
+    const validadeBtn = document.getElementById('tab-btn-validade');
+    const reposicaoBtn = document.getElementById('tab-btn-reposicao');
+    const validadeContent = document.getElementById('tab-content-validade');
+    const reposicaoContent = document.getElementById('tab-content-reposicao');
+
+    if (!validadeBtn || !reposicaoBtn || !validadeContent || !reposicaoContent) return;
+
+    if (tabName === 'validade') {
+      // Button states
+      validadeBtn.className = "tab-trigger min-h-[56px] py-space-xs px-space-md rounded-DEFAULT flex items-center justify-center gap-space-sm font-label-lg text-label-lg transition-all bg-primary-container text-on-primary-container shadow-sm font-bold";
+      validadeBtn.setAttribute('aria-selected', 'true');
+      reposicaoBtn.className = "tab-trigger min-h-[56px] py-space-xs px-space-md rounded-DEFAULT flex items-center justify-center gap-space-sm font-label-lg text-label-lg transition-all text-on-surface-variant hover:bg-surface-container font-semibold";
+      reposicaoBtn.setAttribute('aria-selected', 'false');
+
+      // Visibility
+      validadeContent.classList.remove('hidden');
+      reposicaoContent.classList.add('hidden');
+    } else {
+      // Button states
+      reposicaoBtn.className = "tab-trigger min-h-[56px] py-space-xs px-space-md rounded-DEFAULT flex items-center justify-center gap-space-sm font-label-lg text-label-lg transition-all bg-primary-container text-on-primary-container shadow-sm font-bold";
+      reposicaoBtn.setAttribute('aria-selected', 'true');
+      validadeBtn.className = "tab-trigger min-h-[56px] py-space-xs px-space-md rounded-DEFAULT flex items-center justify-center gap-space-sm font-label-lg text-label-lg transition-all text-on-surface-variant hover:bg-surface-container font-semibold";
+      validadeBtn.setAttribute('aria-selected', 'false');
+
+      // Visibility
+      validadeContent.classList.add('hidden');
+      reposicaoContent.classList.remove('hidden');
+    }
+  }
+</script>
+</section>
+
+<section id="simulador" class="page-section w-full">
+<div class="flex flex-col w-full">
+<!-- Top Breadcrumb & Status Hint -->
+<div class="flex flex-col gap-space-xs mb-space-md">
+<nav aria-label="Navegação da página" class="flex items-center gap-space-xs text-on-surface-variant font-label-md text-label-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-lg">home</span>
+<span>Início</span>
+</a>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+<span class="text-on-surface-variant">Simulador de compra</span>
+<span class="material-symbols-outlined text-base">chevron_right</span>
+<span class="text-primary font-bold">Vale a pena comprar?</span>
+</nav>
+<!-- Page Title & Explanation Header -->
+<div class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md mt-space-xs">
+<div>
+<h1 class="font-headline-xl text-headline-xl text-on-surface font-bold tracking-tight">
+          Vale a pena comprar?
+        </h1>
+<p class="font-body-xl text-body-xl text-on-surface-variant max-w-4xl mt-space-xs">
+          Descubra se a promoção da farmácia realmente compensa ou se você vai perder remédios pelo prazo de validade antes de conseguir tomar.
+        </p>
+</div>
+<!-- Quick Accessibility Profile Badge -->
+<div class="inline-flex items-center gap-space-xs bg-surface-container px-space-md py-space-xs rounded-full shadow-sm self-start lg:self-auto">
+<span class="material-symbols-outlined text-primary text-xl" style="font-variation-settings: 'FILL' 1;">elderly</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">Cálculo de Proteção ao Idoso</span>
+</div>
+</div>
+<!-- Smart Advice Banner -->
+<div class="mt-space-md bg-surface-container-low rounded-lg p-space-md flex items-start gap-space-md shadow-sm">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed shrink-0">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">lightbulb</span>
+</div>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-lg text-label-lg text-secondary font-bold">Dica inteligente do farmacêutico virtual:</span>
+<p class="font-body-lg text-body-lg text-on-surface leading-relaxed">
+          Farmácias costumam dar grandes descontos em caixas com <strong>validade mais próxima</strong>. Nós simulamos seu consumo diário exato para evitar que você gaste dinheiro com caixas que vão parar no lixo.
+        </p>
+</div>
+</div>
+</div>
+<!-- 2-Column Responsive Layout: Inputs & Diagnostics -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter my-space-sm items-start">
+<!-- LEFT COLUMN: Simulation Inputs (7 cols on lg) -->
+<section aria-labelledby="form-section-title" class="lg:col-span-7 flex flex-col gap-space-lg">
+<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-md flex flex-col gap-space-md">
+<!-- Section Header -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-8 h-8 rounded-full bg-primary text-on-primary font-bold flex items-center justify-center font-label-md text-label-md">1</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold" id="form-section-title">
+              Dados da oferta da farmácia
+            </h2>
+</div>
+<span class="text-on-surface-variant font-label-sm text-label-sm hidden sm:inline">Campos obrigatórios com toque fácil</span>
+</div>
+<!-- Medicine Selector Field -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1" for="select-medicine">
+<span>Remédio da sua receita diária:</span>
+<span aria-hidden="true" class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full min-h-[58px] bg-surface-container-low text-on-surface font-body-lg text-body-lg rounded-DEFAULT px-space-md pr-12 appearance-none shadow-sm focus:outline-none focus:ring-4 focus:ring-primary-fixed cursor-pointer font-medium" id="select-medicine">
+<option selected="" value="losartana">Losartana Potássica 50 mg (2 comprimidos ao dia)</option>
+<option value="metformina">Metformina 850 mg (1 comprimido no almoço)</option>
+<option value="sinvastatina">Sinvastatina 20 mg (1 comprimido à noite)</option>
+<option value="atenolol">Atenolol 25 mg (1 comprimido pela manhã)</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none text-2xl">
+              arrow_drop_down_circle
+            </span>
+</div>
+</div>
+<!-- Automatic Consumption Context Banner -->
+<div class="bg-surface-container rounded-DEFAULT p-space-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-on-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-xl">medication</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Consumo diário cadastrado:</span>
+<span class="font-body-md text-body-md text-on-surface-variant">2 comprimidos/dia (1 de manhã e 1 à noite)</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest px-space-md py-space-xs rounded-full shadow-sm text-left sm:text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant block">Estoque atual na gaveta:</span>
+<span class="font-label-md text-label-md text-primary font-bold">18 comprimidos (9 dias)</span>
+</div>
+</div>
+<!-- Quantity Selector & Shortcuts -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between">
+<span>Quantidade que deseja comprar na promoção:</span>
+<span class="font-label-sm text-label-sm text-primary font-bold">1 caixa = 30 comprimidos</span>
+</label>
+<div class="flex items-center gap-space-md">
+<button aria-label="Diminuir uma caixa" class="w-14 h-14 rounded-full bg-surface-container-high hover:bg-surface-variant active:scale-95 flex items-center justify-center text-on-surface transition-transform shadow-sm focus:outline-none focus:ring-4 focus:ring-primary-fixed" id="btn-decrease" type="button">
+<span class="material-symbols-outlined text-3xl font-bold">remove</span>
+</button>
+<div class="flex-1 bg-surface-container-low rounded-DEFAULT min-h-[58px] flex items-center justify-center px-space-md text-center shadow-inner">
+<span class="font-headline-md text-headline-md text-on-surface font-bold" id="quantity-display">4 caixas (120 comprimidos)</span>
+</div>
+<button aria-label="Aumentar uma caixa" class="w-14 h-14 rounded-full bg-primary text-on-primary hover:bg-primary-container active:scale-95 flex items-center justify-center transition-transform shadow-md focus:outline-none focus:ring-4 focus:ring-primary-fixed" id="btn-increase" type="button">
+<span class="material-symbols-outlined text-3xl font-bold">add</span>
+</button>
+</div>
+<!-- Quick presets buttons -->
+<div aria-label="Atalhos rápidos de quantidade" class="flex flex-wrap gap-space-xs mt-space-xs" role="group">
+<button class="preset-btn px-space-md py-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors min-h-[48px] flex items-center" type="button">
+              2 caixas (60 comp.)
+            </button>
+<button class="preset-btn px-space-md py-space-xs rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors min-h-[48px] flex items-center" type="button">
+              3 caixas (90 comp.)
+            </button>
+<button class="preset-btn active px-space-md py-space-xs rounded-full bg-secondary text-on-secondary font-label-md text-label-md transition-colors min-h-[48px] flex items-center shadow-sm" type="button">
+<span class="material-symbols-outlined text-base mr-1">check</span> 4 caixas (Leve 4 Pague 3)
+            </button>
+</div>
+</div>
+<!-- Prices Comparison Section -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md pt-space-xs">
+<!-- Promo Price -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-DEFAULT">
+<label class="font-label-md text-label-md text-on-surface font-bold flex items-center justify-between" for="input-promo-price">
+<span>Preço total na promoção:</span>
+<span class="material-symbols-outlined text-primary text-lg">local_offer</span>
+</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-label-lg text-label-lg text-on-surface-variant font-bold">R$</span>
+<input class="w-full min-h-[56px] pl-12 pr-4 bg-surface-container-lowest text-on-surface font-headline-md text-headline-md font-bold rounded-DEFAULT focus:outline-none focus:ring-4 focus:ring-primary-fixed shadow-sm" id="input-promo-price" type="text" value="38,00"/>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Sai por R$ 9,50 cada caixa</span>
+</div>
+<!-- Normal Price -->
+<div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-DEFAULT">
+<label class="font-label-md text-label-md text-on-surface font-bold flex items-center justify-between" for="input-normal-price">
+<span>Preço normal sem promoção:</span>
+<span class="material-symbols-outlined text-on-surface-variant text-lg">receipt_long</span>
+</label>
+<div class="relative">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 font-label-lg text-label-lg text-on-surface-variant font-bold">R$</span>
+<input class="w-full min-h-[56px] pl-12 pr-4 bg-surface-container-lowest text-on-surface font-headline-md text-headline-md font-bold rounded-DEFAULT focus:outline-none focus:ring-4 focus:ring-primary-fixed shadow-sm" id="input-normal-price" type="text" value="59,60"/>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Preço avulso: R$ 14,90 por caixa</span>
+</div>
+</div>
+<!-- Expiration Date of Batch -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<label class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center justify-between" for="input-exp-date">
+<span class="flex items-center gap-1">
+<span>Data de validade do lote da promoção:</span>
+<span aria-hidden="true" class="text-error">*</span>
+</span>
+<span class="font-label-sm text-label-sm text-error font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+              Restam apenas 48 dias
+            </span>
+</label>
+<div class="relative">
+<input class="w-full min-h-[58px] bg-surface-container-low text-on-surface font-body-xl text-body-xl rounded-DEFAULT px-space-md pr-12 focus:outline-none focus:ring-4 focus:ring-primary-fixed shadow-sm font-semibold cursor-pointer" id="input-exp-date" type="date" value="2024-11-30"/>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-primary pointer-events-none text-2xl">
+              event
+            </span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant">Verifique a lateral da caixinha que o atendente da farmácia está oferecendo.</span>
+</div>
+<!-- Pharmacy name (optional) -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface-variant font-medium" for="input-pharmacy">
+            Nome da farmácia ou oferta (opcional):
+          </label>
+<input class="w-full min-h-[54px] bg-surface-container-low text-on-surface font-body-lg text-body-lg rounded-DEFAULT px-space-md focus:outline-none focus:ring-4 focus:ring-primary-fixed shadow-sm" id="input-pharmacy" placeholder="Ex: Farmácia Pague Menos" type="text" value="Droga Raia - Promoção Compre 4 e Economize"/>
+</div>
+<!-- Action Form Buttons -->
+<div class="flex flex-col sm:flex-row items-center gap-space-md pt-space-sm mt-space-xs">
+<button class="w-full sm:flex-1 bg-primary text-on-primary hover:bg-primary-container active:scale-[0.98] min-h-[56px] px-space-lg rounded-full font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-2xl">calculate</span>
+<span>Recalcular simulação</span>
+</button>
+<button class="w-full sm:w-auto min-h-[56px] px-space-lg rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">restart_alt</span>
+<span>Limpar campos</span>
+</button>
+</div>
+</div>
+<!-- Quick Helpful Context Banner for Family Caregiver -->
+<div class="bg-surface-container-low p-space-md rounded-lg flex items-center gap-space-md shadow-sm">
+<span class="material-symbols-outlined text-primary text-3xl shrink-0" style="font-variation-settings: 'FILL' 1;">family_restroom</span>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-bold">Acompanhamento familiar em tempo real</span>
+<span class="font-body-md text-body-md text-on-surface-variant">Mariana (cuidadora cadastrada) receberá uma cópia do relatório se você salvar ou aprovar este pedido.</span>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Smart Diagnostic & Verdict Result (5 cols on lg) -->
+<aside aria-labelledby="result-section-title" class="lg:col-span-5 flex flex-col gap-space-md">
+<!-- High Contrast Main Diagnostic Card -->
+<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-xl flex flex-col gap-space-md">
+<!-- Diagnostic Card Header -->
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="w-8 h-8 rounded-full bg-tertiary text-on-tertiary font-bold flex items-center justify-center font-label-md text-label-md">2</span>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold" id="result-section-title">
+              Diagnóstico da Compra
+            </h2>
+</div>
+<span class="inline-flex items-center gap-1 bg-error-container text-on-error-container px-3 py-1 rounded-full font-label-sm text-label-sm font-bold shadow-sm">
+<span class="material-symbols-outlined text-sm font-bold">warning</span>
+            Risco de Desperdício
+          </span>
+</div>
+<!-- Metric Comparators: Days in Stock vs Days to Expiration -->
+<div class="grid grid-cols-2 gap-space-sm">
+<div class="bg-surface-container-low rounded-DEFAULT p-space-md flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-semibold">O estoque vai durar:</span>
+<div class="my-1">
+<span class="font-headline-xl text-headline-xl text-on-surface font-bold">69</span>
+<span class="font-label-md text-label-md text-on-surface-variant font-bold ml-1">dias</span>
+</div>
+<span class="font-body-md text-body-md text-on-surface-variant text-xs">
+              60 da compra + 9 dias que já tem em casa
+            </span>
+</div>
+<div class="bg-error-container rounded-DEFAULT p-space-md flex flex-col justify-between">
+<span class="font-label-sm text-label-sm text-on-error-container font-semibold">A validade é daqui a:</span>
+<div class="my-1">
+<span class="font-headline-xl text-headline-xl text-error font-bold">48</span>
+<span class="font-label-md text-label-md text-on-error-container font-bold ml-1">dias</span>
+</div>
+<span class="font-body-md text-body-md text-on-error-container font-semibold">
+              Vence em 30/11/2024
+            </span>
+</div>
+</div>
+<!-- Visual Days Progress Bar Chart -->
+<div class="bg-surface-container p-space-md rounded-DEFAULT flex flex-col gap-space-xs">
+<div class="flex justify-between font-label-sm text-label-sm text-on-surface font-bold">
+<span>Linha do tempo do remédio:</span>
+<span class="text-error font-bold">21 dias sem consumo seguro</span>
+</div>
+<!-- Bar Track -->
+<div class="w-full h-6 bg-surface-container-highest rounded-full overflow-hidden flex relative">
+<!-- Consumed safely before expiration: 48 days (~70%) -->
+<div class="h-full bg-primary flex items-center justify-center text-on-primary font-label-sm text-label-sm font-bold text-xs" style="width: 70%;">
+              48 dias úteis
+            </div>
+<!-- Wasted past expiration: 21 days (~30%) -->
+<div class="h-full bg-error flex items-center justify-center text-on-error font-label-sm text-label-sm font-bold text-xs" style="width: 30%;">
+              Vencem
+            </div>
+</div>
+<div class="flex justify-between font-body-md text-body-md text-on-surface-variant text-xs">
+<span>Hoje (Início)</span>
+<span class="text-error font-bold">30/Nov (Validade)</span>
+<span>20/Dez (Fim das caixas)</span>
+</div>
+</div>
+<!-- High-contrast Amber Alert Banner (Never color alone) -->
+<div class="bg-tertiary-fixed text-on-tertiary-fixed p-space-md rounded-DEFAULT flex items-start gap-space-md shadow-sm">
+<span class="material-symbols-outlined text-3xl text-tertiary shrink-0" style="font-variation-settings: 'FILL' 1;">notification_important</span>
+<div class="flex flex-col gap-1">
+<span class="font-label-lg text-label-lg font-bold text-on-tertiary-fixed">
+              Atenção: 21 a 25 comprimidos vencem antes de serem usados!
+            </span>
+<p class="font-body-md text-body-md text-on-tertiary-fixed leading-relaxed">
+              Com seu consumo diário de <strong>2 comprimidos ao dia</strong>, o senhor só conseguirá tomar cerca de 96 comprimidos até a data de 30/11. Quase <strong>1 caixa inteira</strong> estragará no seu armário.
+            </p>
+</div>
+</div>
+<!-- Financial Breakdown in Reais -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-md flex flex-col gap-space-xs">
+<span class="font-label-md text-label-md text-on-surface font-bold mb-1">Cálculo Financeiro Transparente:</span>
+<div class="flex items-center justify-between font-body-lg text-body-lg text-on-surface-variant">
+<span>Preço normal do que vai tomar (96 comp.):</span>
+<span class="font-semibold text-on-surface">R$ 47,68</span>
+</div>
+<div class="flex items-center justify-between font-body-lg text-body-lg text-on-surface-variant">
+<span>Valor a pagar no pacote promocional:</span>
+<span class="font-semibold text-on-surface">R$ 38,00</span>
+</div>
+<div class="flex items-center justify-between font-body-lg text-body-lg text-error">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-base">delete_outline</span>
+              Prejuízo estimado com remédio vencido:
+            </span>
+<span class="font-bold">- R$ 8,00</span>
+</div>
+<div class="pt-space-xs mt-space-xs flex items-center justify-between font-headline-md text-headline-md text-primary font-bold">
+<span class="font-label-lg text-label-lg text-on-surface font-bold">Economia líquida real:</span>
+<span class="bg-secondary-fixed text-on-secondary-fixed px-3 py-0.5 rounded-full font-bold">
+              R$ 9,68
+            </span>
+</div>
+</div>
+<!-- MedStorage Expert Recommendation Card -->
+<div class="bg-primary text-on-primary rounded-DEFAULT p-space-md flex flex-col gap-space-xs shadow-md">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-2xl text-secondary-fixed" style="font-variation-settings: 'FILL' 1;">recommend</span>
+<span class="font-headline-md text-headline-md font-bold text-on-primary">
+              Recomendação MedStorage:
+            </span>
+</div>
+<div class="bg-primary-container p-space-sm rounded-DEFAULT">
+<span class="font-label-lg text-label-lg font-bold block text-on-primary-container">
+              Compre no máximo 3 caixas (90 comprimidos)!
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-primary leading-relaxed opacity-95">
+            Ao comprar 3 caixas avulsas ou pedir outro desconto no balcão, o senhor aproveita a validade sem jogar comprimidos no lixo, economizando <strong>R$ 11,20</strong> com 100% de segurança de saúde.
+          </p>
+</div>
+<!-- Direct Action Buttons with Large Touch Targets (>= 52px) -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<!-- Primary CTA Button -->
+<button class="w-full min-h-[58px] bg-secondary hover:bg-on-secondary-fixed-variant text-on-secondary rounded-full font-label-lg text-label-lg font-bold flex items-center justify-center gap-space-xs shadow-md active:scale-[0.98] transition-all focus:outline-none focus:ring-4 focus:ring-secondary-fixed" type="button">
+<span class="material-symbols-outlined text-2xl">add_shopping_cart</span>
+<span>Adicionar 3 caixas à lista da Mariana</span>
+</button>
+<!-- WhatsApp Caregiver Sharing Button -->
+<button class="w-full min-h-[52px] bg-surface-container-high hover:bg-surface-container-highest text-on-surface rounded-full font-label-md text-label-md font-bold flex items-center justify-center gap-space-xs transition-colors focus:outline-none focus:ring-4 focus:ring-primary-fixed" type="button">
+<span class="material-symbols-outlined text-xl text-primary">share</span>
+<span>Enviar análise para Mariana no WhatsApp</span>
+</button>
+<!-- Secondary Save Button -->
+<button class="w-full min-h-[52px] bg-transparent hover:bg-surface-container text-on-surface-variant hover:text-on-surface rounded-full font-label-md text-label-md font-semibold flex items-center justify-center gap-space-xs transition-colors" type="button">
+<span class="material-symbols-outlined text-xl">bookmark_border</span>
+<span>Salvar esta simulação para depois</span>
+</button>
+</div>
+</div>
+</aside>
+</div>
+<!-- Simulation History Section (Past calculations for realism and confidence) -->
+<section aria-labelledby="history-heading" class="w-full mt-space-lg mb-space-md">
+<div class="bg-surface-container-lowest rounded-lg p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-xs pb-space-xs">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold" id="history-heading">
+            Histórico de simulações recentes
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Veja as ofertas que o senhor e a Mariana já avaliaram antes de ir à farmácia.
+          </p>
+</div>
+<button class="font-label-md text-label-md text-primary font-bold hover:underline self-start sm:self-auto flex items-center gap-1" type="button">
+<span>Ver todas as 8 simulações</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+<!-- History Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- History Item 1: Metformina (Approved) -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-md flex flex-col justify-between gap-space-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface font-bold block">Metformina 850 mg</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pague 3 Leve 4 (Drogasil) • 05/Out</span>
+</div>
+</div>
+<span class="bg-secondary text-on-secondary px-3 py-1 rounded-full font-label-sm text-label-sm font-bold">
+              Compra Aprovada
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Validade longa de 18 meses. O senhor consumirá todas as caixas com sobra de segurança de 1 ano.
+          </p>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Economia calculada:</span>
+<span class="font-label-lg text-label-lg text-primary font-bold">Economizou R$ 18,50</span>
+</div>
+</div>
+<!-- History Item 2: Omeprazol (Careful / Avoid) -->
+<div class="bg-surface-container-low rounded-DEFAULT p-space-md flex flex-col justify-between gap-space-sm hover:shadow-md transition-shadow">
+<div class="flex items-start justify-between gap-space-xs">
+<div class="flex items-center gap-space-xs">
+<div class="w-10 h-10 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined text-xl">do_not_disturb_on</span>
+</div>
+<div>
+<span class="font-label-lg text-label-lg text-on-surface font-bold block">Omeprazol 20 mg</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Farmácia Popular (Caixa com 56) • 28/Set</span>
+</div>
+</div>
+<span class="bg-error text-on-error px-3 py-1 rounded-full font-label-sm text-label-sm font-bold">
+              Não Recomendado
+            </span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant">
+            Uso prescrito por apenas 30 dias após consulta médica. Comprar caixas extras geraria desperdício total.
+          </p>
+<div class="flex items-center justify-between pt-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Desperdício evitado:</span>
+<span class="font-label-lg text-label-lg text-error font-bold">Evitou perder R$ 24,00</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive JavaScript for micro-adjustments & preset clicks -->
+<script>
+    (function() {
+      const quantityDisplay = document.getElementById('quantity-display');
+      const btnDecrease = document.getElementById('btn-decrease');
+      const btnIncrease = document.getElementById('btn-increase');
+      const presetButtons = document.querySelectorAll('.preset-btn');
+      
+      let boxes = 4;
+      const tabletsPerBox = 30;
+
+      function updateDisplay() {
+        if (!quantityDisplay) return;
+        quantityDisplay.textContent = boxes + ' ' + (boxes === 1 ? 'caixa' : 'caixas') + ' (' + (boxes * tabletsPerBox) + ' comprimidos)';
+      }
+
+      if (btnDecrease) {
+        btnDecrease.addEventListener('click', function() {
+          if (boxes > 1) {
+            boxes--;
+            updateDisplay();
+          }
+        });
+      }
+
+      if (btnIncrease) {
+        btnIncrease.addEventListener('click', function() {
+          if (boxes < 12) {
+            boxes++;
+            updateDisplay();
+          }
+        });
+      }
+
+      presetButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          presetButtons.forEach(function(b) {
+            b.classList.remove('bg-secondary', 'text-on-secondary');
+            b.classList.add('bg-surface-container', 'text-on-surface');
+          });
+          btn.classList.remove('bg-surface-container', 'text-on-surface');
+          btn.classList.add('bg-secondary', 'text-on-secondary');
+
+          const text = btn.textContent;
+          if (text.includes('2 caixas')) boxes = 2;
+          else if (text.includes('3 caixas')) boxes = 3;
+          else if (text.includes('4 caixas')) boxes = 4;
+          updateDisplay();
+        });
+      });
+    })();
+  </script>
+</div>
+</section>
+
+</main>
+
+<script>
+// Simple router/navigation
+function navigateTo(sectionId) {
+    document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(sectionId).classList.add('active');
+}
+document.querySelectorAll('a[href="#"]').forEach(a => {
+    a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const text = e.target.textContent.toLowerCase();
+        if (text.includes('entrar')) navigateTo('login');
+        else if (text.includes('dashboard')) navigateTo('dashboard');
+        else if (text.includes('meus remédios') || text.includes('medicamentos')) navigateTo('meus-remedios');
+        else if (text.includes('cadastrar') || text.includes('novo')) navigateTo('cadastrar-remedio');
+        else if (text.includes('alerta') || text.includes('notificação')) navigateTo('alertas');
+        else if (text.includes('simulador')) navigateTo('simulador');
+    });
+});
+</script>
+</body>
+</html>
