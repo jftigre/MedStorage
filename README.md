@@ -15,7 +15,7 @@
 
 ![Prévia do MedStorage](preview.png)
 
-🔗 **Veja o sistema no ar:** [jftigre.github.io/medstorage](https://jftigre.github.io/medstorage/)
+🔗 **Veja o sistema no ar:** [jftigre.github.io/MedStorage](https://jftigre.github.io/MedStorage/)
 
 ---
 
@@ -113,27 +113,29 @@ flowchart LR
 
 ## Páginas / Telas da Aplicação (GitHub Pages)
 
-**Índice**
+Acesse diretamente as telas publicadas:
 
-- 🏠 **Índice / Home:** [https://jftigre.github.io/medstorage/](https://jftigre.github.io/medstorage/)
+**Índice Geral**
+
+- 🏠 **Índice / Home:** [`index.html`](https://jftigre.github.io/MedStorage/)
 
 **Acesso**
 
-- 🔑 **Login:** [login.html](https://jftigre.github.io/medstorage/login.html)
+- 🔑 **Login:** [`login.html`](https://jftigre.github.io/MedStorage/login.html)
 
 **Painel**
 
-- 📊 **Dashboard:** [dashboard.html](https://jftigre.github.io/medstorage/dashboard.html)
+- 📊 **Dashboard:** [`dashboard.html`](https://jftigre.github.io/MedStorage/dashboard.html)
 
 **Estoque**
 
-- 💊 **Meus Remédios:** [medicamentos.html](https://jftigre.github.io/medstorage/medicamentos.html)
-- ➕ **Cadastro / Edição de Remédio:** [medicamento-form.html](https://jftigre.github.io/medstorage/medicamento-form.html)
+- 💊 **Meus Remédios:** [`medicamentos.html`](https://jftigre.github.io/MedStorage/medicamentos.html)
+- ➕ **Cadastro / Edição de Remédio:** [`medicamento-form.html`](https://jftigre.github.io/MedStorage/medicamento-form.html)
 
 **Compras e Alertas**
 
-- 🛒 **Simulador de Compra:** [simulador.html](https://jftigre.github.io/medstorage/simulador.html)
-- 🔔 **Alertas (Validade e Reposição):** [alertas.html](https://jftigre.github.io/medstorage/alertas.html)
+- 🛒 **Simulador de Compra:** [`simulador.html`](https://jftigre.github.io/MedStorage/simulador.html)
+- 🔔 **Alertas (Validade e Reposição):** [`alertas.html`](https://jftigre.github.io/MedStorage/alertas.html)
 
 > Nesta etapa as telas são **estáticas, com dados fictícios** (HTML + CSS).
 > Nada é gravado e não há login real.
@@ -310,12 +312,12 @@ medstorage/
 > configuração (`.env.example`) e execução.
 
 ```bash
-git clone https://github.com/jftigre/medstorage.git
-cd medstorage
+git clone https://github.com/jftigre/MedStorage.git
+cd MedStorage
 ```
 
 **Etapa inicial (telas estáticas):** abra o `index.html` no navegador ou acesse
-a versão publicada no [GitHub Pages](https://jftigre.github.io/medstorage/).
+a versão publicada no [GitHub Pages](https://jftigre.github.io/MedStorage/).
 
 **Projeto 1.1 (`vanilla/`):** instruções de instalação e execução serão
 adicionadas ao concluir a etapa.
