@@ -104,7 +104,7 @@ flowchart LR
 ## Documentação & Recursos
 
 - **Pitch / Apresentação:** [Link dos slides da proposta]()
-- **Protótipos / Design:** [Ver protótipos](docs/prototypes/) | [Google Stitch]()
+- **Protótipos / Design:** [Ver protótipos](https://www.figma.com/design/h9AyrFcKoLvPD4NTpk1ccV/Sem-t%C3%ADtulo?node-id=0-1&t=lYeuYfhczdCiQqVs-1) | [Google Stitch]()
 - **Workflow / Kanban:** [GitHub Projects](https://github.com/users/jftigre/projects/2)
 - **Documentação do Projeto:** [Ver pasta de documentação](docs/)
   - [Modelo de dados](docs/data-model.md)
