@@ -103,7 +103,7 @@
   <header class="fixed top-0 right-0 left-0 z-40 bg-surface/95 backdrop-blur-xl border-b border-surface-container shadow-sm">
     <div class="h-20 w-full max-w-7xl mx-auto px-gutter-mobile md:px-gutter flex items-center justify-between gap-space-sm">
       <div class="flex items-center gap-space-xs text-on-surface-variant">
-        <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+        <a href="dashboard.html" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
           <span class="material-symbols-outlined text-primary text-2xl font-bold">medication</span>
           <span class="font-headline-md font-bold text-primary tracking-tight">MedStorage</span>
         </a>
@@ -113,6 +113,14 @@
         <a href="tel:08007008090" class="flex items-center gap-space-xs bg-primary text-on-primary px-space-md py-space-xs rounded-full min-h-[48px] shadow-sm hover:bg-primary-container transition-colors text-sm font-semibold">
           <span class="material-symbols-outlined text-xl">call</span>
           <span class="hidden md:inline">Ajuda da cuidadora</span>
+        </a>
+        <a href="perfil.html" aria-label="Perfil" title="Perfil" class="flex min-h-[48px] items-center gap-1 rounded-full px-space-sm text-sm font-semibold text-primary transition-colors hover:bg-surface-container">
+          <span aria-hidden="true" class="material-symbols-outlined text-xl">account_circle</span>
+          <span class="hidden lg:inline">Perfil</span>
+        </a>
+        <a href="login.html" data-logout aria-label="Logout" title="Logout" class="flex min-h-[48px] items-center gap-1 rounded-full px-space-sm text-sm font-semibold text-on-surface-variant transition-colors hover:bg-surface-container">
+          <span aria-hidden="true" class="material-symbols-outlined text-xl">logout</span>
+          <span class="hidden lg:inline">Logout</span>
         </a>
       </div>
     </div>
@@ -205,5 +213,6 @@
 
   <script type="module" src="./src/pages/medicamentos.js"></script>
   <script type="module" src="./src/main.js"></script>
+  <script type="module" src="./src/pages/logout.js"></script>
 </body>
 </html>

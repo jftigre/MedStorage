@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7f6">
+  <meta name="description" content="Consulte os dados da sua conta MedStorage.">
+  <title>Perfil | MedStorage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: { 50: "#edf8f6", 100: "#d4efea", 700: "#087568", 800: "#075d55", 900: "#104a44" },
+            ink: "#18302e",
+            mist: "#f4f7f6"
+          },
+          fontFamily: {
+            sans: ["Lexend", "sans-serif"],
+            display: ["Epilogue", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen bg-mist font-sans text-ink antialiased">
+  <header class="fixed inset-x-0 top-0 z-10 border-b border-teal-100 bg-white/95 backdrop-blur">
+    <nav aria-label="Navegação principal" class="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+      <a href="dashboard.html" class="inline-flex shrink-0 items-center gap-2 font-display text-lg font-bold text-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-100" aria-label="MedStorage, página inicial">
+        <span aria-hidden="true" class="material-symbols-outlined text-3xl">medication</span>
+        <span>MedStorage</span>
+      </a>
+      <div class="flex items-center gap-1 sm:gap-3">
+        <a href="tel:08007008090" aria-label="Ajuda rápida da cuidadora" class="inline-flex min-h-11 items-center gap-2 rounded-full bg-teal-700 px-3 text-sm font-semibold text-white transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-200">
+          <span aria-hidden="true" class="material-symbols-outlined text-xl">call</span>
+          <span class="hidden sm:inline">Ajuda da cuidadora</span>
+        </a>
+        <a href="perfil.html" aria-current="page" class="inline-flex min-h-11 items-center gap-1 rounded-full px-2 text-sm font-semibold text-teal-800 transition hover:bg-teal-50 focus:outline-none focus:ring-4 focus:ring-teal-100 sm:px-3">
+          <span aria-hidden="true" class="material-symbols-outlined text-xl">account_circle</span>
+          <span>Perfil</span>
+        </a>
+        <a href="login.html" data-logout class="inline-flex min-h-11 items-center gap-1 rounded-full px-2 text-sm font-semibold text-ink transition hover:bg-teal-50 focus:outline-none focus:ring-4 focus:ring-teal-100 sm:px-3">
+          <span aria-hidden="true" class="material-symbols-outlined text-xl">logout</span>
+          <span>Logout</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 pb-12 pt-28 sm:px-6">
+    <section aria-labelledby="perfil-titulo" class="rounded-lg border border-teal-100 bg-white p-6 shadow-sm sm:p-8">
+      <div class="mb-6 flex items-center gap-3">
+        <span aria-hidden="true" class="material-symbols-outlined flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-3xl text-teal-800">account_circle</span>
+        <div>
+          <h1 id="perfil-titulo" class="font-display text-2xl font-bold text-ink">Meu perfil</h1>
+          <p class="mt-1 text-sm text-slate-700">Dados da sua conta MedStorage.</p>
+        </div>
+      </div>
+
+      <dl class="divide-y divide-slate-200">
+        <div class="grid gap-1 py-4 sm:grid-cols-3 sm:gap-4">
+          <dt class="text-sm font-semibold text-slate-700">Nome</dt>
+          <dd id="perfil-nome" class="break-words text-ink sm:col-span-2"></dd>
+        </div>
+        <div class="grid gap-1 py-4 sm:grid-cols-3 sm:gap-4">
+          <dt class="text-sm font-semibold text-slate-700">E-mail</dt>
+          <dd id="perfil-email" class="break-words text-ink sm:col-span-2"></dd>
+        </div>
+        <div class="grid gap-1 py-4 sm:grid-cols-3 sm:gap-4">
+          <dt class="text-sm font-semibold text-slate-700">CPF</dt>
+          <dd id="perfil-cpf" class="break-words text-ink sm:col-span-2"></dd>
+        </div>
+        <div class="grid gap-1 py-4 sm:grid-cols-3 sm:gap-4">
+          <dt class="text-sm font-semibold text-slate-700">Telefone</dt>
+          <dd id="perfil-telefone" class="break-words text-ink sm:col-span-2"></dd>
+        </div>
+      </dl>
+
+      <a href="dashboard.html" class="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-teal-700 px-5 py-2 font-semibold text-white transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-200">
+        <span aria-hidden="true" class="material-symbols-outlined">arrow_back</span>
+        Voltar ao início
+      </a>
+    </section>
+  </main>
+
+  <script type="module" src="./src/pages/perfil.js"></script>
+  <script type="module" src="./src/pages/logout.js"></script>
+</body>
+</html>
