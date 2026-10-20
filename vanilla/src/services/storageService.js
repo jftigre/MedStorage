@@ -1,3 +1,7 @@
+import { seedData } from './seedData.js';
+
+export const CHAVE_MEDICAMENTOS = 'medstorage_medicamentos';
+
 export const storageService = {
   obterItem(chave, valorPadrao = null) {
     try {
@@ -35,3 +39,11 @@ export const storageService = {
     }
   }
 };
+
+export function initStorage() {
+  if (localStorage.getItem(CHAVE_MEDICAMENTOS) === null) {
+    return storageService.salvarItem(CHAVE_MEDICAMENTOS, seedData);
+  }
+
+  return false;
+}
