@@ -63,24 +63,65 @@
         </div>
       </div>
 
-      <dl class="divide-y divide-slate-200">
-        <div class="grid gap-1 py-4 sm:grid-cols-3 sm:gap-4">
-          <dt class="text-sm font-semibold text-slate-700">Nome</dt>
-          <dd id="perfil-nome" class="break-words text-ink sm:col-span-2"></dd>
+      <form id="perfil-form" class="space-y-4" novalidate>
+        <div class="flex flex-col items-center gap-4 rounded-md bg-teal-50 p-5 sm:flex-row">
+          <img
+            id="imagem-perfil"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%23d4efea'/%3E%3Ccircle cx='48' cy='36' r='17' fill='%23087568'/%3E%3Cpath d='M16 88c3-19 15-29 32-29s29 10 32 29' fill='%23087568'/%3E%3C/svg%3E"
+            alt="Foto de perfil"
+            class="h-24 w-24 rounded-full border-4 border-white object-cover shadow-sm"
+          >
+          <div class="w-full">
+            <label for="foto-perfil" class="mb-1.5 block text-sm font-semibold text-slate-700">Foto de perfil</label>
+            <input id="foto-perfil" name="fotoPerfil" type="file" accept="image/*" aria-describedby="foto-ajuda" class="block min-h-11 w-full rounded-md border border-slate-400 bg-white px-3 py-2 text-sm text-ink file:mr-3 file:rounded file:border-0 file:bg-teal-100 file:px-3 file:py-1.5 file:font-semibold file:text-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-100">
+            <p id="foto-ajuda" class="mt-1.5 text-sm text-slate-700">Selecione uma imagem com menos de 1 MB.</p>
+          </div>
         </div>
-        <div class="grid gap-1 py-4 sm:grid-cols-3 sm:gap-4">
-          <dt class="text-sm font-semibold text-slate-700">E-mail</dt>
-          <dd id="perfil-email" class="break-words text-ink sm:col-span-2"></dd>
+
+        <div>
+          <label for="perfil-nome" class="mb-1.5 block text-sm font-semibold text-slate-700">Nome</label>
+          <input id="perfil-nome" name="nome" type="text" autocomplete="name" required class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
         </div>
-        <div class="grid gap-1 py-4 sm:grid-cols-3 sm:gap-4">
-          <dt class="text-sm font-semibold text-slate-700">CPF</dt>
-          <dd id="perfil-cpf" class="break-words text-ink sm:col-span-2"></dd>
+
+        <div>
+          <label for="perfil-email" class="mb-1.5 block text-sm font-semibold text-slate-700">E-mail</label>
+          <input id="perfil-email" name="email" type="email" autocomplete="email" inputmode="email" required class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
         </div>
-        <div class="grid gap-1 py-4 sm:grid-cols-3 sm:gap-4">
-          <dt class="text-sm font-semibold text-slate-700">Telefone</dt>
-          <dd id="perfil-telefone" class="break-words text-ink sm:col-span-2"></dd>
+
+        <div>
+          <label for="perfil-cpf" class="mb-1.5 block text-sm font-semibold text-slate-700">CPF</label>
+          <input id="perfil-cpf" name="cpf" type="text" readonly aria-readonly="true" class="min-h-12 w-full cursor-not-allowed rounded-md border border-slate-300 bg-slate-100 px-4 py-3 text-base text-slate-600">
         </div>
-      </dl>
+
+        <div>
+          <label for="perfil-telefone" class="mb-1.5 block text-sm font-semibold text-slate-700">Telefone Pessoal</label>
+          <input id="perfil-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+        </div>
+
+        <div>
+          <label for="perfil-telefone-cuidador" class="mb-1.5 block text-sm font-semibold text-slate-700">Telefone do Cuidador</label>
+          <input id="perfil-telefone-cuidador" name="telefoneCuidador" type="tel" autocomplete="tel" inputmode="tel" class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+        </div>
+
+        <fieldset class="space-y-4 rounded-md border border-teal-100 p-4 sm:p-5">
+          <legend class="px-2 font-display font-bold text-teal-800">Segurança</legend>
+          <div>
+            <label for="senha-atual" class="mb-1.5 block text-sm font-semibold text-slate-700">Senha Atual</label>
+            <input id="senha-atual" name="senhaAtual" type="password" autocomplete="current-password" required class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+          </div>
+          <div>
+            <label for="nova-senha" class="mb-1.5 block text-sm font-semibold text-slate-700">Nova Senha (opcional)</label>
+            <input id="nova-senha" name="novaSenha" type="password" autocomplete="new-password" minlength="6" aria-describedby="nova-senha-ajuda" class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+            <p id="nova-senha-ajuda" class="mt-1.5 text-sm text-slate-700">Deixe em branco para manter a senha atual. Use pelo menos 6 caracteres.</p>
+          </div>
+        </fieldset>
+
+        <p id="mensagem-feedback" class="hidden rounded-md px-4 py-3 text-sm font-medium" aria-live="polite"></p>
+
+        <button type="submit" class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-teal-700 px-5 py-3 font-semibold text-white transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-200 sm:w-auto">
+          Salvar Alterações
+        </button>
+      </form>
 
       <a href="dashboard.html" class="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-teal-700 px-5 py-2 font-semibold text-white transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-200">
         <span aria-hidden="true" class="material-symbols-outlined">arrow_back</span>
