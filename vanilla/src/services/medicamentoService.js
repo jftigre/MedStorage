@@ -36,3 +36,24 @@ export function criarMedicamento(dados) {
 
   return novoMedicamento;
 }
+
+export function atualizarMedicamento(id, dadosAtualizados) {
+  const medicamentos = listarMedicamentos();
+  const medicamentoExistente = medicamentos.find((medicamento) => medicamento.id === id);
+
+  if (!medicamentoExistente) {
+    throw new Error(`Medicamento com ID "${id}" não encontrado.`);
+  }
+
+  const medicamentosAtualizados = medicamentos.map((medicamento) =>
+    medicamento.id === id
+      ? { ...medicamento, ...dadosAtualizados, id: medicamento.id }
+      : medicamento
+  );
+
+  if (!storageService.salvarItem(CHAVE_MEDICAMENTOS, medicamentosAtualizados)) {
+    throw new Error(`Não foi possível salvar as alterações do medicamento "${id}".`);
+  }
+
+  return medicamentosAtualizados.find((medicamento) => medicamento.id === id);
+}

@@ -61,6 +61,9 @@ export function criarMedicamentoCard(medEnriquecido) {
   const acoes = criarElemento('div', ['flex', 'flex-col', 'sm:flex-row', 'gap-space-sm']);
   const detalhesButton = criarElemento('button', ['flex-1', 'min-h-[48px]', 'rounded-full', 'bg-primary', 'px-space-md', 'py-space-xs', 'font-bold', 'text-on-primary'], 'Ver detalhes');
   const editarButton = criarElemento('button', ['flex-1', 'min-h-[48px]', 'rounded-full', 'border', 'border-primary', 'px-space-md', 'py-space-xs', 'font-bold', 'text-primary'], 'Editar');
+  editarButton.addEventListener('click', () => {
+    window.location.href = 'medicamento-form.html?id=' + medEnriquecido.id;
+  });
   acoes.appendChild(detalhesButton);
   acoes.appendChild(editarButton);
 
