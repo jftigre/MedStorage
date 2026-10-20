@@ -26,6 +26,31 @@ export function verificarSessao() {
   return usuario ? JSON.parse(usuario) : null;
 }
 
+export function obterDadosPerfil() {
+  const sessao = verificarSessao();
+  if (!sessao) {
+    return null;
+  }
+
+  const usuariosArmazenados = localStorage.getItem(CHAVE_USUARIOS);
+  if (!usuariosArmazenados) {
+    return { nome: sessao.nome, email: sessao.email, cpf: "", telefone: "" };
+  }
+
+  const usuarios = JSON.parse(usuariosArmazenados);
+  if (!Array.isArray(usuarios)) {
+    throw new Error("Os dados de cadastro armazenados não estão em um formato válido.");
+  }
+
+  const usuario = usuarios.find((item) => item.id === sessao.id || item.email === sessao.email);
+  return {
+    nome: usuario?.nome ?? sessao.nome,
+    email: usuario?.email ?? sessao.email,
+    cpf: usuario?.cpf ?? "",
+    telefone: usuario?.telefone ?? ""
+  };
+}
+
 export function realizarLogout() {
   localStorage.removeItem(CHAVE_USUARIO);
 }
