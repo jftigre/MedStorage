@@ -1,5 +1,9 @@
 const registerForm = document.querySelector("#register-form");
 const formError = document.querySelector("#form-error");
+const passwordToggles = [
+  { input: document.querySelector("#password"), button: document.querySelector("#toggle-password") },
+  { input: document.querySelector("#confirm-password"), button: document.querySelector("#toggle-confirm-password") }
+];
 const fields = {
   name: {
     input: document.querySelector("#full-name"),
@@ -73,21 +77,28 @@ registerForm.addEventListener("submit", (event) => {
   }
 
   try {
-    const storedUsers = localStorage.getItem("usersDB");
-    const usersDB = storedUsers ? JSON.parse(storedUsers) : [];
+    const storedUsers = localStorage.getItem("medstorage_usersDB");
+    const usersDB = storedUsers === null ? [] : JSON.parse(storedUsers);
 
     if (!Array.isArray(usersDB)) {
       throw new Error("O cadastro armazenado não está em um formato válido.");
     }
 
+    if (usersDB.some((user) => user.email === values.email)) {
+      showFieldError(fields.email, "E-mail já registado");
+      fields.email.input.focus();
+      return;
+    }
+
     usersDB.push({
-      name: values.name,
+      id: Date.now(),
+      nome: values.name,
       cpf: values.cpf,
       email: values.email,
-      phone: values.phone,
-      password: values.password
+      telefone: values.phone,
+      senha: values.password
     });
-    localStorage.setItem("usersDB", JSON.stringify(usersDB));
+    localStorage.setItem("medstorage_usersDB", JSON.stringify(usersDB));
     window.location.href = "login.html";
   } catch {
     formError.textContent = "Não foi possível salvar seu cadastro neste navegador. Tente novamente.";
@@ -97,4 +108,13 @@ registerForm.addEventListener("submit", (event) => {
 
 Object.values(fields).forEach(({ input, error }) => {
   input.addEventListener("input", () => showFieldError({ input, error }, ""));
+});
+
+passwordToggles.forEach(({ input, button }) => {
+  button.addEventListener("click", () => {
+    const shouldShowPassword = input.type === "password";
+    input.type = shouldShowPassword ? "text" : "password";
+    button.textContent = shouldShowPassword ? "Ocultar" : "Mostrar";
+    button.setAttribute("aria-pressed", String(shouldShowPassword));
+  });
 });
