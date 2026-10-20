@@ -1,10 +1,15 @@
-import { criarMedicamento, obterMedicamentoPorId } from '../services/medicamentoService.js';
+import {
+  atualizarMedicamento,
+  criarMedicamento,
+  obterMedicamentoPorId
+} from '../services/medicamentoService.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('form-medicamento');
   const erroContainer = document.getElementById('erro-container');
   const erroMensagem = document.getElementById('erro-mensagem');
   const sucessoContainer = document.getElementById('sucesso-container');
+  const sucessoMensagem = document.getElementById('sucesso-mensagem');
   const btnCancelar = document.getElementById('btn-cancelar');
   const btnSalvar = document.getElementById('btn-salvar');
   const btnScanner = document.getElementById('btn-scanner');
@@ -78,6 +83,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (breadcrumbAtual) {
       breadcrumbAtual.textContent = 'Editar medicamento';
+    }
+
+    const textoBotaoSalvar = btnSalvar.querySelector('span:last-child');
+    if (textoBotaoSalvar) {
+      textoBotaoSalvar.textContent = 'Salvar alterações';
     }
 
     if (medicamento) {
@@ -178,8 +188,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      criarMedicamento(dadosMedicamento);
+      if (idMedicamento) {
+        atualizarMedicamento(idMedicamento, dadosMedicamento);
+      } else {
+        criarMedicamento(dadosMedicamento);
+      }
 
+      if (sucessoMensagem) {
+        sucessoMensagem.textContent = idMedicamento
+          ? 'Medicamento atualizado com sucesso! Redirecionando...'
+          : 'Medicamento cadastrado com sucesso! Redirecionando...';
+      }
       sucessoContainer.classList.remove('hidden');
       btnSalvar.disabled = true;
       btnSalvar.classList.add('opacity-70', 'cursor-not-allowed');
@@ -188,8 +207,9 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'medicamentos.html';
       }, 750);
     } catch (erro) {
-      console.error('Erro ao cadastrar medicamento:', erro);
-      exibirErro('Não foi possível salvar os dados do medicamento. Verifique as permissões de armazenamento do navegador.');
+      const acao = idMedicamento ? 'atualizar' : 'cadastrar';
+      console.error(`Erro ao ${acao} medicamento:`, erro);
+      exibirErro(`Não foi possível ${acao} os dados do medicamento. Verifique as permissões de armazenamento do navegador.`);
     }
   });
 
