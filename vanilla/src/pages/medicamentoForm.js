@@ -1,4 +1,4 @@
-import { criarMedicamento } from '../services/medicamentoService.js';
+import { criarMedicamento, obterMedicamentoPorId } from '../services/medicamentoService.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('form-medicamento');
@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputEstoqueMinimo = document.getElementById('estoque_minimo_dias');
   const consumoPreview = document.getElementById('consumo-diario-preview');
   const headerData = document.getElementById('header-data-atual');
+  const idMedicamento = new URLSearchParams(window.location.search).get('id');
 
   if (headerData) {
     try {
@@ -36,20 +37,63 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Seleção da forma farmacêutica
   const botoesForma = document.querySelectorAll('.btn-forma-opcao');
+  function selecionarForma(formaSelecionada) {
+    inputForma.value = formaSelecionada;
+
+    botoesForma.forEach((botao) => {
+      botao.setAttribute('aria-checked', 'false');
+      botao.className = 'btn-forma-opcao flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors text-left';
+    });
+
+    const botaoSelecionado = Array.from(botoesForma).find(
+      (botao) => botao.getAttribute('data-forma') === formaSelecionada
+    );
+
+    if (botaoSelecionado) {
+      botaoSelecionado.setAttribute('aria-checked', 'true');
+      botaoSelecionado.className = 'btn-forma-opcao flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-primary-container text-on-primary-container font-semibold ring-2 ring-primary shadow-sm transition-all text-left';
+    }
+  }
+
   botoesForma.forEach((botao) => {
     botao.addEventListener('click', () => {
       const formaSelecionada = botao.getAttribute('data-forma');
-      inputForma.value = formaSelecionada;
 
-      botoesForma.forEach((b) => {
-        b.setAttribute('aria-checked', 'false');
-        b.className = 'btn-forma-opcao flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors text-left';
-      });
-
-      botao.setAttribute('aria-checked', 'true');
-      botao.className = 'btn-forma-opcao flex items-center gap-space-sm min-h-[56px] px-space-md rounded-DEFAULT bg-primary-container text-on-primary-container font-semibold ring-2 ring-primary shadow-sm transition-all text-left';
+      if (formaSelecionada) {
+        selecionarForma(formaSelecionada);
+      }
     });
   });
+
+  if (idMedicamento) {
+    const medicamento = obterMedicamentoPorId(idMedicamento);
+    const titulo = document.querySelector('h1');
+    const breadcrumbAtual = document.querySelector('[aria-current="page"]');
+
+    document.title = 'Editar Medicamento | MedStorage';
+
+    if (titulo) {
+      titulo.textContent = 'Editar Medicamento';
+    }
+
+    if (breadcrumbAtual) {
+      breadcrumbAtual.textContent = 'Editar medicamento';
+    }
+
+    if (medicamento) {
+      inputNome.value = medicamento.nome;
+      inputDosagem.value = medicamento.dosagem;
+      inputFinalidade.value = medicamento.finalidade || '';
+      inputComprimidos.value = medicamento.comprimidos_por_dose;
+      inputDosesDia.value = medicamento.doses_por_dia;
+      inputEstoqueMinimo.value = medicamento.estoque_minimo_dias;
+      selecionarForma(medicamento.forma || 'comprimido');
+    } else {
+      exibirErro('Não foi possível encontrar o medicamento para edição.');
+      btnSalvar.disabled = true;
+      btnSalvar.classList.add('opacity-70', 'cursor-not-allowed');
+    }
+  }
 
   // Atualização dinâmica do consumo diário
   function atualizarPreviewConsumo() {
