@@ -139,7 +139,7 @@
           class="flex items-center justify-center gap-2 bg-primary text-on-primary px-space-lg py-space-xs rounded-full min-h-[52px] shadow-md hover:bg-primary-container hover:text-on-primary-container transition-all font-bold text-base whitespace-nowrap"
         >
           <span class="material-symbols-outlined text-2xl">add_circle</span>
-          <span>+ Novo remédio</span>
+          <span>+ Novo Medicamento</span>
         </a>
       </div>
     </header>
@@ -153,7 +153,29 @@
         <span class="text-xs text-on-surface-variant">Dados persistidos no LocalStorage (UC03)</span>
       </div>
 
-      <div id="medicamentos-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md"></div>
+      <div id="grid-medicamentos" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!--
+        <article class="border-l-4 border-primary bg-surface-container-lowest rounded-DEFAULT p-space-md shadow-sm flex flex-col gap-space-md">
+          <div>
+            <p class="text-xs uppercase tracking-wider font-bold text-primary">Comprimido</p>
+            <h3 class="text-xl font-bold text-on-surface">Exemplo de Medicamento</h3>
+            <p class="text-sm text-on-surface-variant mt-1">500 mg · Uso contínuo</p>
+          </div>
+          <div class="text-sm text-on-surface-variant">
+            <p>Estoque disponível: <strong class="text-on-surface">30 comprimidos</strong></p>
+            <p>Consumo diário: <strong class="text-on-surface">2 comprimidos</strong></p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-space-sm">
+            <button type="button" class="flex-1 min-h-[48px] rounded-full bg-primary px-space-md py-space-xs font-bold text-on-primary">
+              Ver detalhes
+            </button>
+            <button type="button" class="flex-1 min-h-[48px] rounded-full border border-primary px-space-md py-space-xs font-bold text-primary">
+              Editar
+            </button>
+          </div>
+        </article>
+        -->
+      </div>
 
       <div id="estado-vazio" class="hidden bg-surface-container-lowest border border-dashed border-outline-variant rounded-DEFAULT p-space-xl text-center flex-col items-center justify-center gap-space-sm my-space-md">
         <div class="w-16 h-16 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant">
@@ -185,7 +207,7 @@
     import { listarMedicamentos } from './src/services/medicamentoService.js';
 
     document.addEventListener('DOMContentLoaded', () => {
-      const grid = document.getElementById('medicamentos-grid');
+      const grid = document.getElementById('grid-medicamentos');
       const estadoVazio = document.getElementById('estado-vazio');
       const badgeTotal = document.getElementById('badge-total-medicamentos');
 
@@ -257,5 +279,6 @@
       });
     });
   </script>
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>

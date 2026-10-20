@@ -4,7 +4,10 @@ import javascriptLogo from './assets/javascript.svg'
 import viteLogo from './assets/vite.svg'
 import { setupCounter } from './counter.js'
 
-document.querySelector('#app').innerHTML = `
+const app = document.querySelector('#app')
+
+if (app) {
+app.innerHTML = `
 <section id="center">
   <div class="hero">
     <img src="${heroImg}" class="base" width="170" height="179">
@@ -58,3 +61,4 @@ document.querySelector('#app').innerHTML = `
 `
 
 setupCounter(document.querySelector('#counter'))
+}
