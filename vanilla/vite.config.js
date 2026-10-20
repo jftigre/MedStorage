@@ -7,6 +7,7 @@ export default defineConfig({
       input: {
         index: resolve(process.cwd(), 'index.html'),
         login: resolve(process.cwd(), 'login.html'),
+        cadastro: resolve(process.cwd(), 'cadastro.html'),
         dashboard: resolve(process.cwd(), 'dashboard.html'),
         medicamentos: resolve(process.cwd(), 'medicamentos.html'),
         medicamentoForm: resolve(process.cwd(), 'medicamento-form.html'),
