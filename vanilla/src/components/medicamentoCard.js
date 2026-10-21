@@ -1,8 +1,9 @@
 import { criarStatusBadge } from './statusBadge.js';
+import { criarElemento } from '../utils/dom.js';
 
 function determinarStatus(med) {
-  if (med.diasRestantes <= 0) {
-    return { classe: 'vermelho', texto: 'Vencido' };
+  if (med.estoqueTotal <= 0 || med.diasRestantes <= 0) {
+    return { classe: 'vermelho', texto: 'Sem estoque' };
   }
 
   if (med.diasRestantes <= med.estoque_minimo_dias || med.diasRestantes <= 30) {
@@ -10,17 +11,6 @@ function determinarStatus(med) {
   }
 
   return { classe: 'verde', texto: 'Estoque normal' };
-}
-
-function criarElemento(tag, classes, texto) {
-  const elemento = document.createElement(tag);
-  elemento.classList.add(...classes);
-
-  if (texto !== undefined) {
-    elemento.textContent = texto;
-  }
-
-  return elemento;
 }
 
 export function criarMedicamentoCard(medEnriquecido) {

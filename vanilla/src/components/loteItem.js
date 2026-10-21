@@ -20,20 +20,7 @@ function formatarMoedaBR(valor) {
   return `R$ ${numero.toFixed(2).replace('.', ',')}`;
 }
 
-/**
- * Cria dinamicamente um elemento DOM com classes e texto opcional.
- * Atende ao requisito acadêmico de manipulação de DOM via API nativa (createElement/appendChild).
- */
-function criarElemento(tag, classes = [], texto = null) {
-  const elemento = document.createElement(tag);
-  if (classes.length > 0) {
-    elemento.classList.add(...classes);
-  }
-  if (texto !== null && texto !== undefined) {
-    elemento.textContent = texto;
-  }
-  return elemento;
-}
+import { criarElemento } from '../utils/dom.js';
 
 /**
  * Cria a linha de lote no DOM (elemento <li>) para ser adicionada à lista de lotes.

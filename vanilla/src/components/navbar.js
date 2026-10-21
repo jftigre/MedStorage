@@ -1,3 +1,6 @@
+import { criarElemento } from '../utils/dom.js';
+import { realizarLogout as logoutAuth } from '../services/authService.js';
+
 const linksDaNavbar = [
   { pagina: 'dashboard', texto: 'Dashboard', href: 'dashboard.html' },
   { pagina: 'medicamentos', texto: 'Medicamentos', href: 'medicamentos.html' },
@@ -6,19 +9,8 @@ const linksDaNavbar = [
   { pagina: 'alertas', texto: 'Alertas', href: 'alertas.html' }
 ];
 
-function criarElemento(tag, classes, texto) {
-  const elemento = document.createElement(tag);
-  elemento.classList.add(...classes);
-
-  if (texto !== undefined) {
-    elemento.textContent = texto;
-  }
-
-  return elemento;
-}
-
 export function realizarLogout() {
-  alert('Sessão encerrada.');
+  logoutAuth();
   window.location.href = 'login.html';
 }
 

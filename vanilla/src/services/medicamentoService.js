@@ -1,6 +1,4 @@
-import { storageService } from './storageService.js';
-
-export const CHAVE_MEDICAMENTOS = 'medstorage_medicamentos';
+import { storageService, CHAVE_MEDICAMENTOS } from './storageService.js';
 
 export function listarMedicamentos() {
   return storageService.obterItem(CHAVE_MEDICAMENTOS, []);
