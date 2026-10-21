@@ -15,6 +15,7 @@ export default defineConfig({
         simulador: resolve(process.cwd(), 'simulador.html'),
         alertas: resolve(process.cwd(), 'alertas.html'),
         perfil: resolve(process.cwd(), 'perfil.html'),
+        403: resolve(process.cwd(), '403.html'),
       },
     },
   },
