@@ -16,7 +16,16 @@
 
 ---
 
+## 📸 Preview da Aplicação
+
+<p align="center">
+  <img src="./preview.png" alt="Preview da Interface do MedStorage - Dashboard Principal" width="100%" />
+</p>
+
+---
+
 ## 📌 Sumário
+- [Preview da Aplicação](#-preview-da-aplicação)
 - [Ideia, Objetivo Principal & Público-Alvo](#ideia-objetivo-principal--público-alvo)
 - [Tutorial de Instalação e Execução](#-tutorial-de-instalação-e-execução)
 - [Tutorial de Navegação e Teste das Funcionalidades](#-tutorial-de-navegação-e-teste-das-funcionalidades)
@@ -103,24 +112,32 @@ Para avaliar todas as capacidades implementadas no front-end Vanilla:
 
 1. **Página Inicial (`index.html`):**
    - Apresenta a visão geral dos pilares e cartões com atalhos diretos para todas as áreas da aplicação.
-2. **Listagem Dinâmica de Medicamentos (`medicamentos.html`):**
+2. **Dashboard Geral (`dashboard.html`):**
+   - Exibe a saudação contextual com o nome do usuário e foto/avatar.
+   - Apresenta os indicadores integrados em tempo real: **Total de Medicamentos**, **Estoque Crítico** e **Lotes Vencendo**.
+   - Lista na **Central de Alertas** os medicamentos com necessidade imediata de reposição.
+   - **Acessibilidade:** Utilize os botões **A-** e **A+** no topo da barra de navegação para alterar o tamanho da fonte dinamicamente.
+3. **Listagem Dinâmica de Medicamentos (`medicamentos.html`):**
    - Renderiza os cards de medicamentos no DOM a partir dos dados do `LocalStorage` (incluindo carga inicial automática via `seedData`).
    - Observe as métricas calculadas em tempo real: **Estoque disponível**, **Consumo diário**, **Dias restantes** e **Previsão de término**.
    - Cada card possui badge semântico de status gerado dinamicamente (`Estoque normal`, `Atenção` ou `Sem estoque`).
-3. **Cadastro e Edição de Medicamento (`medicamento-form.html`):**
+   - Permite excluir medicamentos e seus lotes vinculados com atualização reativa da lista.
+4. **Cadastro e Edição de Medicamento (`medicamento-form.html`):**
    - **Cálculo reativo de consumo:** Digite unidades por dose e doses por dia para ver o preview do consumo diário atualizar em tempo real.
    - **Validações:** Tente submeter campos vazios ou números negativos para conferir as mensagens de erro em destaque.
    - **Edição:** Na listagem de medicamentos, clique em "Editar" em qualquer remédio para carregar o formulário pré-preenchido e salvar alterações sem duplicar registros.
-4. **Cadastro e Gerenciamento de Lotes (UC04):**
+5. **Cadastro e Gerenciamento de Lotes (UC04):**
    - Na seção **"3. Lotes do Medicamento"**, informe validade, quantidade, preço pago, local da compra e marque se foi adquirido em promoção.
    - Clique em **"Adicionar Lote"**: o lote é inserido imediatamente no DOM na lista `<ul id="lista-lotes">` com formatação brasileira de data e moeda, badge "Promoção" e persistência na chave `medstorage_lotes`.
    - Clique em **"Excluir"** em qualquer lote para removê-lo em tempo real.
-5. **Autenticação e Cadastro Local (`cadastro.html` e `login.html`):**
+6. **Autenticação e Cadastro Local (`cadastro.html` e `login.html`):**
    - Crie uma nova conta em `cadastro.html` com validações de e-mail e senha. Os dados são persistidos na chave `medstorage_usersDB`.
    - Faça login em `login.html` e observe a sessão ativa gravada em `medstorage_usuario`.
-6. **Perfil do Usuário (`perfil.html`):**
+7. **Perfil do Usuário (`perfil.html`):**
    - Exibe os dados da sessão atual, permite alterar informações e carregar foto de perfil com conversão para Base64 via `FileReader`.
    - O botão **Logout** encerra a sessão com segurança limpando os dados ativos.
+8. **Controle de Acesso e Erro 403 (`403.html`):**
+   - Página com identidade visual dedicada para respostas de acesso restrito / proibido.
 
 ---
 
@@ -131,6 +148,7 @@ O projeto adota uma arquitetura modular baseada em responsabilidades claras em `
 ```text
 MedStorage/
 ├── README.md                           # Documentação central do projeto
+├── preview.png                         # Screenshot / Demonstração visual da aplicação
 ├── agents.md                           # Diretrizes e regras técnicas do agente
 └── vanilla/                            # PROJETO 1.1 — FRONT-END VANILLA
     ├── package.json                    # Scripts e dependências do Vite
@@ -140,12 +158,13 @@ MedStorage/
     ├── landing.html                    # Página institucional de apresentação
     ├── login.html                      # Página de login
     ├── cadastro.html                   # Página de cadastro de novos usuários
-    ├── dashboard.html                  # Painel geral com indicadores
+    ├── dashboard.html                  # Painel geral com indicadores e acessibilidade
     ├── medicamentos.html               # Listagem dinâmica de medicamentos
     ├── medicamento-form.html           # Cadastro e edição de remédio e lotes
     ├── simulador.html                  # Simulador de compras e economia
     ├── alertas.html                    # Painel de alertas de reposição e validade
     ├── perfil.html                     # Gerenciamento de perfil e foto do usuário
+    ├── 403.html                        # Página de erro de acesso negado
     │
     └── src/
         ├── assets/
@@ -159,6 +178,7 @@ MedStorage/
         │
         ├── pages/                      # Scripts de controle específicos de cada tela
         │   ├── cadastro.js             # Validação e submissão de cadastro
+        │   ├── dashboard.js            # Indicadores, alertas e ajuste de fonte
         │   ├── login.js                # Validação de credenciais e sessão
         │   ├── logout.js               # Handler global para links com [data-logout]
         │   ├── medicamentoForm.js      # Controle do formulário de remédios e lotes
@@ -185,12 +205,12 @@ Esta tabela mapeia diretamente como cada critério da disciplina foi implementad
 
 | Critério Acadêmico | Pontos | Onde e como está demonstrado no código |
 | ------------------ | :----: | -------------------------------------- |
-| **Programação Funcional** | **15 pts** | • `Array.reduce()`: soma das quantidades de todos os lotes em [calculosEstoque.js:L7](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/utils/calculosEstoque.js#L7)<br>• `Array.map()`: transformação e enriquecimento de métricas em [calculosEstoque.js:L17](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/utils/calculosEstoque.js#L17) e atualização imutável em [medicamentoService.js:L50](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/services/medicamentoService.js#L50)<br>• `Array.filter()`: busca de lotes vinculados ao medicamento em [loteService.js:L42](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/services/loteService.js#L42), exclusão imutável de lote em [loteService.js:L81](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/services/loteService.js#L81) e associação de lotes em [calculosEstoque.js:L18](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/utils/calculosEstoque.js#L18)<br>• `Array.flatMap()`: unificação de lotes em [medicamentos.js:L10](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/pages/medicamentos.js#L10) e [loteService.js:L13](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/services/loteService.js#L13) |
+| **Programação Funcional** | **15 pts** | • `Array.reduce()`: soma das quantidades de todos os lotes em [calculosEstoque.js:L7](vanilla/src/utils/calculosEstoque.js#L7)<br>• `Array.map()`: transformação e enriquecimento de métricas em [calculosEstoque.js:L17](vanilla/src/utils/calculosEstoque.js#L17), atualização imutável em [medicamentoService.js:L50](vanilla/src/services/medicamentoService.js#L50) e montagem de alertas em [dashboard.js:L48](vanilla/src/pages/dashboard.js#L48)<br>• `Array.filter()`: busca de lotes vinculados ao medicamento em [loteService.js:L42](vanilla/src/services/loteService.js#L42), exclusão imutável de lote em [loteService.js:L81](vanilla/src/services/loteService.js#L81) e associação de lotes em [calculosEstoque.js:L18](vanilla/src/utils/calculosEstoque.js#L18)<br>• `Array.flatMap()`: unificação de lotes em [medicamentos.js:L10](vanilla/src/pages/medicamentos.js#L10) e [loteService.js:L13](vanilla/src/services/loteService.js#L13) |
 | **Uso de ESM (ECMAScript Modules)** | **10 pts** | • Arquitetura 100% modular com `import`/`export` nativos em todos os arquivos.<br>• Separação estrita de camadas: UI em `pages/`, componentes dinâmicos em `components/`, acesso a dados em `services/` e cálculos/DOM em `utils/`.<br>• Zero poluição de escopo global. |
-| **Estruturação de Dados e Persistência** | **20 pts** | • Camada centralizada de acesso em [storageService.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/services/storageService.js) com tratamento seguro de exceções via `try/catch`.<br>• Persistência estruturada em chaves dedicadas: `medstorage_medicamentos`, `medstorage_lotes`, `medstorage_usersDB` e `medstorage_usuario`.<br>• Inicialização inteligente de dados padrão (`seedData.js`) no primeiro acesso. |
-| **Manipulação do DOM e Componentes Dinâmicos** | **20 pts** | • Criação declarativa de componentes dinâmicos exclusivamente através da API do DOM (`document.createElement`, `appendChild`, `replaceChildren`) sem frameworks nem `innerHTML`: [medicamentoCard.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/components/medicamentoCard.js), [loteItem.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/components/loteItem.js) e [statusBadge.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/components/statusBadge.js).<br>• CRUD completo: Criação e Edição de Medicamentos + Criação e Exclusão de Lotes vinculados. |
-| **Tratamento de Eventos** | **20 pts** | • `submit`: interceptação de formulários com `event.preventDefault()`, validação e feedback contextual em [medicamentoForm.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/pages/medicamentoForm.js), [cadastro.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/pages/cadastro.js) e [login.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/pages/login.js).<br>• `input`: atualização reativa do preview de consumo diário em tempo real e remoção dinâmica de alertas de erro.<br>• `click`: seleção interativa de formas farmacêuticas, exclusão de lotes vinculados e logout em [logout.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/pages/logout.js).<br>• `change`: upload e leitura assíncrona de imagem de perfil com `FileReader` em [perfil.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/src/pages/perfil.js). |
-| **Uso do Vite (Template Vanilla)** | **15 pts** | • Configuração multi-page estruturada em [vite.config.js](file:///c:/Users/Tigre/Documents/Developer/MedStorage/vanilla/vite.config.js) gerenciando as 10 páginas da aplicação.<br>• Código limpo sem arquivos residuais do template inicial (`main.js`, `counter.js`, `style.css` removidos).<br>• Servidor com Hot Module Replacement (HMR) e compilação de produção com `npm run build`. |
+| **Estruturação de Dados e Persistência** | **20 pts** | • Camada centralizada de acesso em [storageService.js](vanilla/src/services/storageService.js) com tratamento seguro de exceções via `try/catch`.<br>• Persistência estruturada em chaves dedicadas: `medstorage_medicamentos`, `medstorage_lotes`, `medstorage_usersDB` e `medstorage_usuario`.<br>• Inicialização inteligente de dados padrão (`seedData.js`) no primeiro acesso. |
+| **Manipulação do DOM e Componentes Dinâmicos** | **20 pts** | • Criação declarativa de componentes dinâmicos exclusivamente através da API do DOM (`document.createElement`, `appendChild`, `replaceChildren`) sem frameworks nem `innerHTML`: [medicamentoCard.js](vanilla/src/components/medicamentoCard.js), [loteItem.js](vanilla/src/components/loteItem.js), [statusBadge.js](vanilla/src/components/statusBadge.js) e [dashboard.js](vanilla/src/pages/dashboard.js).<br>• CRUD completo: Criação, Edição e Exclusão de Medicamentos + Criação e Exclusão de Lotes vinculados. |
+| **Tratamento de Eventos** | **20 pts** | • `submit`: interceptação de formulários com `event.preventDefault()`, validação e feedback contextual em [medicamentoForm.js](vanilla/src/pages/medicamentoForm.js), [cadastro.js](vanilla/src/pages/cadastro.js) e [login.js](vanilla/src/pages/login.js).<br>• `input`: atualização reativa do preview de consumo diário em tempo real e remoção dinâmica de alertas de erro.<br>• `click`: seleção interativa de formas farmacêuticas, exclusão de lotes vinculados, logout em [logout.js](vanilla/src/pages/logout.js) e ajuste de fonte acessível em [dashboard.js](vanilla/src/pages/dashboard.js).<br>• `change`: upload e leitura assíncrona de imagem de perfil com `FileReader` em [perfil.js](vanilla/src/pages/perfil.js). |
+| **Uso do Vite (Template Vanilla)** | **15 pts** | • Configuração multi-page estruturada em [vite.config.js](vanilla/vite.config.js) gerenciando as 11 páginas da aplicação.<br>• Código limpo sem arquivos residuais do template inicial (`main.js`, `counter.js`, `style.css` removidos).<br>• Servidor com Hot Module Replacement (HMR) e compilação de produção com `npm run build`. |
 
 ---
 
@@ -202,12 +222,13 @@ Esta tabela mapeia diretamente como cada critério da disciplina foi implementad
 | 📄 **Apresentação** | `landing.html` | Apresentação institucional da proposta de valor |
 | 🔑 **Login** | `login.html` | Autenticação local de usuários |
 | 📝 **Cadastro** | `cadastro.html` | Registro de novos usuários com validação completa |
-| 📊 **Dashboard** | `dashboard.html` | Visão geral dos estoques e alertas |
+| 📊 **Dashboard** | `dashboard.html` | Visão geral dos estoques, alertas e acessibilidade de fonte |
 | 💊 **Medicamentos** | `medicamentos.html` | Listagem dinâmica gerada no DOM com métricas calculadas |
 | ➕ **Formulário** | `medicamento-form.html` | Cadastro e edição de medicamentos com posologia e lotes |
 | 🛒 **Simulador** | `simulador.html` | Análise de economia e compras em promoção |
 | 🔔 **Alertas** | `alertas.html` | Monitoramento de prazos de validade e reposição |
 | 👤 **Perfil** | `perfil.html` | Gestão de dados pessoais e foto de perfil |
+| 🚫 **Acesso Negado** | `403.html` | Página de erro para acessos não autorizados |
 
 ---
 
@@ -223,11 +244,14 @@ Esta tabela mapeia diretamente como cada critério da disciplina foi implementad
 ### Projeto 1.1 (Front-end Vanilla)
 - [x] CRUD de medicamentos com posologia e persistência no `LocalStorage`
 - [x] Cadastro de lotes vinculados por `medicamento_id` com validade, quantidade, preço e marcação de promoção (UC04)
-- [x] Exclusão dinâmica de lotes vinculados em tempo real no DOM
+- [x] Exclusão dinâmica de lotes e de medicamentos em tempo real no DOM
 - [x] Cálculo automático de consumo diário, dias restantes e previsão de término (`map` e `reduce`)
-- [x] Renderização de componentes via DOM nativo (`document.createElement` e `appendChild`)
+- [x] Renderização de componentes via DOM nativo (`document.createElement`, `replaceChildren` e `appendChild`)
 - [x] Autenticação local, sessão ativa, edição de perfil e logout
 - [x] Validação em tempo real de formulários com feedback de erro acessível
+- [x] Dashboard dinâmico integrado a métricas de estoque e central de alertas
+- [x] Controles de acessibilidade com ajuste dinâmico de tamanho de fonte (`A-` / `A+`)
+- [x] Página de erro 403 personalizada
 - [x] Organização arquitetural modular com ESM e Vite multi-page
 
 ---
