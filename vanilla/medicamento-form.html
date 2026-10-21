@@ -478,16 +478,16 @@
               </div>
             </div>
 
-            <div id="lote-erro-container" class="hidden rounded-DEFAULT p-space-sm bg-error-container text-on-error-container border border-error/20 flex items-center gap-space-xs text-sm">
+            <div id="lote-erro-container" role="alert" aria-live="assertive" class="hidden rounded-DEFAULT p-space-sm bg-error-container text-on-error-container border border-error/20 flex items-center gap-space-xs text-sm transition-all shadow-sm">
               <span class="material-symbols-outlined text-error text-xl shrink-0">error</span>
-              <span id="lote-erro-mensagem"></span>
+              <span id="lote-erro-mensagem" class="font-medium"></span>
             </div>
 
             <div class="flex justify-end pt-space-xs">
               <button
                 type="button"
                 id="btn-adicionar-lote"
-                class="min-h-[48px] px-space-lg rounded-full font-label-md text-sm sm:text-base font-bold bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container shadow-sm hover:shadow transition-all flex items-center gap-2"
+                class="min-h-[48px] px-space-lg rounded-full font-label-md text-sm sm:text-base font-bold bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container shadow-sm hover:shadow transition-all flex items-center gap-2 cursor-pointer active:scale-[0.98]"
               >
                 <span class="material-symbols-outlined text-xl">add</span>
                 <span>Adicionar Lote</span>
@@ -504,11 +504,11 @@
               </h3>
             </div>
 
-            <div id="lotes-vazio" class="p-space-md border border-dashed border-outline-variant/60 rounded-DEFAULT text-center text-on-surface-variant text-sm">
+            <div id="lotes-vazio" class="p-space-md border border-dashed border-outline-variant/60 rounded-DEFAULT text-center text-on-surface-variant text-sm transition-all">
               Nenhum lote adicionado até o momento. Preencha os campos acima para registrar uma caixa.
             </div>
 
-            <ul id="lista-lotes" class="flex flex-col gap-space-xs"></ul>
+            <ul id="lista-lotes" aria-live="polite" class="flex flex-col gap-space-xs"></ul>
           </div>
         </section>
 
