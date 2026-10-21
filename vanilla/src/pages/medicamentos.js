@@ -1,6 +1,6 @@
 import { criarMedicamentoCard } from '../components/medicamentoCard.js';
 import { initStorage } from '../services/storageService.js';
-import { listarMedicamentos } from '../services/medicamentoService.js';
+import { excluirMedicamento, listarMedicamentos } from '../services/medicamentoService.js';
 import { initLotesStorage, listarTodosLotes } from '../services/loteService.js';
 import { enriquecerMedicamentosComMetricas } from '../utils/calculosEstoque.js';
 
@@ -49,7 +49,16 @@ function renderizarMedicamentos() {
   estadoVazio.classList.remove('flex');
 
   medicamentosEnriquecidos.forEach((medicamento) => {
-    grid.appendChild(criarMedicamentoCard(medicamento));
+    grid.appendChild(criarMedicamentoCard(medicamento, (id) => {
+      try {
+        excluirMedicamento(id);
+      } catch (erro) {
+        console.error('Erro ao excluir medicamento:', erro);
+        window.alert('Não foi possível concluir a exclusão do medicamento. Verifique o armazenamento e tente novamente.');
+      }
+
+      renderizarMedicamentos();
+    }));
   });
 }
 
