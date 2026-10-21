@@ -13,7 +13,7 @@ function determinarStatus(med) {
   return { classe: 'verde', texto: 'Estoque normal' };
 }
 
-export function criarMedicamentoCard(medEnriquecido) {
+export function criarMedicamentoCard(medEnriquecido, onExcluir) {
   const status = determinarStatus(medEnriquecido);
   const card = criarElemento('article', [
     'border-l-4',
@@ -51,11 +51,24 @@ export function criarMedicamentoCard(medEnriquecido) {
   const acoes = criarElemento('div', ['flex', 'flex-col', 'sm:flex-row', 'gap-space-sm']);
   const detalhesButton = criarElemento('button', ['flex-1', 'min-h-[48px]', 'rounded-full', 'bg-primary', 'px-space-md', 'py-space-xs', 'font-bold', 'text-on-primary'], 'Ver detalhes');
   const editarButton = criarElemento('button', ['flex-1', 'min-h-[48px]', 'rounded-full', 'border', 'border-primary', 'px-space-md', 'py-space-xs', 'font-bold', 'text-primary'], 'Editar');
+  const excluirButton = criarElemento('button', ['flex-1', 'min-h-[48px]', 'rounded-full', 'border', 'border-error/20', 'px-space-md', 'py-space-xs', 'font-bold', 'text-error', 'hover:bg-error-container/40'], 'Excluir');
+
+  excluirButton.type = 'button';
+  excluirButton.addEventListener('click', (evento) => {
+    evento.preventDefault();
+    const confirmado = window.confirm(`Tem certeza que deseja excluir ${medEnriquecido.nome}? Essa ação não pode ser desfeita.`);
+
+    if (confirmado && typeof onExcluir === 'function') {
+      onExcluir(medEnriquecido.id);
+    }
+  });
+
   editarButton.addEventListener('click', () => {
     window.location.href = 'medicamento-form.html?id=' + medEnriquecido.id;
   });
   acoes.appendChild(detalhesButton);
   acoes.appendChild(editarButton);
+  acoes.appendChild(excluirButton);
 
   card.appendChild(cabecalho);
   card.appendChild(badge);
