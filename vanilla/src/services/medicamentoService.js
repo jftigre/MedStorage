@@ -14,9 +14,9 @@ export function obterMedicamentoPorId(id) {
 export function criarMedicamento(dados) {
   const medicamentos = listarMedicamentos();
 
-  const id = (typeof crypto !== 'undefined' && crypto.randomUUID)
+  const id = dados.id || ((typeof crypto !== 'undefined' && crypto.randomUUID)
     ? crypto.randomUUID()
-    : 'med-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9);
+    : 'med-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9));
 
   const novoMedicamento = {
     id,

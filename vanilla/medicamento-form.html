@@ -382,6 +382,136 @@
           </div>
         </section>
 
+        <!-- Seção: Lotes do Medicamento -->
+        <section class="bg-surface-container-lowest border border-surface-container rounded-DEFAULT p-space-lg shadow-sm flex flex-col gap-space-md">
+          <div class="flex items-center gap-space-sm pb-space-xs border-b border-surface-container">
+            <div class="w-11 h-11 rounded-full bg-surface-container-high text-primary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-2xl">inventory_2</span>
+            </div>
+            <div class="flex flex-col">
+              <h2 class="font-headline-md text-xl font-bold text-on-surface">3. Lotes do Medicamento</h2>
+              <span class="text-on-surface-variant text-sm">Registre caixas adquiridas com suas respectivas validades e quantidades</span>
+            </div>
+          </div>
+
+          <!-- Área de adição de lotes (painel secundário) -->
+          <div class="bg-teal-50/50 p-6 rounded-xl border border-teal-100 flex flex-col gap-space-md">
+            <h3 class="font-label-lg font-bold text-primary flex items-center gap-2">
+              <span class="material-symbols-outlined text-xl">add_circle</span>
+              <span>Adicionar Novo Lote</span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-space-md">
+              <div class="flex flex-col gap-1">
+                <label class="font-label-md font-semibold text-on-surface flex items-center justify-between" for="lote-validade">
+                  <span>Data de validade <span class="text-error font-bold">*</span></span>
+                </label>
+                <input
+                  class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-white text-on-surface text-base border border-outline-variant/60 focus:border-primary focus:bg-white focus:outline-none transition-all"
+                  id="lote-validade"
+                  name="lote-validade"
+                  type="date"
+                />
+                <p class="text-xs text-on-surface-variant">Mês e ano ou dia impresso na caixa.</p>
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label class="font-label-md font-semibold text-on-surface flex items-center justify-between" for="lote-quantidade">
+                  <span>Quantidade (unidades) <span class="text-error font-bold">*</span></span>
+                </label>
+                <input
+                  class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-white text-on-surface text-base border border-outline-variant/60 focus:border-primary focus:bg-white focus:outline-none transition-all"
+                  id="lote-quantidade"
+                  name="lote-quantidade"
+                  type="number"
+                  min="1"
+                  step="1"
+                  placeholder="Ex: 30"
+                />
+                <p class="text-xs text-on-surface-variant">Número de comprimidos/unidades nesta caixa.</p>
+              </div>
+
+              <div class="flex flex-col gap-1">
+                <label class="font-label-md font-semibold text-on-surface flex items-center justify-between" for="lote-preco">
+                  <span>Preço pago (R$)</span>
+                </label>
+                <input
+                  class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-white text-on-surface text-base border border-outline-variant/60 focus:border-primary focus:bg-white focus:outline-none transition-all"
+                  id="lote-preco"
+                  name="lote-preco"
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  placeholder="0.00"
+                />
+                <p class="text-xs text-on-surface-variant">Valor pago pela caixa/unidade.</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md items-center">
+              <div class="flex flex-col gap-1">
+                <label class="font-label-md font-semibold text-on-surface" for="lote-local">
+                  Local da compra
+                </label>
+                <input
+                  class="w-full min-h-[52px] px-space-md rounded-DEFAULT bg-white text-on-surface text-base border border-outline-variant/60 focus:border-primary focus:bg-white focus:outline-none transition-all"
+                  id="lote-local"
+                  name="lote-local"
+                  type="text"
+                  placeholder="Ex: Farmácia Popular, Drogaria São Paulo"
+                />
+                <p class="text-xs text-on-surface-variant">Onde você adquiriu este lote (opcional).</p>
+              </div>
+
+              <div class="flex items-center gap-space-sm pt-2 sm:pt-4">
+                <label class="relative flex items-center gap-3 cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    id="lote-promocao"
+                    name="lote-promocao"
+                    class="w-5 h-5 rounded text-primary focus:ring-primary border-outline-variant cursor-pointer accent-primary"
+                  />
+                  <span class="font-label-md text-on-surface font-semibold text-sm sm:text-base">
+                    Adquirido em promoção
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div id="lote-erro-container" role="alert" aria-live="assertive" class="hidden rounded-DEFAULT p-space-sm bg-error-container text-on-error-container border border-error/20 flex items-center gap-space-xs text-sm transition-all shadow-sm">
+              <span class="material-symbols-outlined text-error text-xl shrink-0">error</span>
+              <span id="lote-erro-mensagem" class="font-medium"></span>
+            </div>
+
+            <div class="flex justify-end pt-space-xs">
+              <button
+                type="button"
+                id="btn-adicionar-lote"
+                class="min-h-[48px] px-space-lg rounded-full font-label-md text-sm sm:text-base font-bold bg-primary text-on-primary hover:bg-primary-container hover:text-on-primary-container shadow-sm hover:shadow transition-all flex items-center gap-2 cursor-pointer active:scale-[0.98]"
+              >
+                <span class="material-symbols-outlined text-xl">add</span>
+                <span>Adicionar Lote</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Lista de lotes vinculados -->
+          <div class="flex flex-col gap-space-sm mt-space-xs">
+            <div class="flex items-center justify-between">
+              <h3 class="font-label-md font-bold text-on-surface flex items-center gap-2">
+                <span>Lotes cadastrados</span>
+                <span id="badge-total-lotes" class="bg-surface-container px-2.5 py-0.5 rounded-full text-xs font-semibold text-on-surface-variant">0</span>
+              </h3>
+            </div>
+
+            <div id="lotes-vazio" class="p-space-md border border-dashed border-outline-variant/60 rounded-DEFAULT text-center text-on-surface-variant text-sm transition-all">
+              Nenhum lote adicionado até o momento. Preencha os campos acima para registrar uma caixa.
+            </div>
+
+            <ul id="lista-lotes" aria-live="polite" class="flex flex-col gap-space-xs"></ul>
+          </div>
+        </section>
+
         <div
           id="erro-container"
           role="alert"
@@ -453,7 +583,7 @@
     </div>
   </footer>
 
-  <script type="module" src="/src/pages/medicamentoForm.js"></script>
+  <script type="module" src="./src/pages/medicamentoForm.js"></script>
   <script type="module" src="./src/pages/logout.js"></script>
 </body>
 </html>
