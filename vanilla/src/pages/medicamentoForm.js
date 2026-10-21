@@ -3,6 +3,12 @@ import {
   criarMedicamento,
   obterMedicamentoPorId
 } from '../services/medicamentoService.js';
+import {
+  adicionarLote,
+  listarLotesPorMedicamento,
+  removerLote
+} from '../services/loteService.js';
+import { criarLinhaLoteDOM } from '../components/loteItem.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('form-medicamento');
@@ -23,7 +29,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const inputEstoqueMinimo = document.getElementById('estoque_minimo_dias');
   const consumoPreview = document.getElementById('consumo-diario-preview');
   const headerData = document.getElementById('header-data-atual');
-  const idMedicamento = new URLSearchParams(window.location.search).get('id');
+
+  // Referências para a seção de Lotes
+  const inputLoteValidade = document.getElementById('lote-validade');
+  const inputLoteQuantidade = document.getElementById('lote-quantidade');
+  const inputLotePreco = document.getElementById('lote-preco');
+  const inputLoteLocal = document.getElementById('lote-local');
+  const inputLotePromocao = document.getElementById('lote-promocao');
+  const btnAdicionarLote = document.getElementById('btn-adicionar-lote');
+  const loteErroContainer = document.getElementById('lote-erro-container');
+  const loteErroMensagem = document.getElementById('lote-erro-mensagem');
+  const listaLotes = document.getElementById('lista-lotes');
+  const lotesVazio = document.getElementById('lotes-vazio');
+  const badgeTotalLotes = document.getElementById('badge-total-lotes');
+
+  const idMedicamentoParam = new URLSearchParams(window.location.search).get('id');
+  const idMedicamentoAtual = idMedicamentoParam || ((typeof crypto !== 'undefined' && crypto.randomUUID)
+    ? crypto.randomUUID()
+    : 'med-' + Date.now() + '-' + Math.random().toString(36).substring(2, 9));
 
   if (headerData) {
     try {
@@ -70,8 +93,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  if (idMedicamento) {
-    const medicamento = obterMedicamentoPorId(idMedicamento);
+  if (idMedicamentoParam) {
+    const medicamento = obterMedicamentoPorId(idMedicamentoParam);
     const titulo = document.querySelector('h1');
     const breadcrumbAtual = document.querySelector('[aria-current="page"]');
 
@@ -104,6 +127,127 @@ document.addEventListener('DOMContentLoaded', () => {
       btnSalvar.classList.add('opacity-70', 'cursor-not-allowed');
     }
   }
+
+  // ============================================================
+  // Gerenciamento e Validação da Seção de Lotes (UC04)
+  // ============================================================
+
+  function exibirErroLote(mensagem) {
+    if (loteErroMensagem && loteErroContainer) {
+      loteErroMensagem.textContent = mensagem;
+      loteErroContainer.classList.remove('hidden');
+    }
+  }
+
+  function ocultarErroLote() {
+    if (loteErroContainer) {
+      loteErroContainer.classList.add('hidden');
+    }
+  }
+
+  function handleRemoverLote(loteId) {
+    removerLote(loteId);
+    renderizarListaLotes();
+  }
+
+  /**
+   * Renderiza a lista de lotes vinculados no DOM usando o componente loteItem.
+   * Atende ao requisito acadêmico de manipulação de DOM sem innerHTML em estruturas dinâmicas.
+   */
+  function renderizarListaLotes() {
+    if (!listaLotes || !lotesVazio) return;
+
+    // Uso de Array.filter através de listarLotesPorMedicamento
+    const lotes = listarLotesPorMedicamento(idMedicamentoAtual);
+    listaLotes.replaceChildren();
+
+    if (badgeTotalLotes) {
+      badgeTotalLotes.textContent = lotes.length;
+    }
+
+    if (lotes.length === 0) {
+      lotesVazio.classList.remove('hidden');
+      listaLotes.classList.add('hidden');
+      return;
+    }
+
+    lotesVazio.classList.add('hidden');
+    listaLotes.classList.remove('hidden');
+
+    lotes.forEach((lote) => {
+      listaLotes.appendChild(criarLinhaLoteDOM(lote, handleRemoverLote));
+    });
+  }
+
+  if (btnAdicionarLote) {
+    btnAdicionarLote.addEventListener('click', () => {
+      ocultarErroLote();
+
+      const validade = inputLoteValidade ? inputLoteValidade.value.trim() : '';
+      const quantidadeStr = inputLoteQuantidade ? inputLoteQuantidade.value.trim() : '';
+      const precoStr = inputLotePreco ? inputLotePreco.value.trim() : '';
+      const localCompra = inputLoteLocal ? inputLoteLocal.value.trim() : '';
+      const emPromocao = inputLotePromocao ? Boolean(inputLotePromocao.checked) : false;
+
+      // Validação acadêmica 1: Validade com data válida preenchida
+      if (!validade) {
+        exibirErroLote('Informe a data de validade do lote.');
+        if (inputLoteValidade) inputLoteValidade.focus();
+        return;
+      }
+
+      const dataValidade = new Date(validade);
+      if (isNaN(dataValidade.getTime())) {
+        exibirErroLote('A data de validade informada é inválida.');
+        if (inputLoteValidade) inputLoteValidade.focus();
+        return;
+      }
+
+      // Validação acadêmica 2: Number(quantidade) > 0
+      const quantidade = Number(quantidadeStr);
+      if (!quantidadeStr || isNaN(quantidade) || quantidade <= 0) {
+        exibirErroLote('A quantidade de unidades deve ser um número maior que zero.');
+        if (inputLoteQuantidade) inputLoteQuantidade.focus();
+        return;
+      }
+
+      // Validação acadêmica 3: Number(preco_pago) >= 0
+      const preco = precoStr !== '' ? Number(precoStr) : 0;
+      if (isNaN(preco) || preco < 0) {
+        exibirErroLote('O preço pago deve ser um número maior ou igual a zero.');
+        if (inputLotePreco) inputLotePreco.focus();
+        return;
+      }
+
+      // Persistência vinculada via loteService no LocalStorage
+      adicionarLote({
+        medicamento_id: idMedicamentoAtual,
+        validade,
+        quantidade,
+        preco_pago: preco,
+        local_compra: localCompra,
+        em_promocao: emPromocao
+      });
+
+      // Limpeza dos campos do lote após adicionar com sucesso
+      if (inputLoteValidade) inputLoteValidade.value = '';
+      if (inputLoteQuantidade) inputLoteQuantidade.value = '';
+      if (inputLotePreco) inputLotePreco.value = '';
+      if (inputLoteLocal) inputLoteLocal.value = '';
+      if (inputLotePromocao) inputLotePromocao.checked = false;
+
+      renderizarListaLotes();
+    });
+  }
+
+  [inputLoteValidade, inputLoteQuantidade, inputLotePreco].forEach((input) => {
+    if (input) {
+      input.addEventListener('input', ocultarErroLote);
+    }
+  });
+
+  // Renderiza lotes vinculados ao carregar a página
+  renderizarListaLotes();
 
   // Atualização dinâmica do consumo diário
   function atualizarPreviewConsumo() {
@@ -188,14 +332,14 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     try {
-      if (idMedicamento) {
-        atualizarMedicamento(idMedicamento, dadosMedicamento);
+      if (idMedicamentoParam) {
+        atualizarMedicamento(idMedicamentoParam, dadosMedicamento);
       } else {
-        criarMedicamento(dadosMedicamento);
+        criarMedicamento({ id: idMedicamentoAtual, ...dadosMedicamento });
       }
 
       if (sucessoMensagem) {
-        sucessoMensagem.textContent = idMedicamento
+        sucessoMensagem.textContent = idMedicamentoParam
           ? 'Medicamento atualizado com sucesso! Redirecionando...'
           : 'Medicamento cadastrado com sucesso! Redirecionando...';
       }
@@ -207,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = 'medicamentos.html';
       }, 750);
     } catch (erro) {
-      const acao = idMedicamento ? 'atualizar' : 'cadastrar';
+      const acao = idMedicamentoParam ? 'atualizar' : 'cadastrar';
       console.error(`Erro ao ${acao} medicamento:`, erro);
       exibirErro(`Não foi possível ${acao} os dados do medicamento. Verifique as permissões de armazenamento do navegador.`);
     }

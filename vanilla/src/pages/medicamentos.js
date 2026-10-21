@@ -1,15 +1,23 @@
 import { criarMedicamentoCard } from '../components/medicamentoCard.js';
 import { initStorage } from '../services/storageService.js';
 import { listarMedicamentos } from '../services/medicamentoService.js';
+import { initLotesStorage, listarTodosLotes } from '../services/loteService.js';
 import { enriquecerMedicamentosComMetricas } from '../utils/calculosEstoque.js';
 
 function prepararLotes(medicamentos) {
-  return medicamentos.flatMap((medicamento) =>
+  initLotesStorage();
+  const lotesNoStorage = listarTodosLotes();
+  const lotesDosMedicamentos = medicamentos.flatMap((medicamento) =>
     (medicamento.lotes || []).map((lote) => ({
       ...lote,
       medicamento_id: medicamento.id
     }))
   );
+
+  const mapaLotes = new Map();
+  lotesDosMedicamentos.forEach((lote) => mapaLotes.set(lote.id, lote));
+  lotesNoStorage.forEach((lote) => mapaLotes.set(lote.id, lote));
+  return Array.from(mapaLotes.values());
 }
 
 function renderizarMedicamentos() {
