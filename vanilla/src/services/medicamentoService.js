@@ -1,4 +1,5 @@
 import { storageService, CHAVE_MEDICAMENTOS } from './storageService.js';
+import { CHAVE_LOTES, listarTodosLotes } from './loteService.js';
 
 export function listarMedicamentos() {
   return storageService.obterItem(CHAVE_MEDICAMENTOS, []);
@@ -54,4 +55,23 @@ export function atualizarMedicamento(id, dadosAtualizados) {
   }
 
   return medicamentosAtualizados.find((medicamento) => medicamento.id === id);
+}
+
+export function excluirMedicamento(id) {
+  const medicamentos = listarMedicamentos();
+  const lotes = listarTodosLotes();
+
+  // Uso de Array.filter para remover o medicamento e seus lotes vinculados.
+  const medicamentosAtualizados = medicamentos.filter((medicamento) => medicamento.id !== id);
+  const lotesAtualizados = lotes.filter((lote) => lote.medicamento_id !== id);
+
+  if (!storageService.salvarItem(CHAVE_MEDICAMENTOS, medicamentosAtualizados)) {
+    throw new Error(`Não foi possível excluir o medicamento "${id}".`);
+  }
+
+  if (!storageService.salvarItem(CHAVE_LOTES, lotesAtualizados)) {
+    throw new Error(`O medicamento "${id}" foi removido, mas não foi possível excluir seus lotes.`);
+  }
+
+  return medicamentosAtualizados;
 }
