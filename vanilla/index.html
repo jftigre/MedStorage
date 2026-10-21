@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MedStorage: controle simples de estoque, validade e reposição de medicamentos.">
+  <title>MedStorage | Controle de medicamentos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:FILL@0..1&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS: padrão de estilização da aplicação. -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: {
+              50: "#edf8f6",
+              100: "#d4efea",
+              700: "#087568",
+              800: "#075d55",
+              900: "#104a44"
+            },
+            ink: "#18302e",
+            mist: "#f4f7f6"
+          },
+          fontFamily: {
+            sans: ["Lexend", "sans-serif"],
+            display: ["Epilogue", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen bg-mist font-sans text-ink antialiased">
+  <header class="border-b border-teal-100 bg-white">
+    <nav aria-label="Navegação principal" class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+      <a href="index.html" class="flex items-center gap-2 font-display text-xl font-bold text-teal-800">
+        <span aria-hidden="true" class="material-symbols-outlined text-3xl">medication</span>
+        <span>MedStorage</span>
+      </a>
+      <a href="login.html" class="rounded-md bg-teal-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-100">
+        Entrar
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="bg-white px-4 pb-14 pt-16 sm:px-6 sm:pb-20 sm:pt-24">
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-teal-100 px-4 py-2 text-sm font-semibold text-teal-900">
+          <span aria-hidden="true" class="material-symbols-outlined text-xl">health_and_safety</span>
+          Mais cuidado, menos desperdício
+        </p>
+        <h1 class="font-display text-4xl font-bold leading-tight text-ink sm:text-6xl">
+          Seus medicamentos organizados em um só lugar
+        </h1>
+        <p class="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">
+          O MedStorage ajuda você a acompanhar o estoque, as validades e o momento certo de repor seus medicamentos de uso contínuo.
+        </p>
+      </div>
+
+      <div class="mx-auto mt-12 grid max-w-6xl gap-5 md:grid-cols-3">
+        <article class="rounded-lg border border-teal-100 bg-mist p-6">
+          <span aria-hidden="true" class="material-symbols-outlined flex h-12 w-12 items-center justify-center rounded-lg bg-teal-100 text-3xl text-teal-800">inventory_2</span>
+          <h2 class="mt-5 font-display text-xl font-bold text-ink">Estoque</h2>
+          <p class="mt-2 leading-7 text-slate-700">Cadastre seus medicamentos e saiba quanto ainda está disponível em casa.</p>
+        </article>
+        <article class="rounded-lg border border-teal-100 bg-mist p-6">
+          <span aria-hidden="true" class="material-symbols-outlined flex h-12 w-12 items-center justify-center rounded-lg bg-teal-100 text-3xl text-teal-800">event_upcoming</span>
+          <h2 class="mt-5 font-display text-xl font-bold text-ink">Validade</h2>
+          <p class="mt-2 leading-7 text-slate-700">Acompanhe os vencimentos e identifique rapidamente os lotes que exigem atenção.</p>
+        </article>
+        <article class="rounded-lg border border-teal-100 bg-mist p-6">
+          <span aria-hidden="true" class="material-symbols-outlined flex h-12 w-12 items-center justify-center rounded-lg bg-teal-100 text-3xl text-teal-800">shopping_cart</span>
+          <h2 class="mt-5 font-display text-xl font-bold text-ink">Reposição</h2>
+          <p class="mt-2 leading-7 text-slate-700">Calcule os dias restantes e planeje compras sem deixar o tratamento parar.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="navigation-title" class="px-4 py-14 sm:px-6 sm:py-20">
+      <div class="mx-auto max-w-6xl">
+        <div class="mb-8">
+          <p class="text-sm font-bold uppercase tracking-wide text-teal-800">Acesso rápido</p>
+          <h2 id="navigation-title" class="mt-2 font-display text-3xl font-bold text-ink">Explore o MedStorage</h2>
+          <p class="mt-2 text-slate-700">Escolha uma área para começar a organizar sua rotina.</p>
+        </div>
+
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="login.html" class="group rounded-lg border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-teal-700 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-teal-100">
+            <span aria-hidden="true" class="material-symbols-outlined text-3xl text-teal-700">login</span>
+            <h3 class="mt-4 font-display text-lg font-bold text-ink group-hover:text-teal-800">Login</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-700">Acesse sua conta e continue de onde parou.</p>
+          </a>
+          <a href="dashboard.html" class="group rounded-lg border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-teal-700 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-teal-100">
+            <span aria-hidden="true" class="material-symbols-outlined text-3xl text-teal-700">dashboard</span>
+            <h3 class="mt-4 font-display text-lg font-bold text-ink group-hover:text-teal-800">Dashboard</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-700">Veja um resumo do seu estoque e dos principais alertas.</p>
+          </a>
+          <a href="medicamentos.html" class="group rounded-lg border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-teal-700 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-teal-100">
+            <span aria-hidden="true" class="material-symbols-outlined text-3xl text-teal-700">medication</span>
+            <h3 class="mt-4 font-display text-lg font-bold text-ink group-hover:text-teal-800">Medicamentos</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-700">Consulte, filtre e gerencie os medicamentos cadastrados.</p>
+          </a>
+          <a href="medicamento-form.html" class="group rounded-lg border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-teal-700 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-teal-100">
+            <span aria-hidden="true" class="material-symbols-outlined text-3xl text-teal-700">add_circle</span>
+            <h3 class="mt-4 font-display text-lg font-bold text-ink group-hover:text-teal-800">Cadastrar medicamento</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-700">Registre nome, dosagem e posologia do seu medicamento.</p>
+          </a>
+          <a href="simulador.html" class="group rounded-lg border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-teal-700 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-teal-100">
+            <span aria-hidden="true" class="material-symbols-outlined text-3xl text-teal-700">calculate</span>
+            <h3 class="mt-4 font-display text-lg font-bold text-ink group-hover:text-teal-800">Simulador</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-700">Avalie compras e estime o risco de desperdício dos lotes.</p>
+          </a>
+          <a href="alertas.html" class="group rounded-lg border border-teal-100 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:border-teal-700 hover:shadow-md focus:outline-none focus:ring-4 focus:ring-teal-100">
+            <span aria-hidden="true" class="material-symbols-outlined text-3xl text-teal-700">notifications</span>
+            <h3 class="mt-4 font-display text-lg font-bold text-ink group-hover:text-teal-800">Alertas</h3>
+            <p class="mt-2 text-sm leading-6 text-slate-700">Confira avisos de validade e de reposição do estoque.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-teal-100 bg-white px-4 py-6 text-center text-sm text-slate-600">
+    <p>MedStorage &bull; Controle pessoal de medicamentos</p>
+  </footer>
+
+  <!--
+    Guia de estilo: badges de status usados em todo o projeto.
+    Verde:   bg-emerald-100 text-emerald-800
+    Âmbar:    bg-amber-100 text-amber-800
+    Vermelho: bg-red-100 text-red-800
+  -->
+</body>
+</html>

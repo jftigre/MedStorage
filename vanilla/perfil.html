@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f7f6">
+  <meta name="description" content="Consulte os dados da sua conta MedStorage.">
+  <title>Perfil | MedStorage</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@600;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            teal: { 50: "#edf8f6", 100: "#d4efea", 700: "#087568", 800: "#075d55", 900: "#104a44" },
+            ink: "#18302e",
+            mist: "#f4f7f6"
+          },
+          fontFamily: {
+            sans: ["Lexend", "sans-serif"],
+            display: ["Epilogue", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="min-h-screen bg-mist font-sans text-ink antialiased">
+  <header class="fixed inset-x-0 top-0 z-10 border-b border-teal-100 bg-white/95 backdrop-blur">
+    <nav aria-label="Navegação principal" class="mx-auto flex min-h-16 max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
+      <a href="dashboard.html" class="inline-flex shrink-0 items-center gap-2 font-display text-lg font-bold text-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-100" aria-label="MedStorage, página inicial">
+        <span aria-hidden="true" class="material-symbols-outlined text-3xl">medication</span>
+        <span>MedStorage</span>
+      </a>
+      <div class="flex items-center gap-1 sm:gap-3">
+        <a href="tel:08007008090" aria-label="Ajuda rápida da cuidadora" class="inline-flex min-h-11 items-center gap-2 rounded-full bg-teal-700 px-3 text-sm font-semibold text-white transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-200">
+          <span aria-hidden="true" class="material-symbols-outlined text-xl">call</span>
+          <span class="hidden sm:inline">Ajuda da cuidadora</span>
+        </a>
+        <a href="perfil.html" aria-current="page" class="inline-flex min-h-11 items-center gap-1 rounded-full px-2 text-sm font-semibold text-teal-800 transition hover:bg-teal-50 focus:outline-none focus:ring-4 focus:ring-teal-100 sm:px-3">
+          <span aria-hidden="true" class="material-symbols-outlined text-xl">account_circle</span>
+          <span>Perfil</span>
+        </a>
+        <a href="login.html" data-logout class="inline-flex min-h-11 items-center gap-1 rounded-full px-2 text-sm font-semibold text-ink transition hover:bg-teal-50 focus:outline-none focus:ring-4 focus:ring-teal-100 sm:px-3">
+          <span aria-hidden="true" class="material-symbols-outlined text-xl">logout</span>
+          <span>Logout</span>
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="mx-auto max-w-3xl px-4 pb-12 pt-28 sm:px-6">
+    <section aria-labelledby="perfil-titulo" class="rounded-lg border border-teal-100 bg-white p-6 shadow-sm sm:p-8">
+      <div class="mb-6 flex items-center gap-3">
+        <span aria-hidden="true" class="material-symbols-outlined flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-3xl text-teal-800">account_circle</span>
+        <div>
+          <h1 id="perfil-titulo" class="font-display text-2xl font-bold text-ink">Meu perfil</h1>
+          <p class="mt-1 text-sm text-slate-700">Dados da sua conta MedStorage.</p>
+        </div>
+      </div>
+
+      <form id="perfil-form" class="space-y-4" novalidate>
+        <div class="flex flex-col items-center gap-4 rounded-md bg-teal-50 p-5 sm:flex-row">
+          <img
+            id="imagem-perfil"
+            src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'%3E%3Crect width='96' height='96' rx='48' fill='%23d4efea'/%3E%3Ccircle cx='48' cy='36' r='17' fill='%23087568'/%3E%3Cpath d='M16 88c3-19 15-29 32-29s29 10 32 29' fill='%23087568'/%3E%3C/svg%3E"
+            alt="Foto de perfil"
+            class="h-24 w-24 rounded-full border-4 border-white object-cover shadow-sm"
+          >
+          <div class="w-full">
+            <label for="foto-perfil" class="mb-1.5 block text-sm font-semibold text-slate-700">Foto de perfil</label>
+            <input id="foto-perfil" name="fotoPerfil" type="file" accept="image/*" aria-describedby="foto-ajuda" class="block min-h-11 w-full rounded-md border border-slate-400 bg-white px-3 py-2 text-sm text-ink file:mr-3 file:rounded file:border-0 file:bg-teal-100 file:px-3 file:py-1.5 file:font-semibold file:text-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-100">
+            <p id="foto-ajuda" class="mt-1.5 text-sm text-slate-700">Selecione uma imagem com menos de 1 MB.</p>
+          </div>
+        </div>
+
+        <div>
+          <label for="perfil-nome" class="mb-1.5 block text-sm font-semibold text-slate-700">Nome</label>
+          <input id="perfil-nome" name="nome" type="text" autocomplete="name" required class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+        </div>
+
+        <div>
+          <label for="perfil-email" class="mb-1.5 block text-sm font-semibold text-slate-700">E-mail</label>
+          <input id="perfil-email" name="email" type="email" autocomplete="email" inputmode="email" required class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+        </div>
+
+        <div>
+          <label for="perfil-cpf" class="mb-1.5 block text-sm font-semibold text-slate-700">CPF</label>
+          <input id="perfil-cpf" name="cpf" type="text" readonly aria-readonly="true" class="min-h-12 w-full cursor-not-allowed rounded-md border border-slate-300 bg-slate-100 px-4 py-3 text-base text-slate-600">
+        </div>
+
+        <div>
+          <label for="perfil-telefone" class="mb-1.5 block text-sm font-semibold text-slate-700">Telefone Pessoal</label>
+          <input id="perfil-telefone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+        </div>
+
+        <div>
+          <label for="perfil-telefone-cuidador" class="mb-1.5 block text-sm font-semibold text-slate-700">Telefone do Cuidador</label>
+          <input id="perfil-telefone-cuidador" name="telefoneCuidador" type="tel" autocomplete="tel" inputmode="tel" class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+        </div>
+
+        <fieldset class="space-y-4 rounded-md border border-teal-100 p-4 sm:p-5">
+          <legend class="px-2 font-display font-bold text-teal-800">Segurança</legend>
+          <div>
+            <label for="senha-atual" class="mb-1.5 block text-sm font-semibold text-slate-700">Senha Atual</label>
+            <input id="senha-atual" name="senhaAtual" type="password" autocomplete="current-password" required class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+          </div>
+          <div>
+            <label for="nova-senha" class="mb-1.5 block text-sm font-semibold text-slate-700">Nova Senha (opcional)</label>
+            <input id="nova-senha" name="novaSenha" type="password" autocomplete="new-password" minlength="6" aria-describedby="nova-senha-ajuda" class="min-h-12 w-full rounded-md border border-slate-400 bg-white px-4 py-3 text-base text-ink outline-none transition focus:border-teal-700 focus:ring-4 focus:ring-teal-100">
+            <p id="nova-senha-ajuda" class="mt-1.5 text-sm text-slate-700">Deixe em branco para manter a senha atual. Use pelo menos 6 caracteres.</p>
+          </div>
+        </fieldset>
+
+        <p id="mensagem-feedback" class="hidden rounded-md px-4 py-3 text-sm font-medium" aria-live="polite"></p>
+
+        <button type="submit" class="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-teal-700 px-5 py-3 font-semibold text-white transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-200 sm:w-auto">
+          Salvar Alterações
+        </button>
+      </form>
+
+      <a href="dashboard.html" class="mt-6 inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-teal-700 px-5 py-2 font-semibold text-white transition hover:bg-teal-800 focus:outline-none focus:ring-4 focus:ring-teal-200">
+        <span aria-hidden="true" class="material-symbols-outlined">arrow_back</span>
+        Voltar ao início
+      </a>
+    </section>
+  </main>
+
+  <script type="module" src="./src/pages/perfil.js"></script>
+  <script type="module" src="./src/pages/logout.js"></script>
+</body>
+</html>
