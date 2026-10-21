@@ -158,3 +158,47 @@ if (!perfil) {
 if (perfil) {
   carregarIndicadoresEAlertas();
 }
+
+
+function AjusteFonte() {
+  const botaoDiminuir = document.getElementById("diminuir-fonte");
+  const botaoAumentar = document.getElementById("aumentar-fonte");
+
+  if (!botaoDiminuir || !botaoAumentar) {
+    return;
+  }
+
+  // Tamanho mínimo e máximo definidos para limitar a mudança
+  const tamanhoInicial = 16;
+  const tamanhoMinimo = 12;
+  const tamanhoMaximo = 24;
+  const incremento = 2;
+
+  let tamanhoFonte = tamanhoInicial;
+
+  function aplicarTamanhoFonte() {
+    document.documentElement.style.fontSize = `${tamanhoFonte}px`;
+  }
+
+  botaoDiminuir.addEventListener("click", () => {
+    tamanhoFonte = Math.max(
+      tamanhoMinimo,
+      tamanhoFonte - incremento
+    );
+
+    aplicarTamanhoFonte();
+  });
+
+  botaoAumentar.addEventListener("click", () => {
+    tamanhoFonte = Math.min(
+      tamanhoMaximo,
+      tamanhoFonte + incremento
+    );
+
+    aplicarTamanhoFonte();
+  });
+
+  aplicarTamanhoFonte();
+}
+
+AjusteFonte();
