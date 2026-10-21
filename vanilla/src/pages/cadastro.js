@@ -1,3 +1,5 @@
+import { cadastrarUsuario } from "../services/authService.js";
+
 const registerForm = document.querySelector("#register-form");
 const formError = document.querySelector("#form-error");
 const passwordToggles = [
@@ -77,30 +79,20 @@ registerForm.addEventListener("submit", (event) => {
   }
 
   try {
-    const storedUsers = localStorage.getItem("medstorage_usersDB");
-    const usersDB = storedUsers === null ? [] : JSON.parse(storedUsers);
-
-    if (!Array.isArray(usersDB)) {
-      throw new Error("O cadastro armazenado não está em um formato válido.");
-    }
-
-    if (usersDB.some((user) => user.email === values.email)) {
-      showFieldError(fields.email, "E-mail já registado");
-      fields.email.input.focus();
-      return;
-    }
-
-    usersDB.push({
-      id: Date.now(),
+    cadastrarUsuario({
       nome: values.name,
       cpf: values.cpf,
       email: values.email,
       telefone: values.phone,
       senha: values.password
     });
-    localStorage.setItem("medstorage_usersDB", JSON.stringify(usersDB));
     window.location.href = "login.html";
-  } catch {
+  } catch (erro) {
+    if (erro && erro.code === 'EMAIL_DUPLICADO') {
+      showFieldError(fields.email, "E-mail já registrado.");
+      fields.email.input.focus();
+      return;
+    }
     formError.textContent = "Não foi possível salvar seu cadastro neste navegador. Tente novamente.";
     formError.classList.remove("hidden");
   }
