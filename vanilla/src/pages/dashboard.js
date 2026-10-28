@@ -202,3 +202,45 @@ function AjusteFonte() {
 }
 
 AjusteFonte();
+
+function AjusteTema() {
+  const botaoTema = document.getElementById("botao-tema");
+
+  if (!botaoTema) {
+    return;
+  }
+
+  const htmlElement = document.documentElement;
+  const CHAVE_TEMA = "medstorage_tema";
+
+  function aplicarTema(ehEscuro) {
+    const icone = botaoTema.querySelector(".material-symbols-outlined");
+
+    if (ehEscuro) {
+      htmlElement.classList.add("dark");
+      if (icone) icone.textContent = "light_mode";
+      botaoTema.setAttribute("title", "Mudar para o tema claro");
+    } else {
+      htmlElement.classList.remove("dark");
+      if (icone) icone.textContent = "contrast";
+      botaoTema.setAttribute("title", "Mudar para o tema escuro");
+    }
+  }
+
+  // Obter tema salvo para já iniciar com escuro se tiver alterado
+  const temaSalvo = localStorage.getItem(CHAVE_TEMA);
+  const prefereEscuroSistema = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  
+  const estaEscuro = temaSalvo ? temaSalvo === "dark" : prefereEscuroSistema;
+  aplicarTema(estaEscuro);
+
+  botaoTema.addEventListener("click", () => {
+    const escuroAtual = htmlElement.classList.contains("dark");
+    const novoEstadoEscuro = !escuroAtual;
+
+    aplicarTema(novoEstadoEscuro);
+    localStorage.setItem(CHAVE_STORAGE_TEMA, novoEstadoEscuro ? "dark" : "light");
+  });
+}
+
+AjusteTema();
