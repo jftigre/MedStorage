@@ -1,4 +1,30 @@
-# 💊 MedStorage - Estoque, Validade e Compras de Medicamentos
+# 💊 MedStorage - Next.js, estoque e validade de medicamentos
+
+## Projeto 1.2
+
+A aplicação atual na raiz usa Next.js App Router, React, TypeScript estrito, Tailwind,
+React Hook Form + Zod/RegExp, Context API e TanStack Query. A persistência desta etapa
+é local, por meio do adaptador compatível com as chaves `medstorage_*` do legado.
+
+### Executar
+
+```bash
+npm install
+npm run dev
+npm run lint
+npm run typecheck
+npm test
+npm run build
+```
+
+Rotas principais: `/`, `/apresentacao`, `/login`, `/cadastro`, `/dashboard`,
+`/medicamentos`, `/medicamentos/novo`, `/simulador`, `/alertas`, `/perfil` e
+`/acesso-negado`.
+
+O diretório [`vanilla/`](./vanilla/) permanece preservado como referência do Projeto 1.1.
+Login e proteção de rotas são demonstrações client-side e não oferecem segurança de
+produção. Supabase não foi integrado nesta etapa; a camada de serviços foi separada para
+permitir uma substituição futura.
 
 > Sistema Web para controle pessoal de estoque de medicamentos: saiba o que você
 > tem em casa, por quantos dias dura e se vale a pena comprar em promoção antes

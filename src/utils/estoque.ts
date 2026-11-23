@@ -1,0 +1,6 @@
+import type { Lote, Medicamento, MedicamentoComMetricas } from "@/types";
+export const calcularConsumoDiario = (m: Pick<Medicamento, "comprimidos_por_dose" | "doses_por_dia">) => m.comprimidos_por_dose * m.doses_por_dia;
+export const calcularEstoqueTotal = (lotes: Lote[]) => lotes.reduce((total, lote) => total + Number(lote.quantidade || 0), 0);
+export const diasAte = (date: string, hoje = new Date()) => Math.ceil((new Date(`${date}T00:00:00`).getTime() - new Date(hoje.toDateString()).getTime()) / 86400000);
+export const enriquecerMedicamentos = (medicamentos: Medicamento[], lotes: Lote[], hoje = new Date()): MedicamentoComMetricas[] => medicamentos.map((medicamento) => { const estoqueTotal = calcularEstoqueTotal(lotes.filter((lote) => lote.medicamento_id === medicamento.id)); const consumoDiario = calcularConsumoDiario(medicamento); const diasRestantes = consumoDiario > 0 ? Math.floor(estoqueTotal / consumoDiario) : 0; const dataTermino = new Date(hoje); dataTermino.setDate(dataTermino.getDate() + diasRestantes); return { ...medicamento, estoqueTotal, consumoDiario, diasRestantes, dataTermino: dataTermino.toISOString().slice(0, 10) }; });
+export const riscoDesperdicio = (lote: Lote, consumoDiario: number, hoje = new Date()) => Math.max(0, lote.quantidade - consumoDiario * Math.max(0, diasAte(lote.validade, hoje)));
