@@ -1,0 +1,5 @@
+"use client";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/contexts/auth-context";
+export function Header() { const { user, logout } = useAuth(); const router = useRouter(); return <header className="border-b border-teal-100 bg-white"><nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4"><Link href={user ? "/dashboard" : "/"} className="font-display text-xl font-bold text-teal-800">💊 MedStorage</Link>{user ? <div className="flex flex-wrap items-center gap-3 text-sm font-semibold"><Link href="/dashboard">Dashboard</Link><Link href="/medicamentos">Medicamentos</Link><Link href="/alertas">Alertas</Link><Link href="/simulador">Simulador</Link><Link href="/perfil">{user.nome}</Link><button onClick={() => { logout(); router.push("/login"); }} className="rounded-md border px-3 py-2">Sair</button></div> : <div className="flex gap-3"><Link href="/apresentacao">Apresentação</Link><Link href="/login" className="rounded-md bg-teal-700 px-3 py-2 text-white">Entrar</Link></div>}</nav></header>; }
